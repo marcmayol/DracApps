@@ -17,7 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.dp
@@ -61,11 +66,14 @@ fun ChipDeEstado(estado: EstadoApp, modifier: Modifier = Modifier) {
         )
 
         // El borde discontinuo dice "esto no lo controlo yo" sin decir que esté mal.
+        // Discontinuo a propósito: es lo que lo distingue de "No instalada" de un
+        // vistazo, sin tener que leer el texto.
         is EstadoApp.NoGestionada -> Chip(
             texto = "Instalada por fuera",
             fondo = Color.Transparent,
             textoColor = esquema.onSurfaceVariant,
             borde = esquema.outline,
+            bordeDiscontinuo = true,
             modifier = modifier,
         )
     }
@@ -78,6 +86,7 @@ private fun Chip(
     textoColor: Color,
     modifier: Modifier = Modifier,
     borde: Color? = null,
+    bordeDiscontinuo: Boolean = false,
     icono: androidx.compose.ui.graphics.vector.ImageVector? = null,
 ) {
     Row(
@@ -86,10 +95,10 @@ private fun Chip(
         modifier = modifier
             .background(fondo, MaterialTheme.shapes.small)
             .then(
-                if (borde != null) {
-                    Modifier.border(1.dp, borde, MaterialTheme.shapes.small)
-                } else {
-                    Modifier
+                when {
+                    borde == null -> Modifier
+                    bordeDiscontinuo -> Modifier.bordeDiscontinuo(borde)
+                    else -> Modifier.border(1.dp, borde, MaterialTheme.shapes.small)
                 }
             )
             .padding(horizontal = 8.dp, vertical = 4.dp),
@@ -139,3 +148,23 @@ fun textoDeAccion(estado: EstadoApp): String = when (estado) {
     is EstadoApp.InstaladaAlDia -> "Abrir"
     is EstadoApp.NoGestionada -> "Abrir"
 }
+
+/**
+ * Borde de trazo discontinuo, del radio del chip.
+ *
+ * Compose no trae borde discontinuo de serie, así que se dibuja: es lo que distingue
+ * «Instalada por fuera» de «No instalada» sin necesidad de leer el texto.
+ */
+private fun Modifier.bordeDiscontinuo(color: Color, grosor: Dp = 1.dp): Modifier =
+    this.drawBehind {
+        drawRoundRect(
+            color = color,
+            cornerRadius = CornerRadius(8.dp.toPx()),
+            style = Stroke(
+                width = grosor.toPx(),
+                pathEffect = PathEffect.dashPathEffect(
+                    floatArrayOf(4.dp.toPx(), 3.dp.toPx()),
+                ),
+            ),
+        )
+    }
