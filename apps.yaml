@@ -15,7 +15,11 @@
 
 catalogo:
   titulo: DracApps
-  url_publica: https://marcmayol.github.io/DracApps/catalogo.json
+  # URL canónica, sin redirecciones. marcmayol.github.io/DracApps/ existe, pero
+  # responde 301 hacia http:// (sin cifrar), y un catálogo que se puede alterar por
+  # el camino se lleva por delante los hashes de todos los APKs. El cliente pide
+  # esta y no sigue redirecciones que bajen a http.
+  url_publica: https://marcmayol.com/DracApps/catalogo.json
 
 apps:
   # Registro de comidas con recordatorios horarios.

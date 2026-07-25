@@ -6,7 +6,7 @@ app por app.
 
 Sin backend propio: **el catálogo vive en GitHub Pages y los APKs en las Releases de cada repo**.
 
-- Catálogo público: `https://marcmayol.github.io/DracApps/catalogo.json`
+- Catálogo público: `https://marcmayol.com/DracApps/catalogo.json`
 - Cliente Android: Kotlin + Jetpack Compose (Fase 2, carpeta `app/`)
 - Identidad visual: `diseno/` — fuente de verdad de la UI
 
