@@ -1,0 +1,91 @@
+name: Regenerar el catálogo
+
+# Se dispara solo cuando cambia la lista de apps, y a mano cuando ha salido una
+# Release nueva de alguna app y quieres que la tienda se entere ya.
+on:
+  workflow_dispatch:
+    inputs:
+      ensayo:
+        description: "Comprobar sin publicar"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - apps.yaml
+      - scripts/**
+      - .github/workflows/catalogo.yml
+
+# Necesario para que el propio workflow pueda commitear el catálogo regenerado.
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogo
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r scripts/requisitos.txt
+
+      - name: Preparar las build-tools de Android
+        # apksigner y aapt2 salen de aquí: son las que dicen si un APK está firmado
+        # y qué versión lleva dentro.
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "build-tools;35.0.0"
+
+      - name: Pasar los tests
+        run: python -m pytest tests
+
+      - name: Identificarse para el commit del catálogo
+        # Antes de generar: el propio script hace el commit cuando se le pasa
+        # --publicar, y sin identidad configurada git se negaría.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Regenerar el catálogo
+        env:
+          # El generador usa `gh`, que ya viene en el runner. El token por defecto solo
+          # ve este repo; para leer las Releases de las apps hace falta un token propio
+          # en el secreto GH_TOKEN_CATALOGO si alguna es privada.
+          GH_TOKEN: ${{ secrets.GH_TOKEN_CATALOGO || github.token }}
+        run: |
+          if [ "${{ inputs.ensayo }}" = "true" ]; then
+            python scripts/generar_catalogo.py --dry-run
+          else
+            # --sin-verificar: aquí dentro no tiene sentido esperar al CDN, porque el
+            # despliegue de Pages es un paso posterior de GitHub. La comprobación
+            # contra la URL pública la hace el admin cuando publica desde su máquina.
+            python scripts/generar_catalogo.py --publicar --sin-verificar
+          fi
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "### Catálogo de DracApps" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f docs/catalogo.json ]; then
+            python - >> "$GITHUB_STEP_SUMMARY" <<'PY'
+          import json, pathlib
+          catalogo = json.loads(pathlib.Path("docs/catalogo.json").read_text(encoding="utf-8"))
+          print(f"Generado: {catalogo['generado']}")
+          print()
+          print("| App | Versión | versionCode |")
+          print("|---|---|---|")
+          for app in catalogo["apps"]:
+              print(f"| {app['nombre']} | {app['versionName']} | {app['versionCode']} |")
+          PY
+          else
+            echo "No se llegó a generar el catálogo." >> "$GITHUB_STEP_SUMMARY"
+          fi
