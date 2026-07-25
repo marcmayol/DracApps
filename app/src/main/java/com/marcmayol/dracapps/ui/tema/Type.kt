@@ -1,6 +1,7 @@
 package com.marcmayol.dracapps.ui.tema
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -23,12 +24,14 @@ import com.marcmayol.dracapps.R
  * labelSmall, que solo se usa en insignias numéricas.
  */
 
+@OptIn(ExperimentalTextApi::class)
 private fun figtree(peso: Int) = Font(
     R.font.figtree,
     FontWeight(peso),
     variationSettings = FontVariation.Settings(FontVariation.weight(peso)),
 )
 
+@OptIn(ExperimentalTextApi::class)
 private fun bricolage(peso: Int) = Font(
     R.font.bricolage_grotesque,
     FontWeight(peso),
