@@ -1,0 +1,51 @@
+# Catálogo de DracApps — fuente curada por el admin.
+#
+# Esto es lo ÚNICO que se edita a mano. El catálogo publicado (docs/catalogo.json)
+# se genera desde aquí con:
+#
+#     python scripts/generar_catalogo.py --dry-run    # comprueba sin publicar
+#     python scripts/generar_catalogo.py --publicar   # publica de verdad
+#
+# Añadir una app es una línea:
+#
+#     - repo: marcmayol/mi-app
+#
+# Todo lo demás (nombre, versión, tamaño, hash, icono) sale del propio APK de la
+# última Release. No hace falta escribirlo ni mantenerlo.
+
+catalogo:
+  titulo: DracApps
+  url_publica: https://marcmayol.github.io/DracApps/catalogo.json
+
+apps:
+  # Registro de comidas con recordatorios horarios.
+  - repo: marcmayol/cronicas-del-apetito
+
+  # Plan de gimnasio de 100 días con entrenamiento guiado en vivo.
+  - repo: marcmayol/building-my-future
+
+  # Seguimiento de medicación, tensión y antecedentes de salud.
+  # Desactivada: hoy el repo es privado y no tiene ninguna Release, así que su APK
+  # no se puede descargar. En cuanto sea público y tenga Release firmada, cambia
+  # activo a true y vuelve a generar.
+  - repo: marcmayol/grimorio-de-pociones
+    activo: false
+
+  # Pendiente de subir a GitHub. Cuando exista el repo, se añade aquí:
+  # - repo: marcmayol/<nombre-del-repo>
+
+# ---------------------------------------------------------------------------
+# Campos opcionales por app, todos con valores por defecto sensatos:
+#
+#   activo: false        Deja la app apuntada pero fuera del catálogo publicado.
+#   nombre: "Otro"       Sustituye el nombre que trae el APK.
+#   descripcion: "..."   Sustituye la descripción del repo.
+#   notas: "..."         Sustituye las notas de versión del cuerpo de la Release.
+#   icono: "https://..." Sustituye el icono extraído del APK (usar solo si sale mal).
+#   apk: "nombre.apk"    Elige el APK cuando la Release publica más de uno.
+#
+# Campos de extensión, declarados pero todavía sin efecto (el cliente los ignora):
+#
+#   canal: estable       Previsto para separar estable de beta.
+#   min_sdk: 26          Previsto para avisar de apps incompatibles con el móvil.
+# ---------------------------------------------------------------------------
