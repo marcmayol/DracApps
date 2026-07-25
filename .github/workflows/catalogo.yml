@@ -24,6 +24,13 @@ concurrency:
   group: catalogo
   cancel-in-progress: false
 
+env:
+  # Clavada a propósito. El runner trae build-tools más nuevas que el portátil del
+  # admin, y apksigner no contesta igual en todas: sin fijarla, el mismo APK pasa en
+  # local y falla aquí.
+  BUILD_TOOLS: "36.0.0"
+  DRACAPPS_BUILD_TOOLS: "36.0.0"
+
 jobs:
   generar:
     runs-on: ubuntu-latest
@@ -43,7 +50,7 @@ jobs:
         # y qué versión lleva dentro.
         uses: android-actions/setup-android@v3
         with:
-          packages: "build-tools;35.0.0"
+          packages: "build-tools;${{ env.BUILD_TOOLS }}"
 
       - name: Pasar los tests
         run: python -m pytest tests

@@ -29,11 +29,11 @@ _PATRON_PAQUETE = re.compile(
 )
 _PATRON_ETIQUETA = re.compile(r"^application-label:'(?P<etiqueta>.*)'$", re.MULTILINE)
 _PATRON_MIN_SDK = re.compile(r"^minSdkVersion:'(?P<min_sdk>\d+)'$", re.MULTILINE)
-_PATRON_CERT = re.compile(
-    r"^Signer #(?P<numero>\d+) certificate SHA-256 digest:\s*(?P<huella>[0-9a-fA-F]{64})$",
-    re.MULTILINE,
-)
-_PATRON_DN = re.compile(r"^Signer #1 certificate DN:\s*(?P<dn>.+)$", re.MULTILINE)
+# Deliberadamente laxos. apksigner cambia el prefijo entre versiones de build-tools
+# ("Signer #1", "Signer (v3.1) #1"...), y atarse al formato exacto de una versión
+# hace que el mismo APK pase en el portátil y falle en la Action.
+_PATRON_CERT = re.compile(r"certificate SHA-256 digest:\s*([0-9a-fA-F]{64})", re.IGNORECASE)
+_PATRON_DN = re.compile(r"certificate DN:\s*(?P<dn>.+)")
 
 
 @dataclass(frozen=True)
@@ -75,9 +75,16 @@ def sha256_de(fichero: Path) -> str:
     return digest.hexdigest()
 
 
-def localizar_build_tools(sdk: Path | None = None) -> Path:
-    """Encuentra la carpeta de build-tools más reciente del SDK instalado."""
+def localizar_build_tools(sdk: Path | None = None, version: str | None = None) -> Path:
+    """Encuentra la carpeta de build-tools que se va a usar.
+
+    Por defecto, la más reciente instalada. Si se fija una versión (parámetro o
+    variable DRACAPPS_BUILD_TOOLS), esa y solo esa: el runner de la Action trae
+    versiones más nuevas que el portátil del admin, y apksigner no siempre contesta
+    igual entre versiones, así que conviene poder clavarla.
+    """
     raiz = sdk or _sdk_del_entorno()
+    version = version or os.environ.get("DRACAPPS_BUILD_TOOLS")
     if raiz is None:
         raise ErrorDeHerramienta(
             "No sé dónde está el SDK de Android.",
@@ -100,6 +107,18 @@ def localizar_build_tools(sdk: Path | None = None) -> Path:
             f"No hay build-tools instaladas en {carpeta}.",
             "Instálalas desde el SDK Manager de Android Studio.",
         )
+
+    if version:
+        for candidata in versiones:
+            if candidata.name == version:
+                return candidata
+        instaladas = ", ".join(d.name for d in versiones)
+        raise ErrorDeHerramienta(
+            f"Se ha pedido build-tools {version}, pero no está instalada "
+            f"(hay: {instaladas}).",
+            "Instálala o cambia DRACAPPS_BUILD_TOOLS.",
+        )
+
     return versiones[-1]
 
 
@@ -146,14 +165,20 @@ class LectorApkDelSdk:
         salida = proceso.stdout
         firmas = _PATRON_CERT.findall(salida)
         if not firmas:
+            # Si esto salta, apksigner ha cambiado el formato de su salida: se enseña
+            # tal cual para poder arreglarlo sin tener que reproducir la versión.
+            muestra = "\n    ".join((salida or "(vacía)").strip().splitlines()[:6])
             raise ErrorDeApk(
-                f"El APK '{apk.name}' se verifica pero no declara ningún certificado.",
-                "Compruébalo a mano con 'apksigner verify --print-certs'.",
+                f"El APK '{apk.name}' se verifica, pero no encuentro la huella del "
+                f"certificado en lo que ha contestado apksigner "
+                f"({self._apksigner.parent.name}):\n    {muestra}",
+                "Compruébalo a mano con 'apksigner verify --print-certs' y avisa: hay "
+                "que enseñarle al generador el formato de esa versión.",
             )
 
         dn = _PATRON_DN.search(salida)
         return FirmaApk(
-            sha256=firmas[0][1].lower(),
+            sha256=firmas[0].lower(),
             sujeto=dn.group("dn").strip() if dn else "",
         )
 
