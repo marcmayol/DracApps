@@ -1,0 +1,25 @@
+# Caché de APKs descargados por el generador del catálogo
+.cache/
+
+# Paquete de handoff original de Claude Design: su contenido ya vive en diseno/
+*-handoff.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Android (Fase 2)
+app/build/
+app/.gradle/
+app/local.properties
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Sistema
+Thumbs.db
+.DS_Store
