@@ -23,3 +23,8 @@ app/local.properties
 # Sistema
 Thumbs.db
 .DS_Store
+local.properties
+.gradle/
+build/
+*/build/
+.kotlin/

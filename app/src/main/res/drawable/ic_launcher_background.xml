@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generado desde diseno/assets/ic-launcher-background.svg por scripts/svg_a_vector.py.
+     No se edita a mano: se cambia el diseño y se vuelve a generar. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="192"
+    android:viewportHeight="192">
+    <path
+        android:pathData="M0,0h192v192h-192z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="65.28"
+                android:centerY="49.92"
+                android:gradientRadius="157.44">
+                <item android:offset="0" android:color="#2A2213" />
+                <item android:offset="1" android:color="#14100A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M104,42a46,46 0 1 0 92,0a46,46 0 1 0 -92,0z"
+        android:fillColor="#F0BE48"
+        android:fillAlpha="0.05" />
+</vector>

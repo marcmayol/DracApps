@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Solo el arranque: en cuanto Compose toma el control manda DracAppsTheme. -->
+    <style name="Theme.DracApps" parent="android:Theme.Material.NoActionBar" />
+</resources>
