@@ -1,0 +1,8 @@
+# Finales de línea LF en el repositorio, siempre. El catálogo publicado debe ser
+# byte a byte el mismo lo genere quien lo genere (Windows del admin o la Action).
+* text=auto eol=lf
+
+*.png binary
+*.apk binary
+*.jks binary
+*.keystore binary
