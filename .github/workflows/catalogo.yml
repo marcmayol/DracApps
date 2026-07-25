@@ -14,6 +14,9 @@ on:
     paths:
       - apps.yaml
       - scripts/**
+      # Los tests se pasan aquí dentro, así que un cambio en ellos también tiene
+      # que disparar el workflow; si no, se rompen sin que nadie se entere.
+      - tests/**
       - .github/workflows/catalogo.yml
 
 # Necesario para que el propio workflow pueda commitear el catálogo regenerado.
