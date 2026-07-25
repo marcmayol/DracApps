@@ -1,0 +1,6 @@
+# Dependencias del generador del catálogo.
+# Todo lo demás sale de la librería estándar, de `gh` y de las build-tools del SDK.
+PyYAML>=6.0
+
+# Solo para desarrollo:
+pytest>=8.0
