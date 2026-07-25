@@ -98,7 +98,11 @@ def main(argv: list[str] | None = None) -> int:
     try:
         return _generar(args)
     except ErrorDeCatalogo as error:
+        # Sin el flush, al redirigir la salida el error aparece antes que el avance
+        # que lo explica, porque stdout se acumula y stderr no.
+        sys.stdout.flush()
         print(f"\nABORTADO: {error}", file=sys.stderr)
+        sys.stderr.flush()
         return 1
 
 
