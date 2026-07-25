@@ -69,6 +69,17 @@ def construir_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Comprueba todo y enseña qué cambiaría, pero no escribe nada.",
     )
+    parser.add_argument(
+        "--publicar",
+        action="store_true",
+        help="Además de escribir, sube el catálogo y comprueba que la URL pública lo sirve.",
+    )
+    parser.add_argument(
+        "--sin-verificar",
+        action="store_true",
+        help="Con --publicar, sube sin comprobar la URL pública. Para la Action, que "
+        "publica desde el propio GitHub.",
+    )
     return parser
 
 
@@ -145,13 +156,56 @@ def _generar(args: argparse.Namespace) -> int:
     if args.dry_run:
         print()
         print(f"Ensayo: no se ha escrito nada. Serían {len(json_nuevo)} bytes en {args.salida}.")
+        if args.publicar:
+            print("(--dry-run manda sobre --publicar: no se ha subido nada.)")
         return 0
 
     args.salida.parent.mkdir(parents=True, exist_ok=True)
     args.salida.write_text(json_nuevo, encoding="utf-8", newline="\n")
     print()
     print(f"Escrito {args.salida} ({len(json_nuevo)} bytes).")
+
+    if not args.publicar:
+        return 0
+
+    return _publicar(args, altas.url_publica, json_nuevo, cambios)
+
+
+def _publicar(
+    args: argparse.Namespace,
+    url_publica: str,
+    json_nuevo: str,
+    cambios: list[str],
+) -> int:
+    from dracapps.publicacion import commitear_y_subir, verificar_publicado
+
+    print()
+    rutas = [args.salida.parent]
+    mensaje = _mensaje_de_commit(cambios)
+
+    subido, commit = commitear_y_subir(RAIZ, rutas, mensaje)
+    if subido:
+        print(f"Subido el commit {commit}.")
+    else:
+        print("Nada que subir: el catálogo publicado ya estaba al día.")
+
+    if args.sin_verificar:
+        print("Sin verificar la URL pública, como se ha pedido.")
+        return 0
+
+    print(f"Comprobando que {url_publica} sirve el catálogo nuevo...")
+    intentos = verificar_publicado(url_publica, json_nuevo)
+    print(f"Publicado y verificado en la URL pública (intento {intentos}).")
     return 0
+
+
+def _mensaje_de_commit(cambios: list[str]) -> str:
+    if not cambios:
+        return "Regenera el catálogo"
+    if len(cambios) == 1:
+        return f"Actualiza el catálogo: {cambios[0].split(maxsplit=1)[1]}"
+    cuerpo = "\n".join(f"- {c}" for c in cambios)
+    return f"Actualiza el catálogo ({len(cambios)} cambios)\n\n{cuerpo}"
 
 
 if __name__ == "__main__":
