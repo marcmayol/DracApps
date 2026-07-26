@@ -31,10 +31,15 @@ apps:
   # Seguimiento de medicación, tensión y antecedentes de salud.
   - repo: marcmayol/grimorio-de-pociones
 
-  # Desactivada: el repo es público, pero todavía no tiene ninguna Release, así que
-  # no hay APK que descargar. Publica una Release con el APK firmado y cambia
-  # activo a true.
+  # Las dos siguientes están desactivadas por lo mismo: el repo es público, pero
+  # todavía no tiene ninguna Release, así que no hay APK que descargar. Publica una
+  # Release con el APK firmado y cambia activo a true.
+
   - repo: marcmayol/middle_earth_journey
+    activo: false
+
+  # Hábitos recurrentes multi-ámbito.
+  - repo: marcmayol/kuse
     activo: false
 
 # ---------------------------------------------------------------------------
