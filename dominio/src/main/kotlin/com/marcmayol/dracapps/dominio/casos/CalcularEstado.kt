@@ -70,8 +70,15 @@ private fun mismaFirma(delCatalogo: String, instalada: String): Boolean {
  * restaurar una copia de seguridad, no hay instalador registrado. En ese caso se
  * considera propia si la firma cuadra, porque negarlo marcaría como ajenas apps que sí
  * lo son y dejaría a la familia sin actualizaciones.
+ *
+ * Y una app que se ha actualizado **a sí misma** (las que llevan auto-actualizador
+ * propio) queda registrada con su propio paquete como instalador. Con la firma ya
+ * verificada eso no es un origen ajeno, es la misma app de siempre: negarlo expulsaría
+ * de la tienda a cualquier app en cuanto se actualice sola una vez.
  */
 private fun laInstaloLaTienda(instalada: AppInstalada, paqueteDeLaTienda: String): Boolean {
     val instalador = instalada.instaladaPor
-    return instalador == null || instalador == paqueteDeLaTienda
+    return instalador == null ||
+        instalador == paqueteDeLaTienda ||
+        instalador == instalada.id
 }

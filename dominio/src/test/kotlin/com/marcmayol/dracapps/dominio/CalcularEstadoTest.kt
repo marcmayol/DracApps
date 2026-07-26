@@ -119,6 +119,25 @@ class CalcularEstadoTest {
     }
 
     @Test
+    fun `una app que se actualizo a si misma sigue siendo propia`() {
+        // Las apps con auto-actualizador quedan registradas con su propio paquete como
+        // instalador. Con la firma verificada no es un origen ajeno: es la de siempre.
+        val resultado = estado(
+            enCatalogo = 5,
+            instalada = appInstalada(
+                id = "com.marc.gymplan100",
+                versionCode = 4,
+                instaladaPor = "com.marc.gymplan100",
+            ),
+        )
+
+        assertTrue(
+            "expulsar de la tienda a una app por actualizarse sola la dejaría sin futuras actualizaciones",
+            resultado is EstadoApp.Actualizable,
+        )
+    }
+
+    @Test
     fun `un catalogo viejo sin firma publicada no marca todo como ajeno`() {
         val resultado = estado(enCatalogo = 5, firmaCatalogo = "")
 
