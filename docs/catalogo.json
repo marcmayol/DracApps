@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-07-26T20:55:47Z",
+  "generado": "2026-07-26T20:58:10Z",
   "apps": [
     {
       "id": "com.marc.gymplan100",
@@ -67,7 +67,7 @@
       "id": "com.marcm.middleearthjourney",
       "nombre": "Middle Earth Journey",
       "descripcion": "",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.middleearthjourney.png",
       "versionCode": 2,
       "versionName": "1.1",
       "apkUrl": "https://github.com/marcmayol/middle_earth_journey/releases/download/v1.1/middle-earth-journey-v1.1.apk",
