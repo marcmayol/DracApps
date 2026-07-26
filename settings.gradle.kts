@@ -27,3 +27,6 @@ rootProject.name = "DracApps"
 // a ser algo que el compilador impide romper.
 include(":dominio")
 include(":app")
+
+// Herramienta de admin para rasterizar los iconos de las apps del catálogo.
+include(":herramientas:iconos")

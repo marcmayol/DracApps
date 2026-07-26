@@ -28,3 +28,6 @@ local.properties
 build/
 */build/
 .kotlin/
+
+# Material suelto que aparece en la carpeta y no es del proyecto
+ChatGPT Image *.png

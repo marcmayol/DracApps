@@ -29,14 +29,13 @@ apps:
   - repo: marcmayol/building-my-future
 
   # Seguimiento de medicación, tensión y antecedentes de salud.
-  # Desactivada: hoy el repo es privado y no tiene ninguna Release, así que su APK
-  # no se puede descargar. En cuanto sea público y tenga Release firmada, cambia
-  # activo a true y vuelve a generar.
   - repo: marcmayol/grimorio-de-pociones
-    activo: false
 
-  # Pendiente de subir a GitHub. Cuando exista el repo, se añade aquí:
-  # - repo: marcmayol/<nombre-del-repo>
+  # Desactivada: el repo es público, pero todavía no tiene ninguna Release, así que
+  # no hay APK que descargar. Publica una Release con el APK firmado y cambia
+  # activo a true.
+  - repo: marcmayol/middle_earth_journey
+    activo: false
 
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:

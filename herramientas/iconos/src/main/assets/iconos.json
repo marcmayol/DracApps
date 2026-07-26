@@ -1,0 +1,19 @@
+[
+  {
+    "applicationId": "com.marcm.cronicasapetito",
+    "slug": "com_marcm_cronicasapetito",
+    "capas": [
+      "background",
+      "foreground"
+    ]
+  },
+  {
+    "applicationId": "com.marc.gymplan100",
+    "slug": "com_marc_gymplan100",
+    "capas": [
+      "background",
+      "foreground",
+      "monochrome"
+    ]
+  }
+]
