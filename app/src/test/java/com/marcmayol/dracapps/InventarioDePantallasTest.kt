@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
@@ -18,6 +19,8 @@ import com.marcmayol.dracapps.dominio.modelo.MotivoNoGestionada
 import com.marcmayol.dracapps.ui.EstadoTienda
 import com.marcmayol.dracapps.ui.PantallaTienda
 import com.marcmayol.dracapps.ui.Seccion
+import com.marcmayol.dracapps.ui.ajustes.EstadoAjustes
+import com.marcmayol.dracapps.ui.ajustes.EtiquetasAjustes
 import com.marcmayol.dracapps.ui.catalogo.EstadoPantallaCatalogo
 import com.marcmayol.dracapps.ui.catalogo.Etiquetas
 import com.marcmayol.dracapps.ui.comun.EtiquetasEstados
@@ -184,6 +187,33 @@ class InventarioDePantallasTest {
     }
 
     @Test
+    fun `detalle - la flecha de arriba devuelve a la lista`() {
+        var volvio = false
+        pintar(EstadoTienda(detalle = alDia()), alCerrarDetalle = { volvio = true })
+
+        compose.onNodeWithTag(EtiquetasDetalle.BOTON_VOLVER).performClick()
+
+        assertTrue(volvio)
+    }
+
+    @Test
+    fun `detalle - estando al dia se puede volver a buscar actualizaciones`() {
+        var comprobaciones = 0
+        pintar(EstadoTienda(detalle = alDia()), alRefrescar = { comprobaciones++ })
+
+        compose.onNodeWithTag(EtiquetasDetalle.BOTON_BUSCAR).performScrollTo().performClick()
+
+        assertEquals(1, comprobaciones)
+    }
+
+    @Test
+    fun `detalle - con algo nuevo que instalar no se ofrece buscar mas`() {
+        pintar(EstadoTienda(detalle = actualizable()))
+
+        compose.onAllNodesWithTag(EtiquetasDetalle.BOTON_BUSCAR).assertCountEquals(0)
+    }
+
+    @Test
     fun `detalle - enseña las notas de la version`() {
         pintar(EstadoTienda(detalle = actualizable()))
 
@@ -336,9 +366,52 @@ class InventarioDePantallasTest {
 
     @Test
     fun `navegacion - lo que aun no esta hecho lo dice, no finge`() {
-        pintar(EstadoTienda(seccion = Seccion.AJUSTES))
+        pintar(EstadoTienda(seccion = Seccion.NOVEDADES))
 
         compose.onNodeWithTag("en-construccion").assertIsDisplayed()
+    }
+
+    @Test
+    fun `ajustes - se ve la pantalla, con lo que hay que decidir`() {
+        pintar(EstadoTienda(seccion = Seccion.AJUSTES))
+
+        compose.onNodeWithTag(EtiquetasAjustes.PANTALLA).assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasAjustes.COMPROBAR).assertIsDisplayed()
+        // Los interruptores quedan mas abajo: se baja hasta ellos, como haria un dedo.
+        compose.onNodeWithTag(EtiquetasAjustes.TEXTO_GRANDE).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasAjustes.COLOR_DEL_SISTEMA).performScrollTo()
+            .assertIsDisplayed()
+    }
+
+    @Test
+    fun `ajustes - el interruptor conmuta desde toda la fila, no solo desde el mando`() {
+        var pedido: Boolean? = null
+        pintar(
+            EstadoTienda(seccion = Seccion.AJUSTES),
+            alCambiarTextoGrande = { pedido = it },
+        )
+
+        compose.onNodeWithTag(EtiquetasAjustes.TEXTO_GRANDE).performScrollTo().performClick()
+
+        assertEquals(true, pedido)
+    }
+
+    @Test
+    fun `ajustes - sin permiso para instalar, se ofrece darlo`() {
+        var abrio = false
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.AJUSTES,
+                ajustes = EstadoAjustes(hayPermisoParaInstalar = false),
+            ),
+            alAbrirAjustes = { abrio = true },
+        )
+
+        compose.onNodeWithTag(EtiquetasAjustes.PERMISO).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Dar permiso").assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasAjustes.PERMISO).performClick()
+
+        assertTrue(abrio)
     }
 
     // --- Andamiaje de los tests ---------------------------------------------------------
@@ -368,6 +441,8 @@ class InventarioDePantallasTest {
         alAbrirAjustes: () -> Unit = {},
         alDejarPermisoParaLuego: () -> Unit = {},
         alCambiarDeSeccion: (Seccion) -> Unit = {},
+        alCambiarTextoGrande: (Boolean) -> Unit = {},
+        alCerrarDetalle: () -> Unit = {},
     ) {
         compose.setContent {
             DracAppsTheme {
@@ -377,11 +452,12 @@ class InventarioDePantallasTest {
                     alPulsarApp = alPulsarApp,
                     alAccionar = alAccionar,
                     alRefrescar = alRefrescar,
-                    alCerrarDetalle = {},
+                    alCerrarDetalle = alCerrarDetalle,
                     alCerrarHoja = {},
                     alAbrirAjustesDeAndroid = alAbrirAjustes,
                     alDejarPermisoParaLuego = alDejarPermisoParaLuego,
                     alAbrirApp = {},
+                    alCambiarTextoGrande = alCambiarTextoGrande,
                 )
             }
         }

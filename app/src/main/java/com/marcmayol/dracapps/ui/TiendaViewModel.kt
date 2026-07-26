@@ -10,12 +10,16 @@ import com.marcmayol.actualizador.modelo.Paquete
 import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
 import com.marcmayol.dracapps.dominio.casos.ResultadoCatalogo
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
+import com.marcmayol.dracapps.ui.ajustes.Ajustes
+import com.marcmayol.dracapps.ui.ajustes.AjustesEnMemoria
+import com.marcmayol.dracapps.ui.ajustes.EstadoAjustes
 import com.marcmayol.dracapps.ui.catalogo.EstadoPantallaCatalogo
 import com.marcmayol.dracapps.ui.instalacion.EstadoHoja
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -33,6 +37,7 @@ data class EstadoTienda(
      * «Ya está» no sabía a quién abrir y se limitaba a cerrar la hoja.
      */
     val appDeLaHoja: AppConEstado? = null,
+    val ajustes: EstadoAjustes = EstadoAjustes(),
 )
 
 /**
@@ -46,6 +51,8 @@ class TiendaViewModel(
     private val instalarPaquete: InstalarPaquete,
     private val reanudar: ReanudarInstalaciones,
     private val hayPermisoParaInstalar: () -> Boolean,
+    private val ajustesGuardados: Ajustes = AjustesEnMemoria(),
+    private val reloj: () -> Long = System::currentTimeMillis,
     private val alcance: CoroutineScope? = null,
 ) : ViewModel() {
 
@@ -53,6 +60,35 @@ class TiendaViewModel(
     val estado: StateFlow<EstadoTienda> = _estado.asStateFlow()
 
     private val ambito: CoroutineScope get() = alcance ?: viewModelScope
+
+    init {
+        // Lo que se guardó la última vez entra en el estado en cuanto cambia, sin que
+        // ninguna pantalla tenga que ir a buscarlo al disco.
+        ambito.launch {
+            combine(
+                ajustesGuardados.textoGrande,
+                ajustesGuardados.colorDelSistema,
+                ajustesGuardados.ultimaComprobacion,
+            ) { textoGrande, colorDelSistema, ultima ->
+                Triple(textoGrande, colorDelSistema, ultima)
+            }.collect { (textoGrande, colorDelSistema, ultima) ->
+                _estado.update {
+                    it.copy(
+                        ajustes = it.ajustes.copy(
+                            textoGrande = textoGrande,
+                            colorDelSistema = colorDelSistema,
+                            ultimaComprobacion = ultima,
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    fun cambiarTextoGrande(activado: Boolean) = ajustesGuardados.cambiarTextoGrande(activado)
+
+    fun cambiarColorDelSistema(activado: Boolean) =
+        ajustesGuardados.cambiarColorDelSistema(activado)
 
     /**
      * Al arrancar: primero se recoge lo que quedó a medias, después se pide el
@@ -68,10 +104,26 @@ class TiendaViewModel(
 
     fun refrescar() {
         ambito.launch {
-            _estado.update { it.copy(catalogo = EstadoPantallaCatalogo.Cargando) }
+            _estado.update {
+                it.copy(
+                    catalogo = EstadoPantallaCatalogo.Cargando,
+                    ajustes = it.ajustes.copy(comprobando = true),
+                )
+            }
             val resultado = obtenerCatalogo()
+            val apps = (resultado as? ResultadoCatalogo.Listo)?.apps.orEmpty()
+
+            // Solo cuenta como comprobación la que ha llegado a ver el catálogo: si no
+            // hubo red, decir «comprobado hace un momento» sería mentira.
+            if (resultado is ResultadoCatalogo.Listo) ajustesGuardados.anotarComprobacion(reloj())
+
             _estado.update { actual ->
                 actual.copy(
+                    // Si hay una ficha abierta, se queda con lo recién comprobado: es
+                    // desde donde se pidió mirar, y ahí tiene que verse el resultado.
+                    detalle = actual.detalle?.let { abierta ->
+                        apps.firstOrNull { it.id == abierta.id } ?: abierta
+                    },
                     catalogo = when (resultado) {
                         is ResultadoCatalogo.Listo ->
                             if (resultado.vacio) {
@@ -82,13 +134,36 @@ class TiendaViewModel(
 
                         is ResultadoCatalogo.SinCatalogo ->
                             EstadoPantallaCatalogo.SinConexion(resultado.instaladas)
-                    }
+                    },
+                    ajustes = actual.ajustes.copy(
+                        comprobando = false,
+                        hayPermisoParaInstalar = hayPermisoParaInstalar(),
+                        actualizacionesPendientes = apps.count { it.tieneActualizacion },
+                        appsEnElCatalogo = apps.size,
+                    ),
                 )
             }
         }
     }
 
-    fun irA(seccion: Seccion) = _estado.update { it.copy(seccion = seccion, detalle = null) }
+    /**
+     * Cambiar de pestaña.
+     *
+     * Al entrar en Ajustes se vuelve a preguntar por el permiso de instalación: es lo
+     * que se acaba de ir a conceder a los ajustes de Android, y volver y encontrarlo sin
+     * enterarse sería desconcertante.
+     */
+    fun irA(seccion: Seccion) = _estado.update {
+        it.copy(
+            seccion = seccion,
+            detalle = null,
+            ajustes = if (seccion == Seccion.AJUSTES) {
+                it.ajustes.copy(hayPermisoParaInstalar = hayPermisoParaInstalar())
+            } else {
+                it.ajustes
+            },
+        )
+    }
 
     fun abrirDetalle(app: AppConEstado) = _estado.update { it.copy(detalle = app) }
 

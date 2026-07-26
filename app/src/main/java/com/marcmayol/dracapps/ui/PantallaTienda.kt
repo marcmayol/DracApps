@@ -1,5 +1,6 @@
 package com.marcmayol.dracapps.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
+import com.marcmayol.dracapps.ui.ajustes.PantallaAjustes
 import com.marcmayol.dracapps.ui.catalogo.PantallaCatalogo
 import com.marcmayol.dracapps.ui.comun.laAccionEsAbrir
 import com.marcmayol.dracapps.ui.detalle.PantallaDetalle
@@ -39,6 +41,8 @@ fun PantallaTienda(
     alAbrirAjustesDeAndroid: () -> Unit,
     alDejarPermisoParaLuego: () -> Unit,
     alAbrirApp: (AppConEstado) -> Unit,
+    alCambiarTextoGrande: (Boolean) -> Unit = {},
+    alCambiarColorDelSistema: (Boolean) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     // Estas dos se pintan sin el andamio, así que nadie les aparta la barra de estado ni
@@ -61,10 +65,17 @@ fun PantallaTienda(
 
     val detalle = estado.detalle
     if (detalle != null) {
+        // El gesto de atrás cierra la ficha en vez de la app entera, que es lo que
+        // espera cualquiera que haya entrado desde la lista.
+        BackHandler(onBack = alCerrarDetalle)
+
         PantallaDetalle(
             conEstado = detalle,
             alAccionar = { alPulsarElBoton(detalle) },
             alAbrir = { alAbrirApp(detalle) },
+            alVolver = alCerrarDetalle,
+            alBuscarActualizaciones = alRefrescar,
+            comprobando = estado.ajustes.comprobando,
             modifier = aSalvoDelSistema,
         )
         return
@@ -86,7 +97,15 @@ fun PantallaTienda(
                 )
 
                 Seccion.NOVEDADES -> EnConstruccion(Seccion.NOVEDADES, relleno)
-                Seccion.AJUSTES -> EnConstruccion(Seccion.AJUSTES, relleno)
+
+                Seccion.AJUSTES -> PantallaAjustes(
+                    estado = estado.ajustes,
+                    alComprobarAhora = alRefrescar,
+                    alCambiarTextoGrande = alCambiarTextoGrande,
+                    alCambiarColorDelSistema = alCambiarColorDelSistema,
+                    alAbrirAjustesDeAndroid = alAbrirAjustesDeAndroid,
+                    modifier = relleno,
+                )
             }
 
             val hoja = estado.hoja

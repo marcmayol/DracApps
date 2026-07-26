@@ -13,6 +13,7 @@ import com.marcmayol.actualizador.instalacion.ReanudarInstalaciones
 import com.marcmayol.actualizador.instalacion.RegistroEnDisco
 import com.marcmayol.actualizador.instalacion.VerificadorSha256
 import com.marcmayol.actualizador.instalacion.VersionInstalada
+import com.marcmayol.dracapps.android.AjustesGuardados
 import com.marcmayol.dracapps.android.AppsDelMovil
 import com.marcmayol.dracapps.android.CatalogoHttp
 import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
@@ -36,6 +37,9 @@ class Piezas(private val contexto: Context) {
     private val registro = RegistroEnDisco(contexto)
     private val verificador = VerificadorSha256()
     private val appsInstaladas = AppsDelMovil(contexto)
+
+    /** Lo que la persona ha elegido que se recuerde: tamaño de letra, color, comprobaciones. */
+    val ajustes = AjustesGuardados(contexto)
 
     val obtenerCatalogo = ObtenerCatalogo(
         catalogo = CatalogoHttp(BuildConfig.URL_CATALOGO),

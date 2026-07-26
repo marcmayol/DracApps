@@ -8,9 +8,14 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -31,6 +36,8 @@ object EtiquetasDetalle {
     const val PANTALLA = "pantalla-detalle"
     const val BOTON_PRINCIPAL = "boton-principal-detalle"
     const val BOTON_ABRIR = "boton-abrir-detalle"
+    const val BOTON_VOLVER = "boton-volver-detalle"
+    const val BOTON_BUSCAR = "boton-buscar-actualizaciones"
     const val NOTAS = "notas-version"
 }
 
@@ -48,6 +55,9 @@ fun PantallaDetalle(
     alAccionar: () -> Unit,
     alAbrir: () -> Unit,
     modifier: Modifier = Modifier,
+    alVolver: () -> Unit = {},
+    alBuscarActualizaciones: () -> Unit = {},
+    comprobando: Boolean = false,
 ) {
     val esquema = MaterialTheme.colorScheme
     val app = conEstado.app
@@ -62,6 +72,21 @@ fun PantallaDetalle(
             .padding(Espaciado.margenPantalla),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
+        // La salida, donde se busca: arriba a la izquierda. El gesto de atrás también
+        // vale, pero hay quien no lo usa nunca y se queda encallado en la ficha.
+        IconButton(
+            onClick = alVolver,
+            modifier = Modifier
+                .testTag(EtiquetasDetalle.BOTON_VOLVER)
+                .size(Espaciado.areaTactilMinima),
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                contentDescription = "Volver a la lista de apps",
+                tint = esquema.onSurface,
+            )
+        }
+
         Row(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -105,6 +130,22 @@ fun PantallaDetalle(
                 ) {
                     Text("Abrir")
                 }
+            }
+        }
+
+        // Cuando ya está al día, el botón principal solo abre. Esto es lo que contesta a
+        // «¿seguro que no hay nada nuevo?»: vuelve a mirar el catálogo en el momento, sin
+        // tener que irse a Ajustes.
+        if (instalada && !hayAlgoNuevo) {
+            OutlinedButton(
+                onClick = alBuscarActualizaciones,
+                enabled = !comprobando,
+                modifier = Modifier
+                    .testTag(EtiquetasDetalle.BOTON_BUSCAR)
+                    .fillMaxWidth()
+                    .defaultMinSize(minHeight = Espaciado.areaTactilMinima),
+            ) {
+                Text(if (comprobando) "Comprobando…" else "Buscar actualizaciones")
             }
         }
 

@@ -30,7 +30,12 @@ class MainActivity : ComponentActivity() {
         val iconosDelMovil = IconosDelMovil(applicationContext)
 
         setContent {
-            DracAppsTheme {
+            // El tema se decide con lo guardado, antes de pintar: si esto llegara más
+            // tarde, la app arrancaría con un aspecto y cambiaría a otro a la vista.
+            val textoGrande by piezas.ajustes.textoGrande.collectAsStateWithLifecycle()
+            val colorDelSistema by piezas.ajustes.colorDelSistema.collectAsStateWithLifecycle()
+
+            DracAppsTheme(colorDinamico = colorDelSistema, textoGrande = textoGrande) {
                 val modelo: TiendaViewModel = viewModel(factory = fabrica(piezas))
                 val estado by modelo.estado.collectAsStateWithLifecycle()
 
@@ -48,6 +53,8 @@ class MainActivity : ComponentActivity() {
                         },
                         alDejarPermisoParaLuego = modelo::cerrarPermiso,
                         alAbrirApp = { app -> abrir(app.id) },
+                        alCambiarTextoGrande = modelo::cambiarTextoGrande,
+                        alCambiarColorDelSistema = modelo::cambiarColorDelSistema,
                     )
                 }
             }
@@ -70,6 +77,7 @@ class MainActivity : ComponentActivity() {
             instalarPaquete = piezas.instalarPaquete,
             reanudar = piezas.reanudarInstalaciones,
             hayPermisoParaInstalar = piezas::hayPermisoParaInstalar,
+            ajustesGuardados = piezas.ajustes,
         ).also { it.alArrancar() } as T
     }
 }

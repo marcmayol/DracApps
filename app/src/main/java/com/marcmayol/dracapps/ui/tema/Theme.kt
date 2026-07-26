@@ -25,6 +25,7 @@ import androidx.core.view.WindowCompat
 fun DracAppsTheme(
     oscuro: Boolean = isSystemInDarkTheme(),
     colorDinamico: Boolean = false,
+    textoGrande: Boolean = false,
     content: @Composable () -> Unit,
 ) {
     val esquema = when {
@@ -43,7 +44,7 @@ fun DracAppsTheme(
 
     MaterialTheme(
         colorScheme = esquema,
-        typography = TipografiaDracApps,
+        typography = if (textoGrande) TipografiaDracApps.aumentada() else TipografiaDracApps,
         shapes = FormasDracApps,
         content = content,
     )

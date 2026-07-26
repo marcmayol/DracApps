@@ -147,3 +147,37 @@ val TipografiaDracApps = Typography(
         letterSpacing = 0.5.sp,
     ),
 )
+
+/** Cuánto crece la letra con el ajuste «Texto grande», tal y como lo fija el diseño. */
+const val AUMENTO_DE_TEXTO_GRANDE = 1.15f
+
+/**
+ * La misma escala, un punto más grande.
+ *
+ * Se multiplica sobre los sp, que ya vienen escalados por el tamaño de fuente del
+ * sistema: quien lo tenga subido en Android parte de más alto, y este ajuste suma. Solo
+ * se toca el cuerpo y el interlineado; el espaciado entre letras se queda como está,
+ * porque agrandarlo separaría las palabras sin hacerlas más legibles.
+ */
+fun Typography.aumentada(factor: Float = AUMENTO_DE_TEXTO_GRANDE): Typography = copy(
+    displayLarge = displayLarge.aumentado(factor),
+    displayMedium = displayMedium.aumentado(factor),
+    displaySmall = displaySmall.aumentado(factor),
+    headlineLarge = headlineLarge.aumentado(factor),
+    headlineMedium = headlineMedium.aumentado(factor),
+    headlineSmall = headlineSmall.aumentado(factor),
+    titleLarge = titleLarge.aumentado(factor),
+    titleMedium = titleMedium.aumentado(factor),
+    titleSmall = titleSmall.aumentado(factor),
+    bodyLarge = bodyLarge.aumentado(factor),
+    bodyMedium = bodyMedium.aumentado(factor),
+    bodySmall = bodySmall.aumentado(factor),
+    labelLarge = labelLarge.aumentado(factor),
+    labelMedium = labelMedium.aumentado(factor),
+    labelSmall = labelSmall.aumentado(factor),
+)
+
+private fun TextStyle.aumentado(factor: Float) = copy(
+    fontSize = fontSize * factor,
+    lineHeight = lineHeight * factor,
+)
