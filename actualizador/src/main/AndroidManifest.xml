@@ -4,4 +4,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
+    <application>
+        <!--
+          Destino del PendingIntent con el que se confirma cada sesión. Sin él, la
+          respuesta del sistema (incluida la petición de confirmación al usuario) no
+          llega a ninguna parte. No se exporta: solo lo invoca el propio sistema.
+        -->
+        <receiver
+            android:name="com.marcmayol.actualizador.instalacion.ResultadoInstalacionReceiver"
+            android:exported="false" />
+    </application>
+
 </manifest>

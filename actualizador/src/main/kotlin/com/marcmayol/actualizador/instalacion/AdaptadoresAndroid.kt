@@ -159,7 +159,10 @@ class InstaladorDeSesiones(
         }
 
     override suspend fun confirmar(sesion: Int, id: String) = withContext(Dispatchers.IO) {
-        val intencion = Intent(accionResultado).setPackage(contexto.packageName)
+        // Explícito a la clase: un broadcast por acción dependería de un intent-filter y
+        // de las reglas de broadcasts implícitos. Aquí la respuesta no se puede perder.
+        val intencion = Intent(contexto, ResultadoInstalacionReceiver::class.java)
+            .setAction(accionResultado)
         val pendiente = PendingIntent.getBroadcast(
             contexto,
             sesion,
