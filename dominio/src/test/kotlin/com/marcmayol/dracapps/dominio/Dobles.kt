@@ -3,14 +3,8 @@ package com.marcmayol.dracapps.dominio
 import com.marcmayol.dracapps.dominio.modelo.AppDelCatalogo
 import com.marcmayol.dracapps.dominio.modelo.AppInstalada
 import com.marcmayol.dracapps.dominio.modelo.Catalogo
-import com.marcmayol.dracapps.dominio.puertos.AlmacenApks
 import com.marcmayol.dracapps.dominio.puertos.AppsInstaladas
 import com.marcmayol.dracapps.dominio.puertos.CatalogoRemoto
-import com.marcmayol.dracapps.dominio.puertos.Descargador
-import com.marcmayol.dracapps.dominio.puertos.InstalacionEnCurso
-import com.marcmayol.dracapps.dominio.puertos.Instalador
-import com.marcmayol.dracapps.dominio.puertos.RegistroInstalaciones
-import com.marcmayol.dracapps.dominio.puertos.VerificadorDeHash
 
 /**
  * Dobles de todo lo que el dominio necesita del mundo.
@@ -84,123 +78,4 @@ class AppsInstaladasFalsas(
     fun quitar(id: String) {
         apps.remove(id)
     }
-}
-
-class AlmacenFalso : AlmacenApks {
-    private val ficheros = mutableMapOf<String, Long>()
-    val borrados = mutableListOf<String>()
-    var limpiezas = 0
-        private set
-
-    override fun rutaDe(id: String, versionCode: Int) = "/privado/$id-$versionCode.apk"
-
-    override fun existe(id: String, versionCode: Int) = rutaDe(id, versionCode) in ficheros
-
-    override fun tamanoDe(id: String, versionCode: Int) = ficheros[rutaDe(id, versionCode)] ?: 0
-
-    override fun borrar(id: String, versionCode: Int) {
-        val ruta = rutaDe(id, versionCode)
-        if (ficheros.remove(ruta) != null || true) borrados += ruta
-    }
-
-    override fun limpiarSobrantes(vigentes: Set<Pair<String, Int>>) {
-        limpiezas++
-        val rutasVigentes = vigentes.map { rutaDe(it.first, it.second) }.toSet()
-        ficheros.keys.retainAll(rutasVigentes)
-    }
-
-    fun escribir(ruta: String, tamano: Long = 1_000_000) {
-        ficheros[ruta] = tamano
-    }
-
-    fun hay(ruta: String) = ruta in ficheros
-}
-
-class DescargadorFalso(
-    private val almacen: AlmacenFalso,
-    private val error: Exception? = null,
-    private val tamano: Long = 1_000_000,
-) : Descargador {
-    val descargadas = mutableListOf<String>()
-
-    override suspend fun descargar(
-        url: String,
-        destino: String,
-        alAvanzar: (Long, Long) -> Unit,
-    ): Long {
-        error?.let { throw it }
-        descargadas += url
-        alAvanzar(tamano / 2, tamano)
-        alAvanzar(tamano, tamano)
-        almacen.escribir(destino, tamano)
-        return tamano
-    }
-}
-
-class VerificadorFalso(
-    private val porDefecto: String = HASH_BUENO,
-    private val porRuta: Map<String, String> = emptyMap(),
-) : VerificadorDeHash {
-    val comprobadas = mutableListOf<String>()
-
-    override suspend fun sha256De(ruta: String): String {
-        comprobadas += ruta
-        return porRuta[ruta] ?: porDefecto
-    }
-}
-
-class InstaladorFalso(
-    private val fallaAlCrear: Boolean = false,
-    private val fallaAlConfirmar: Boolean = false,
-    abiertas: List<Int> = emptyList(),
-) : Instalador {
-    private var siguienteSesion = 100
-    private val sesiones = abiertas.toMutableList()
-
-    val creadas = mutableListOf<String>()
-    val confirmadas = mutableListOf<Int>()
-    val abandonadas = mutableListOf<Int>()
-
-    override suspend fun crearSesion(id: String, apk: String, tamano: Long): Int {
-        if (fallaAlCrear) error("el sistema no deja abrir sesión")
-        creadas += id
-        val sesion = siguienteSesion++
-        sesiones += sesion
-        return sesion
-    }
-
-    override suspend fun confirmar(sesion: Int, id: String) {
-        if (fallaAlConfirmar) error("el sistema rechazó la sesión")
-        confirmadas += sesion
-    }
-
-    override suspend fun sesionesAbiertas() = sesiones.toList()
-
-    override suspend fun abandonar(sesion: Int) {
-        abandonadas += sesion
-        sesiones.remove(sesion)
-    }
-}
-
-class RegistroFalso(iniciales: List<InstalacionEnCurso> = emptyList()) : RegistroInstalaciones {
-    private val filas = iniciales.associateBy { it.id }.toMutableMap()
-
-    /** Todo lo que se ha ido guardando, en orden: sirve para ver por dónde pasó. */
-    val historial = mutableListOf<InstalacionEnCurso>()
-
-    override suspend fun guardar(instalacion: InstalacionEnCurso) {
-        filas[instalacion.id] = instalacion
-        historial += instalacion
-    }
-
-    override suspend fun borrar(id: String) {
-        filas.remove(id)
-    }
-
-    override suspend fun todas() = filas.values.toList()
-
-    override suspend fun buscar(id: String) = filas[id]
-
-    val pasosPorLosQuePaso: List<String>
-        get() = historial.map { it.paso.name }
 }

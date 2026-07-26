@@ -1,8 +1,12 @@
-package com.marcmayol.dracapps.dominio
+package com.marcmayol.actualizador
 
-import com.marcmayol.dracapps.dominio.casos.ReanudarInstalaciones
-import com.marcmayol.dracapps.dominio.puertos.InstalacionEnCurso
-import com.marcmayol.dracapps.dominio.puertos.PasoInstalacion
+import com.marcmayol.actualizador.instalacion.InstalacionEnCurso
+import com.marcmayol.actualizador.instalacion.InstalarPaquete
+import com.marcmayol.actualizador.instalacion.PasoInstalacion
+import com.marcmayol.actualizador.instalacion.ReanudarInstalaciones
+import com.marcmayol.actualizador.modelo.EstadoActualizacion
+import com.marcmayol.actualizador.modelo.MotivoFallo
+
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -18,7 +22,7 @@ import org.junit.Test
 class ReanudarInstalacionesTest {
 
     private val almacen = AlmacenFalso()
-    private val instaladas = AppsInstaladasFalsas()
+    private val instaladas = VersionesFalsas()
 
     private fun aMedias(
         paso: PasoInstalacion,
@@ -112,7 +116,7 @@ class ReanudarInstalacionesTest {
     @Test
     fun `si el movil ya tiene la version, la instalacion salio bien aunque nadie lo viera`() =
         runTest {
-            instaladas.poner(appInstalada(versionCode = 2))
+            instaladas.poner("com.ejemplo.app", versionCode = 2)
             val (reanudar, _, registro) = caso(
                 listOf(aMedias(PasoInstalacion.CONFIRMANDO, sesion = 7))
             )
@@ -125,7 +129,7 @@ class ReanudarInstalacionesTest {
 
     @Test
     fun `si el movil tiene una version aun mas nueva, tambien se da por terminada`() = runTest {
-        instaladas.poner(appInstalada(versionCode = 9))
+        instaladas.poner("com.ejemplo.app", versionCode = 9)
         val (reanudar, _, _) = caso(listOf(aMedias(PasoInstalacion.CONFIRMANDO, versionCode = 2)))
 
         assertEquals(listOf("com.ejemplo.app"), reanudar().terminadas)

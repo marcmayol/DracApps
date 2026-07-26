@@ -62,8 +62,21 @@ android {
     }
 }
 
+/**
+ * Los unit tests solo se ejecutan en debug.
+ *
+ * Los de interfaz necesitan `compose.ui.test.manifest`, que solo entra en debug: en
+ * release fallarían todos por no encontrar la Activity, y no aportarían nada distinto.
+ */
+androidComponents {
+    beforeVariants(selector().withBuildType("release")) { variante ->
+        variante.enableUnitTest = false
+    }
+}
+
 dependencies {
     implementation(project(":dominio"))
+    implementation(project(":actualizador"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

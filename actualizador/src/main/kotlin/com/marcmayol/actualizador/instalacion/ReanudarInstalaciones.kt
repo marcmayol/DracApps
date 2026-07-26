@@ -1,12 +1,5 @@
-package com.marcmayol.dracapps.dominio.casos
+package com.marcmayol.actualizador.instalacion
 
-import com.marcmayol.dracapps.dominio.puertos.AlmacenApks
-import com.marcmayol.dracapps.dominio.puertos.AppsInstaladas
-import com.marcmayol.dracapps.dominio.puertos.InstalacionEnCurso
-import com.marcmayol.dracapps.dominio.puertos.Instalador
-import com.marcmayol.dracapps.dominio.puertos.PasoInstalacion
-import com.marcmayol.dracapps.dominio.puertos.RegistroInstalaciones
-import com.marcmayol.dracapps.dominio.puertos.VerificadorDeHash
 
 /** Qué se hizo con cada instalación a medias al volver a arrancar. */
 data class Recogida(
@@ -34,7 +27,7 @@ class ReanudarInstalaciones(
     private val almacen: AlmacenApks,
     private val instalador: Instalador,
     private val verificador: VerificadorDeHash,
-    private val instaladas: AppsInstaladas,
+    private val instaladas: VersionInstalada,
 ) {
 
     suspend operator fun invoke(): Recogida {
@@ -73,8 +66,8 @@ class ReanudarInstalaciones(
     private suspend fun resolver(pendiente: InstalacionEnCurso): Desenlace {
         // Lo primero, siempre: preguntarle al móvil. Si la app ya está en la versión
         // esperada, la instalación salió bien aunque nadie llegara a enterarse.
-        val enElMovil = instaladas.buscar(pendiente.id)
-        if (enElMovil != null && enElMovil.versionCode >= pendiente.versionCode) {
+        val enElMovil = instaladas.versionCodeDe(pendiente.id)
+        if (enElMovil != null && enElMovil >= pendiente.versionCode) {
             return Desenlace.TERMINADA
         }
 

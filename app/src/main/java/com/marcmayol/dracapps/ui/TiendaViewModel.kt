@@ -2,11 +2,12 @@ package com.marcmayol.dracapps.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.marcmayol.dracapps.dominio.casos.AvanceInstalacion
-import com.marcmayol.dracapps.dominio.casos.InstalarApp
-import com.marcmayol.dracapps.dominio.casos.MotivoFallo
+import com.marcmayol.actualizador.instalacion.InstalarPaquete
+import com.marcmayol.actualizador.instalacion.ReanudarInstalaciones
+import com.marcmayol.actualizador.modelo.EstadoActualizacion
+import com.marcmayol.actualizador.modelo.MotivoFallo
+import com.marcmayol.actualizador.modelo.Paquete
 import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
-import com.marcmayol.dracapps.dominio.casos.ReanudarInstalaciones
 import com.marcmayol.dracapps.dominio.casos.ResultadoCatalogo
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
 import com.marcmayol.dracapps.ui.catalogo.EstadoPantallaCatalogo
@@ -35,7 +36,7 @@ data class EstadoTienda(
  */
 class TiendaViewModel(
     private val obtenerCatalogo: ObtenerCatalogo,
-    private val instalarApp: InstalarApp,
+    private val instalarPaquete: InstalarPaquete,
     private val reanudar: ReanudarInstalaciones,
     private val hayPermisoParaInstalar: () -> Boolean,
     private val alcance: CoroutineScope? = null,
@@ -104,30 +105,51 @@ class TiendaViewModel(
         }
 
         ambito.launch {
-            val resultado = instalarApp(app.app) { avance ->
+            val resultado = instalarPaquete(app.app.aPaquete()) { avance ->
                 _estado.update { it.copy(hoja = avance.aHoja(app)) }
             }
             _estado.update { it.copy(hoja = resultado.aHoja(app), detalle = null) }
-            if (resultado is AvanceInstalacion.Confirmada) refrescar()
+            if (resultado is EstadoActualizacion.Confirmada) refrescar()
         }
     }
 
-    private fun AvanceInstalacion.aHoja(app: AppConEstado): EstadoHoja = when (this) {
-        is AvanceInstalacion.Descargando -> EstadoHoja.Descargando(
+    private fun EstadoActualizacion.aHoja(app: AppConEstado): EstadoHoja = when (this) {
+        is EstadoActualizacion.Descargando -> EstadoHoja.Descargando(
             nombre = app.nombre,
             descargados = descargados,
             total = total,
             porcentaje = porcentaje,
         )
 
-        AvanceInstalacion.Verificando -> EstadoHoja.Verificando(app.nombre)
-        AvanceInstalacion.Instalando -> EstadoHoja.Instalando(app.nombre)
-        is AvanceInstalacion.Confirmada -> EstadoHoja.Hecho(app.nombre, app.app.versionName)
-        is AvanceInstalacion.Fallo -> EstadoHoja.Fallo(app.nombre, explicacionDe(motivo))
+        is EstadoActualizacion.Verificando -> EstadoHoja.Verificando(app.nombre)
+        is EstadoActualizacion.Instalando -> EstadoHoja.Instalando(app.nombre)
+        is EstadoActualizacion.Confirmada -> EstadoHoja.Hecho(app.nombre, app.app.versionName)
+        is EstadoActualizacion.Fallo -> EstadoHoja.Fallo(app.nombre, explicacionDe(motivo))
+        else -> EstadoHoja.Instalando(app.nombre)
     }
+
+    /**
+     * Del modelo de la tienda al del módulo actualizador.
+     *
+     * El módulo es genérico y no sabe nada de catálogos: solo necesita saber qué bajar y
+     * cómo comprobar que es lo que dice ser.
+     */
+    private fun com.marcmayol.dracapps.dominio.modelo.AppDelCatalogo.aPaquete() = Paquete(
+        id = id,
+        nombre = nombre,
+        versionCode = versionCode,
+        versionName = versionName,
+        url = apkUrl,
+        sha256 = sha256,
+        tamanoBytes = tamanoBytes,
+        notas = notas,
+    )
 
     /** Los fallos se cuentan en cristiano, sin códigos ni jerga. */
     private fun explicacionDe(motivo: MotivoFallo): String = when (motivo) {
+        MotivoFallo.COMPROBACION ->
+            "No he podido comprobar si hay novedades. Revisa la conexión."
+
         MotivoFallo.DESCARGA ->
             "No he podido traerme el archivo. Revisa la conexión y prueba otra vez."
 

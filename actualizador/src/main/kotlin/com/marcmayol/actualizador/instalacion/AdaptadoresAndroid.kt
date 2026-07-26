@@ -1,14 +1,10 @@
-package com.marcmayol.dracapps.android
+package com.marcmayol.actualizador.instalacion
 
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.os.Build
-import com.marcmayol.dracapps.dominio.puertos.AlmacenApks
-import com.marcmayol.dracapps.dominio.puertos.Descargador
-import com.marcmayol.dracapps.dominio.puertos.Instalador
-import com.marcmayol.dracapps.dominio.puertos.VerificadorDeHash
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -195,6 +191,6 @@ class InstaladorDeSesiones(
     }
 
     companion object {
-        const val ACCION_RESULTADO = "com.marcmayol.dracapps.RESULTADO_INSTALACION"
+        const val ACCION_RESULTADO = "com.marcmayol.actualizador.RESULTADO_INSTALACION"
     }
 }

@@ -1,8 +1,6 @@
-package com.marcmayol.dracapps.android
+package com.marcmayol.actualizador.instalacion
 
 import android.content.Context
-import com.marcmayol.dracapps.dominio.puertos.InstalacionEnCurso
-import com.marcmayol.dracapps.dominio.puertos.RegistroInstalaciones
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -88,8 +86,8 @@ class RegistroEnDisco(contexto: Context) : RegistroInstalaciones {
             sha256 = sha256,
             tamanoBytes = tamanoBytes,
             paso = runCatching {
-                com.marcmayol.dracapps.dominio.puertos.PasoInstalacion.valueOf(paso)
-            }.getOrDefault(com.marcmayol.dracapps.dominio.puertos.PasoInstalacion.PENDIENTE),
+                PasoInstalacion.valueOf(paso)
+            }.getOrDefault(PasoInstalacion.PENDIENTE),
             sesion = sesion,
         )
     }

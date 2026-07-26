@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(clase: Class<T>): T = TiendaViewModel(
             obtenerCatalogo = piezas.obtenerCatalogo,
-            instalarApp = piezas.instalarApp,
+            instalarPaquete = piezas.instalarPaquete,
             reanudar = piezas.reanudarInstalaciones,
             hayPermisoParaInstalar = piezas::hayPermisoParaInstalar,
         ).also { it.alArrancar() } as T

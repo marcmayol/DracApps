@@ -5,16 +5,17 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import com.marcmayol.dracapps.android.AlmacenPrivado
+import com.marcmayol.actualizador.instalacion.AlmacenPrivado
+import com.marcmayol.actualizador.instalacion.DescargaHttp
+import com.marcmayol.actualizador.instalacion.InstalarPaquete
+import com.marcmayol.actualizador.instalacion.InstaladorDeSesiones
+import com.marcmayol.actualizador.instalacion.ReanudarInstalaciones
+import com.marcmayol.actualizador.instalacion.RegistroEnDisco
+import com.marcmayol.actualizador.instalacion.VerificadorSha256
+import com.marcmayol.actualizador.instalacion.VersionInstalada
 import com.marcmayol.dracapps.android.AppsDelMovil
 import com.marcmayol.dracapps.android.CatalogoHttp
-import com.marcmayol.dracapps.android.DescargaHttp
-import com.marcmayol.dracapps.android.InstaladorDeSesiones
-import com.marcmayol.dracapps.android.RegistroEnDisco
-import com.marcmayol.dracapps.android.VerificadorSha256
-import com.marcmayol.dracapps.dominio.casos.InstalarApp
 import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
-import com.marcmayol.dracapps.dominio.casos.ReanudarInstalaciones
 
 /**
  * Aquí se enchufan los adaptadores a los casos de uso, y en ningún otro sitio.
@@ -42,7 +43,7 @@ class Piezas(private val contexto: Context) {
         paqueteDeLaTienda = contexto.packageName,
     )
 
-    val instalarApp = InstalarApp(
+    val instalarPaquete = InstalarPaquete(
         almacen = almacen,
         descargador = DescargaHttp(),
         verificador = verificador,
@@ -55,7 +56,8 @@ class Piezas(private val contexto: Context) {
         almacen = almacen,
         instalador = instalador,
         verificador = verificador,
-        instaladas = appsInstaladas,
+        // El módulo solo necesita saber qué versión hay puesta, no toda la ficha.
+        instaladas = VersionInstalada { id -> appsInstaladas.buscar(id)?.versionCode },
     )
 
     /** ¿Nos deja Android instalar otras apps? */

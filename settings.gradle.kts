@@ -26,6 +26,7 @@ rootProject.name = "DracApps"
 // importar Android ni por descuido. La regla del plan deja de ser un acuerdo y pasa
 // a ser algo que el compilador impide romper.
 include(":dominio")
+include(":actualizador")
 include(":app")
 
 // Herramienta de admin para rasterizar los iconos de las apps del catálogo.
