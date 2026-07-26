@@ -56,7 +56,10 @@ class ReanudarInstalaciones(
         }
 
         val huerfanas = abandonarSesionesHuerfanas(pendientes)
-        almacen.limpiarSobrantes(pendientes.map { it.id to it.versionCode }.toSet())
+        // Se relee el registro: mientras se recogía el destrozo, el usuario ha podido
+        // pedir una instalación nueva. Como se apunta antes de empezar a descargar,
+        // releer aquí la protege; con la lista de arriba se le borraba el APK debajo.
+        almacen.limpiarSobrantes(registro.todas().map { it.id to it.versionCode }.toSet())
 
         return Recogida(terminadas, reintentables, descartadas, huerfanas)
     }

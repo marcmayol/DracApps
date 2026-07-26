@@ -92,11 +92,14 @@ class DescargadorFalso(
 class VerificadorFalso(
     private val porDefecto: String = HASH_BUENO,
     private val porRuta: Map<String, String> = emptyMap(),
+    /** Para el fichero que ya no está cuando toca leerlo. */
+    private val error: Exception? = null,
 ) : VerificadorDeHash {
     val comprobadas = mutableListOf<String>()
 
     override suspend fun sha256De(ruta: String): String {
         comprobadas += ruta
+        error?.let { throw it }
         return porRuta[ruta] ?: porDefecto
     }
 }
@@ -144,8 +147,16 @@ class VersionesFalsas(private val instaladas: MutableMap<String, Int> = mutableM
     }
 }
 
-class RegistroFalso(iniciales: List<InstalacionEnCurso> = emptyList()) : RegistroInstalaciones {
+class RegistroFalso(
+    iniciales: List<InstalacionEnCurso> = emptyList(),
+    /**
+     * Se llama en cada `todas()` con el número de consulta, para poder simular que el
+     * usuario pide una instalación nueva justo mientras se recoge el destrozo.
+     */
+    private val alConsultar: (Int) -> Unit = {},
+) : RegistroInstalaciones {
     private val filas = iniciales.associateBy { it.id }.toMutableMap()
+    private var consultas = 0
 
     /** Todo lo que se ha ido guardando, en orden: sirve para ver por dónde pasó. */
     val historial = mutableListOf<InstalacionEnCurso>()
@@ -159,7 +170,18 @@ class RegistroFalso(iniciales: List<InstalacionEnCurso> = emptyList()) : Registr
         filas.remove(id)
     }
 
-    override suspend fun todas() = filas.values.toList()
+    /** Alta desde fuera de la corrutina, para simular carreras dentro de `alConsultar`. */
+    fun insertar(instalacion: InstalacionEnCurso) {
+        filas[instalacion.id] = instalacion
+    }
+
+    override suspend fun todas(): List<InstalacionEnCurso> {
+        // La instantánea se toma antes del hook: así lo que este añada pertenece al
+        // "después de leer", que es justo la carrera que se quiere reproducir.
+        val instantanea = filas.values.toList()
+        alConsultar(++consultas)
+        return instantanea
+    }
 
     override suspend fun buscar(id: String) = filas[id]
 

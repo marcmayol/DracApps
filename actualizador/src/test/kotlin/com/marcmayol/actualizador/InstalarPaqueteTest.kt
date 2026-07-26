@@ -27,6 +27,7 @@ class InstalarPaqueteTest {
     private fun caso(
         hashCalculado: String = HASH_BUENO,
         errorDeDescarga: Exception? = null,
+        errorAlVerificar: Exception? = null,
         fallaAlCrear: Boolean = false,
         fallaAlConfirmar: Boolean = false,
     ): Triple<InstalarPaquete, InstaladorFalso, RegistroFalso> {
@@ -35,7 +36,7 @@ class InstalarPaqueteTest {
         val caso = InstalarPaquete(
             almacen = almacen,
             descargador = DescargadorFalso(almacen, errorDeDescarga),
-            verificador = VerificadorFalso(hashCalculado),
+            verificador = VerificadorFalso(hashCalculado, error = errorAlVerificar),
             instalador = instalador,
             registro = registro,
         )
@@ -65,6 +66,19 @@ class InstalarPaqueteTest {
             "un APK que no cuadra no puede llegar jamás al instalador",
             instalador.creadas.isEmpty(),
         )
+    }
+
+    @Test
+    fun `si el apk descargado ya no esta al verificarlo, se falla sin tumbar la app`() = runTest {
+        val (instalar, instalador, _) = caso(
+            errorAlVerificar = java.io.FileNotFoundException("descargas/com.ejemplo.app-2.apk"),
+        )
+
+        val resultado = instalar(paquete())
+
+        assertTrue("leer el APK no puede propagar la excepción", resultado is EstadoActualizacion.Fallo)
+        assertEquals(MotivoFallo.DESCARGA, (resultado as EstadoActualizacion.Fallo).motivo)
+        assertTrue(instalador.creadas.isEmpty())
     }
 
     @Test

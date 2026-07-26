@@ -202,4 +202,32 @@ class ReanudarInstalacionesTest {
         assertEquals(1, almacen.limpiezas)
         assertTrue(!almacen.hay("/privado/com.viejo-1.apk"))
     }
+
+    @Test
+    fun `la limpieza no se lleva por delante una instalacion pedida mientras recogia`() = runTest {
+        val nueva = aMedias(PasoInstalacion.DESCARGANDO, id = "com.recien.pedida", versionCode = 3)
+        // El usuario pulsa Actualizar justo DESPUÉS de que se lean los pendientes: la
+        // instalación se apunta y empieza a bajar su APK mientras esto sigue en marcha.
+        var registro: RegistroFalso? = null
+        registro = RegistroFalso(alConsultar = { consulta ->
+            if (consulta == 1) {
+                registro!!.insertar(nueva)
+                almacen.escribir("/privado/com.recien.pedida-3.apk")
+            }
+        })
+        val reanudar = ReanudarInstalaciones(
+            registro = registro,
+            almacen = almacen,
+            instalador = InstaladorFalso(),
+            verificador = VerificadorFalso(),
+            instaladas = instaladas,
+        )
+
+        reanudar()
+
+        assertTrue(
+            "borrarle el APK a una descarga en marcha la hace fallar al verificar",
+            almacen.hay("/privado/com.recien.pedida-3.apk"),
+        )
+    }
 }

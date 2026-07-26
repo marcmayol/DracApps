@@ -37,7 +37,11 @@ class AlmacenPrivado(contexto: Context) : AlmacenApks {
     }
 
     override fun limpiarSobrantes(vigentes: Set<Pair<String, Int>>) {
-        val nombresVigentes = vigentes.map { "${it.first}-${it.second}.apk" }.toSet()
+        // También el temporal: una descarga en marcha escribe en "<nombre>.apk.parcial",
+        // que jamás coincidiría con un nombre vigente y se barría a media faena.
+        val nombresVigentes = vigentes.flatMap { (id, versionCode) ->
+            listOf("$id-$versionCode.apk", "$id-$versionCode.apk.parcial")
+        }.toSet()
         carpeta.listFiles()?.forEach { fichero ->
             if (fichero.name !in nombresVigentes) fichero.delete()
         }

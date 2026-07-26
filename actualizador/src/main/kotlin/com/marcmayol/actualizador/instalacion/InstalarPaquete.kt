@@ -54,7 +54,19 @@ class InstalarPaquete(
 
         // 2. Verificación. Antes de esto no se toca el instalador.
         alAvanzar(EstadoActualizacion.Verificando(paquete))
-        val calculado = verificador.sha256De(destino)
+        // Leer el fichero puede fallar aunque la descarga dijera que sí: entre medias lo
+        // puede haber barrido la limpieza, o el disco puede estar lleno. Es un fallo de
+        // descarga, no de hash: no hay APK que juzgar, así que se reintenta como tal.
+        val calculado = try {
+            verificador.sha256De(destino)
+        } catch (error: Exception) {
+            return abandonar(
+                paquete,
+                MotivoFallo.DESCARGA,
+                "no se pudo leer el APK descargado: ${error.message.orEmpty()}",
+                alAvanzar,
+            )
+        }
         if (!calculado.equals(paquete.sha256, ignoreCase = true)) {
             return abandonar(
                 paquete,
