@@ -48,11 +48,16 @@ RUTAS_PNG = (
     "app/src/main/ic_launcher-playstore.png",
     "docs/icono_512.png",
 )
-CAPAS = {
-    "background": "app/src/main/res/drawable/ic_launcher_background.xml",
-    "foreground": "app/src/main/res/drawable/ic_launcher_foreground.xml",
-    "monochrome": "app/src/main/res/drawable/ic_launcher_monochrome.xml",
-}
+CAPAS = ("background", "foreground", "monochrome")
+
+# Dónde vive el res/ de Android, según cómo esté montado el proyecto. Un Android de
+# toda la vida lo tiene en app/; uno de Compose Multiplatform, en el sourceSet de
+# Android del módulo compartido.
+MODULOS = (
+    "app/src/main",
+    "composeApp/src/androidMain",
+    "androidApp/src/main",
+)
 
 
 @dataclass
@@ -146,10 +151,12 @@ def _buscar_png(repo: str) -> bytes | None:
 
 def _buscar_vectores(repo: str) -> dict[str, bytes]:
     encontradas = {}
-    for capa, ruta in CAPAS.items():
-        contenido = _leer_del_repo(repo, ruta)
-        if contenido:
-            encontradas[capa] = contenido
+    for capa in CAPAS:
+        for modulo in MODULOS:
+            contenido = _leer_del_repo(repo, f"{modulo}/res/drawable/ic_launcher_{capa}.xml")
+            if contenido:
+                encontradas[capa] = contenido
+                break
     # Sin primer plano no hay icono que valga: el fondo solo es un color.
     return encontradas if "foreground" in encontradas else {}
 

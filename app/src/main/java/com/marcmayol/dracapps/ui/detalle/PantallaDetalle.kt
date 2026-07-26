@@ -2,14 +2,12 @@ package com.marcmayol.dracapps.ui.detalle
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -25,6 +23,7 @@ import com.marcmayol.dracapps.dominio.modelo.AppConEstado
 import com.marcmayol.dracapps.dominio.modelo.EstadoApp
 import com.marcmayol.dracapps.dominio.modelo.MotivoNoGestionada
 import com.marcmayol.dracapps.ui.comun.ChipDeEstado
+import com.marcmayol.dracapps.ui.comun.IconoDeApp
 import com.marcmayol.dracapps.ui.comun.textoDeAccion
 import com.marcmayol.dracapps.ui.tema.Espaciado
 
@@ -67,18 +66,14 @@ fun PantallaDetalle(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .size(Espaciado.iconoEnDetalle)
-                    .background(esquema.primaryContainer, MaterialTheme.shapes.medium),
-            ) {
-                Text(
-                    text = app.nombre.take(1).uppercase(),
-                    style = MaterialTheme.typography.headlineMedium,
-                    color = esquema.onPrimaryContainer,
-                )
-            }
+            IconoDeApp(
+                id = app.id,
+                nombre = app.nombre,
+                iconoUrl = app.iconoUrl,
+                tamano = Espaciado.iconoEnDetalle,
+                atenuado = !instalada,
+                estiloDeInicial = MaterialTheme.typography.headlineMedium,
+            )
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(
                     text = app.nombre,

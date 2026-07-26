@@ -1,15 +1,7 @@
 [
   {
-    "applicationId": "com.marcm.cronicasapetito",
-    "slug": "com_marcm_cronicasapetito",
-    "capas": [
-      "background",
-      "foreground"
-    ]
-  },
-  {
-    "applicationId": "com.marc.gymplan100",
-    "slug": "com_marc_gymplan100",
+    "applicationId": "com.marcm.middleearthjourney",
+    "slug": "com_marcm_middleearthjourney",
     "capas": [
       "background",
       "foreground",

@@ -6,13 +6,16 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.marcmayol.dracapps.android.IconosDelMovil
 import com.marcmayol.dracapps.ui.PantallaTienda
 import com.marcmayol.dracapps.ui.TiendaViewModel
+import com.marcmayol.dracapps.ui.comun.LocalIconosInstalados
 import com.marcmayol.dracapps.ui.tema.DracAppsTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,26 +25,31 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         val piezas = (application as DracAppsApp).piezas
+        // Los iconos de lo instalado los tiene el propio móvil: se leen aquí, donde hay
+        // Context, y bajan a las pantallas sin pasar por el modelo, que no sabe de Android.
+        val iconosDelMovil = IconosDelMovil(applicationContext)
 
         setContent {
             DracAppsTheme {
                 val modelo: TiendaViewModel = viewModel(factory = fabrica(piezas))
                 val estado by modelo.estado.collectAsStateWithLifecycle()
 
-                PantallaTienda(
-                    estado = estado,
-                    alCambiarDeSeccion = modelo::irA,
-                    alPulsarApp = modelo::abrirDetalle,
-                    alAccionar = modelo::instalar,
-                    alRefrescar = modelo::refrescar,
-                    alCerrarDetalle = modelo::cerrarDetalle,
-                    alCerrarHoja = modelo::cerrarHoja,
-                    alAbrirAjustesDeAndroid = {
-                        startActivity(piezas.intencionDeAjustesDeOrigenes())
-                    },
-                    alDejarPermisoParaLuego = modelo::cerrarPermiso,
-                    alAbrirApp = { app -> abrir(app.id) },
-                )
+                CompositionLocalProvider(LocalIconosInstalados provides iconosDelMovil) {
+                    PantallaTienda(
+                        estado = estado,
+                        alCambiarDeSeccion = modelo::irA,
+                        alPulsarApp = modelo::abrirDetalle,
+                        alAccionar = modelo::instalar,
+                        alRefrescar = modelo::refrescar,
+                        alCerrarDetalle = modelo::cerrarDetalle,
+                        alCerrarHoja = modelo::cerrarHoja,
+                        alAbrirAjustesDeAndroid = {
+                            startActivity(piezas.intencionDeAjustesDeOrigenes())
+                        },
+                        alDejarPermisoParaLuego = modelo::cerrarPermiso,
+                        alAbrirApp = { app -> abrir(app.id) },
+                    )
+                }
             }
         }
     }

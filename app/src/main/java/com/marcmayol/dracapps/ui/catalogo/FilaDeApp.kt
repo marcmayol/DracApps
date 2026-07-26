@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
@@ -20,13 +19,13 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
 import com.marcmayol.dracapps.dominio.modelo.EstadoApp
 import com.marcmayol.dracapps.ui.comun.ChipDeEstado
+import com.marcmayol.dracapps.ui.comun.IconoDeApp
 import com.marcmayol.dracapps.ui.comun.InsigniaDeActualizacion
 import com.marcmayol.dracapps.ui.comun.textoDeAccion
 import com.marcmayol.dracapps.ui.tema.Espaciado
@@ -76,7 +75,7 @@ fun FilaDeApp(
             .clickable(onClick = alPulsar)
             .padding(Espaciado.dentroDeTarjeta),
     ) {
-        IconoDeApp(conEstado)
+        IconoConInsignia(conEstado)
 
         Column(
             verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -104,27 +103,21 @@ fun FilaDeApp(
 }
 
 @Composable
-private fun IconoDeApp(conEstado: AppConEstado) {
-    val esquema = MaterialTheme.colorScheme
-    // Sin icono publicado, la tienda pinta su marcador: la inicial sobre una ficha del
-    // tesoro. Es lo que dice el diseño para cuando el catálogo no trae imagen.
+private fun IconoConInsignia(conEstado: AppConEstado) {
+    // Lo instalado se pinta con su icono del móvil; lo demás, con el del catálogo. Sin
+    // ninguno de los dos queda el marcador de la tienda: la inicial sobre una ficha del
+    // tesoro, que es lo que dice el diseño.
     val instalada = conEstado.estado !is EstadoApp.NoInstalada
 
     Box(contentAlignment = Alignment.TopEnd) {
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .testTag(Etiquetas.ICONO)
-                .size(Espaciado.iconoEnLista)
-                .alpha(if (instalada) 1f else 0.55f)
-                .background(esquema.primaryContainer, MaterialTheme.shapes.medium),
-        ) {
-            Text(
-                text = conEstado.nombre.take(1).uppercase(),
-                style = MaterialTheme.typography.titleMedium,
-                color = esquema.onPrimaryContainer,
-            )
-        }
+        IconoDeApp(
+            id = conEstado.id,
+            nombre = conEstado.nombre,
+            iconoUrl = conEstado.app.iconoUrl,
+            tamano = Espaciado.iconoEnLista,
+            atenuado = !instalada,
+            modifier = Modifier.testTag(Etiquetas.ICONO),
+        )
 
         if (conEstado.estado is EstadoApp.Actualizable) {
             InsigniaDeActualizacion(Modifier.padding(top = 0.dp))
