@@ -1,13 +1,13 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-07-25T10:29:38Z",
+  "generado": "2026-07-26T20:03:59Z",
   "apps": [
     {
       "id": "com.marc.gymplan100",
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio de 100 días con entrenamiento guiado en vivo (descansos avisados con la pantalla apagada). Android · Kotlin · Compose.",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
       "versionCode": 4,
       "versionName": "1.3",
       "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v1.3/app-release.apk",
@@ -22,7 +22,7 @@
       "id": "com.marcm.cronicasapetito",
       "nombre": "Crónicas del Apetito",
       "descripcion": "Registro de comidas con recordatorios horarios (apoyo a terapia). Android, Kotlin/Compose/Room, export PDF.",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
       "versionCode": 6,
       "versionName": "1.5",
       "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v1.5/cronicas-del-apetito-v1.5.apk",
@@ -30,6 +30,21 @@
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
       "tamanoBytes": 10777245,
       "notas": "Prueba del sistema de auto-actualización (sin cambios funcionales respecto a 1.4).",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcm.grimoriodepociones",
+      "nombre": "Grimorio de Salud",
+      "descripcion": "Seguimiento personal de medicación, tensión y antecedentes de salud (Android, Kotlin/Compose/Room).",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.grimoriodepociones.png",
+      "versionCode": 9,
+      "versionName": "1.8",
+      "apkUrl": "https://github.com/marcmayol/grimorio-de-pociones/releases/download/v1.8/grimorio-de-salud-v1.8.apk",
+      "sha256": "e008f7e4d362798ea664d17a8d8c1628621fb86e09265cce8e2a627dda080ae5",
+      "firmaSha256": "dd7db9e5c592d37339a66aa638ce8afd9f8f38189eebc80f2c3ac7b03ec75642",
+      "tamanoBytes": 10626050,
+      "notas": "Si esta se instala sin preguntar, el sistema está completo.",
       "canal": null,
       "minSdk": null
     }
