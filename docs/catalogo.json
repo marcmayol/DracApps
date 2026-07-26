@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-07-26T20:52:59Z",
+  "generado": "2026-07-26T20:55:47Z",
   "apps": [
     {
       "id": "com.marc.gymplan100",
@@ -60,6 +60,21 @@
       "firmaSha256": "dd7db9e5c592d37339a66aa638ce8afd9f8f38189eebc80f2c3ac7b03ec75642",
       "tamanoBytes": 10626050,
       "notas": "Si esta se instala sin preguntar, el sistema está completo.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcm.middleearthjourney",
+      "nombre": "Middle Earth Journey",
+      "descripcion": "",
+      "iconoUrl": "",
+      "versionCode": 2,
+      "versionName": "1.1",
+      "apkUrl": "https://github.com/marcmayol/middle_earth_journey/releases/download/v1.1/middle-earth-journey-v1.1.apk",
+      "sha256": "81a7762ae0e2dcecd0042db3bd8379695cfcfc5726b9161b75e2f4ad084a5ced",
+      "firmaSha256": "1ed43355c807dc2dc6fdbdd324a6ecf303de4f766d88b8004b871ef4a566585c",
+      "tamanoBytes": 13800163,
+      "notas": "Auto-actualizacion: la app ya avisa sola de las versiones nuevas y se instala sin pasar por la descarga manual.",
       "canal": null,
       "minSdk": null
     }
