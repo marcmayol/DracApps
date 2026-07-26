@@ -55,11 +55,16 @@ fun IconoDeApp(
     val delMovil = LocalIconosInstalados.current.de(id)
     val marcador: @Composable () -> Unit = { Inicial(nombre, estiloDeInicial) }
 
+    // Atenuar era para el marcador, que es un color de la marca y aguanta perderlo. Un
+    // icono de verdad, no: los hay casi negros, y al 55% sobre una tarjeta oscura
+    // desaparecen. Que no esté instalada ya lo dicen el chip y el botón.
+    val hayIconoDeVerdad = delMovil != null || iconoUrl.isNotBlank()
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .size(tamano)
-            .alpha(if (atenuado) 0.55f else 1f)
+            .alpha(if (atenuado && !hayIconoDeVerdad) 0.55f else 1f)
             .clip(MaterialTheme.shapes.medium)
             .background(MaterialTheme.colorScheme.primaryContainer),
     ) {
