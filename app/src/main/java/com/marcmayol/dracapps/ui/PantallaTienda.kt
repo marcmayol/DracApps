@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
 import com.marcmayol.dracapps.ui.catalogo.PantallaCatalogo
+import com.marcmayol.dracapps.ui.comun.laAccionEsAbrir
 import com.marcmayol.dracapps.ui.detalle.PantallaDetalle
 import com.marcmayol.dracapps.ui.instalacion.HojaDeInstalacion
 import com.marcmayol.dracapps.ui.permiso.PantallaPermiso
@@ -44,6 +45,11 @@ fun PantallaTienda(
     // la de gestos: se lo hacemos aquí, o el título acaba debajo del reloj.
     val aSalvoDelSistema = modifier.windowInsetsPadding(WindowInsets.safeDrawing)
 
+    // El botón principal hace lo que dice que hace: si pone «Abrir», abre.
+    val alPulsarElBoton: (AppConEstado) -> Unit = { app ->
+        if (laAccionEsAbrir(app.estado)) alAbrirApp(app) else alAccionar(app)
+    }
+
     if (estado.pidiendoPermiso) {
         PantallaPermiso(
             alAbrirAjustes = alAbrirAjustesDeAndroid,
@@ -57,7 +63,7 @@ fun PantallaTienda(
     if (detalle != null) {
         PantallaDetalle(
             conEstado = detalle,
-            alAccionar = { alAccionar(detalle) },
+            alAccionar = { alPulsarElBoton(detalle) },
             alAbrir = { alAbrirApp(detalle) },
             modifier = aSalvoDelSistema,
         )
@@ -74,7 +80,7 @@ fun PantallaTienda(
                 Seccion.APPS -> PantallaCatalogo(
                     estado = estado.catalogo,
                     alPulsarApp = alPulsarApp,
-                    alAccionar = alAccionar,
+                    alAccionar = alPulsarElBoton,
                     alReintentar = alRefrescar,
                     modifier = relleno,
                 )
@@ -93,7 +99,7 @@ fun PantallaTienda(
                         estado = hoja,
                         alCancelar = alCerrarHoja,
                         alOcultar = alCerrarHoja,
-                        alAbrir = { estado.detalle?.let(alAbrirApp) ?: alCerrarHoja() },
+                        alAbrir = { estado.appDeLaHoja?.let(alAbrirApp) ?: alCerrarHoja() },
                         alCerrar = alCerrarHoja,
                         modifier = Modifier.padding(bottom = 24.dp),
                     )

@@ -26,6 +26,13 @@ data class EstadoTienda(
     val detalle: AppConEstado? = null,
     val hoja: EstadoHoja? = null,
     val pidiendoPermiso: Boolean = false,
+    /**
+     * De qué app va la hoja abierta.
+     *
+     * Hace falta porque al terminar se cierra el detalle, y sin esto el «Abrir» de
+     * «Ya está» no sabía a quién abrir y se limitaba a cerrar la hoja.
+     */
+    val appDeLaHoja: AppConEstado? = null,
 )
 
 /**
@@ -87,7 +94,7 @@ class TiendaViewModel(
 
     fun cerrarDetalle() = _estado.update { it.copy(detalle = null) }
 
-    fun cerrarHoja() = _estado.update { it.copy(hoja = null) }
+    fun cerrarHoja() = _estado.update { it.copy(hoja = null, appDeLaHoja = null) }
 
     fun cerrarPermiso() = _estado.update { it.copy(pidiendoPermiso = false) }
 
@@ -106,9 +113,9 @@ class TiendaViewModel(
 
         ambito.launch {
             val resultado = instalarPaquete(app.app.aPaquete()) { avance ->
-                _estado.update { it.copy(hoja = avance.aHoja(app)) }
+                _estado.update { it.copy(hoja = avance.aHoja(app), appDeLaHoja = app) }
             }
-            _estado.update { it.copy(hoja = resultado.aHoja(app), detalle = null) }
+            _estado.update { it.copy(hoja = resultado.aHoja(app), appDeLaHoja = app, detalle = null) }
             if (resultado is EstadoActualizacion.Confirmada) refrescar()
         }
     }

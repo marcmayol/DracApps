@@ -150,6 +150,15 @@ fun textoDeAccion(estado: EstadoApp): String = when (estado) {
 }
 
 /**
+ * Si el botón principal abre la app en vez de instalarla.
+ *
+ * Vive pegado al texto a propósito: son la misma decisión. Estuvieron separados y el
+ * botón acabó diciendo «Abrir» mientras por dentro se lanzaba a instalar.
+ */
+fun laAccionEsAbrir(estado: EstadoApp): Boolean =
+    estado is EstadoApp.InstaladaAlDia || estado is EstadoApp.NoGestionada
+
+/**
  * Borde de trazo discontinuo, del radio del chip.
  *
  * Compose no trae borde discontinuo de serie, así que se dibuja: es lo que distingue
