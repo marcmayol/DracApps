@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-07-27T06:01:59Z",
+  "generado": "2026-07-27T21:29:37Z",
   "apps": [
     {
       "id": "com.marc.gymplan100",
@@ -23,13 +23,13 @@
       "nombre": "Kuse",
       "descripcion": "Kuse (癖) · hábitos recurrentes multi-ámbito para Android, con auto-actualización fuera de Play Store",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cadencia.png",
-      "versionCode": 3,
-      "versionName": "2.1",
-      "apkUrl": "https://github.com/marcmayol/kuse/releases/download/v2.1/kuse-v2.1.apk",
-      "sha256": "b7f56e3ecccd80898df9d12a287d04a444eb903fe934cc3b9b2d269a34a51919",
+      "versionCode": 4,
+      "versionName": "2.2",
+      "apkUrl": "https://github.com/marcmayol/kuse/releases/download/v2.2/kuse-v2.2.apk",
+      "sha256": "744203544469dec1f8215394dbeaf7a0d430839c899976d74b90b5fc6c92a9e4",
       "firmaSha256": "d24bbea6d5a6533d278b320e938148470d399a239d7a5851609485417d2a3f67",
-      "tamanoBytes": 11076615,
-      "notas": "Versión de prueba de la auto-actualización: sin cambios funcionales respecto a la 2.0.",
+      "tamanoBytes": 11079959,
+      "notas": "La pantalla de nueva tarea ya muestra los cuatro ambitos y deja crearte uno propio sin pasar por Ajustes.",
       "canal": null,
       "minSdk": null
     },
