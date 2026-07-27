@@ -128,8 +128,8 @@ fun PantallaAjustes(
                 Text(if (estado.comprobando) "Comprobando…" else "Comprobar ahora")
             }
             Text(
-                text = "La tienda todavía no mira sola si hay novedades: se entera al " +
-                    "abrirla y cuando lo pides aquí.",
+                text = "De tus apps se entera al abrir la tienda y cuando lo pides " +
+                    "aquí; todavía no las mira sola en segundo plano.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
