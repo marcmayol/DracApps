@@ -27,6 +27,9 @@ rootProject.name = "DracApps"
 // a ser algo que el compilador impide romper.
 include(":dominio")
 include(":actualizador")
+// El de arriba instala las apps del catálogo; este actualiza la tienda a sí misma y es
+// el mismo módulo que llevan las otras apps (com.marcm.actualizador), copiado tal cual.
+include(":autoactualizador")
 include(":app")
 
 // Herramienta de admin para rasterizar los iconos de las apps del catálogo.
