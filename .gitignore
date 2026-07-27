@@ -19,6 +19,7 @@ app/local.properties
 *.aab
 *.keystore
 *.jks
+keystore.properties
 
 # Sistema
 Thumbs.db
