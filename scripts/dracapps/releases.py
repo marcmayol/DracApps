@@ -14,6 +14,7 @@ import json
 import shutil
 import subprocess
 from dataclasses import dataclass
+from fnmatch import fnmatch
 from pathlib import Path
 from typing import Protocol
 
@@ -80,10 +81,20 @@ def elegir_apk(release: Release, preferido: str | None = None) -> Asset:
         )
 
     if preferido:
-        for apk in apks:
-            if apk.nombre == preferido:
-                return apk
+        # El nombre del asset suele llevar la versión dentro, así que se admiten
+        # comodines ("building-my-future-v*.apk"): sin ellos habría que editar
+        # apps.yaml en cada versión nueva y el catálogo se rompería solo.
+        elegidos = [a for a in apks if a.nombre == preferido or fnmatch(a.nombre, preferido)]
+        if len(elegidos) == 1:
+            return elegidos[0]
         disponibles = ", ".join(a.nombre for a in apks)
+        if len(elegidos) > 1:
+            coincidencias = ", ".join(a.nombre for a in elegidos)
+            raise ErrorDeRelease(
+                f"El patrón '{preferido}' encaja con {len(elegidos)} APKs de la Release "
+                f"{release.etiqueta} de '{release.repo}': {coincidencias}.",
+                "Afina el campo 'apk' de esa app en apps.yaml para que solo quede uno.",
+            )
         raise ErrorDeRelease(
             f"La Release {release.etiqueta} de '{release.repo}' no tiene ningún APK "
             f"llamado '{preferido}' (hay: {disponibles}).",

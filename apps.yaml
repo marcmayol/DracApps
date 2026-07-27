@@ -27,10 +27,10 @@ apps:
 
   # Plan de gimnasio de 100 días con entrenamiento guiado en vivo.
   # Su Release publica dos APKs (móvil y reloj); el del catálogo es el del móvil.
-  # OJO: el nombre lleva la versión dentro, así que hay que actualizarlo en cada
-  # versión nueva de esta app o el generador volverá a abortar.
+  # El nombre lleva la versión dentro, así que se elige por patrón: el "-reloj-"
+  # queda fuera solo y no hay que tocar esto en cada versión.
   - repo: marcmayol/building-my-future
-    apk: building-my-future-v1.4.apk
+    apk: building-my-future-v*.apk
 
   # Seguimiento de medicación, tensión y antecedentes de salud.
   - repo: marcmayol/grimorio-de-pociones

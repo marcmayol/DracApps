@@ -133,6 +133,32 @@ def test_el_campo_apk_desempata(tmp_path):
     assert resultado.catalogo.apps[0].apkUrl.endswith("app-release.apk")
 
 
+def test_el_campo_apk_admite_comodines(tmp_path):
+    # El nombre del asset lleva la versión dentro ("...-v1.5.apk"): sin patrón habría
+    # que editar apps.yaml en cada versión nueva y el catálogo se rompería solo.
+    proveedor, lector = montar({"m/a": ApkFalso("com.a", version_code=1)})
+    proveedor.releases["m/a"] = release_con_apk(
+        "m/a", nombre_apk="gym-v1.5.apk", extras=("gym-reloj-v1.5.apk",)
+    )
+
+    altas = altas_de("m/a", **{"m/a": {"apk": "gym-v*.apk"}})
+    resultado = generar_con(altas, proveedor, lector, tmp_path)
+
+    assert resultado.catalogo.apps[0].apkUrl.endswith("gym-v1.5.apk")
+
+
+def test_un_patron_ambiguo_aborta_en_vez_de_elegir_al_azar(tmp_path):
+    proveedor, lector = montar({"m/a": ApkFalso("com.a", version_code=1)})
+    proveedor.releases["m/a"] = release_con_apk(
+        "m/a", nombre_apk="gym-v1.5.apk", extras=("gym-v1.5-beta.apk",)
+    )
+
+    with pytest.raises(ErrorDeRelease) as error:
+        generar_con(altas_de("m/a", **{"m/a": {"apk": "gym-v*.apk"}}), proveedor, lector, tmp_path)
+
+    assert "encaja con 2" in str(error.value)
+
+
 def test_el_version_code_no_puede_retroceder(tmp_path):
     proveedor, lector = montar({"m/a": ApkFalso("com.a", version_code=3)})
     publicado = generar_con(altas_de("m/a"), proveedor, lector, tmp_path).catalogo
