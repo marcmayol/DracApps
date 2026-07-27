@@ -36,6 +36,14 @@ android {
             "URL_CATALOGO",
             "\"https://marcmayol.com/DracApps/catalogo.json\"",
         )
+
+        // Manifiesto de la propia tienda, aparte del catálogo: así puede repararse
+        // aunque una versión rota dejara el catálogo ilegible.
+        buildConfigField(
+            "String",
+            "URL_ACTUALIZACIONES",
+            "\"https://marcmayol.com/DracApps/updates.json\"",
+        )
     }
 
     signingConfigs {
@@ -100,6 +108,7 @@ androidComponents {
 dependencies {
     implementation(project(":dominio"))
     implementation(project(":actualizador"))
+    implementation(project(":autoactualizador"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

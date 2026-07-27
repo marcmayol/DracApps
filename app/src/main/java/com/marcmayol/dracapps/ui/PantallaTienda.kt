@@ -2,6 +2,7 @@ package com.marcmayol.dracapps.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -20,6 +21,7 @@ import com.marcmayol.dracapps.ui.comun.laAccionEsAbrir
 import com.marcmayol.dracapps.ui.detalle.PantallaDetalle
 import com.marcmayol.dracapps.ui.instalacion.HojaDeInstalacion
 import com.marcmayol.dracapps.ui.permiso.PantallaPermiso
+import com.marcmayol.dracapps.ui.tienda.BannerDeLaTienda
 
 /**
  * La tienda entera, montada a partir de un solo estado.
@@ -44,6 +46,9 @@ fun PantallaTienda(
     alCambiarTextoGrande: (Boolean) -> Unit = {},
     alCambiarColorDelSistema: (Boolean) -> Unit = {},
     modifier: Modifier = Modifier,
+    alCambiarBuscarLaTienda: (Boolean) -> Unit = {},
+    alComprobarLaTienda: () -> Unit = {},
+    alActualizarLaTienda: () -> Unit = {},
 ) {
     // Estas dos se pintan sin el andamio, así que nadie les aparta la barra de estado ni
     // la de gestos: se lo hacemos aquí, o el título acaba debajo del reloj.
@@ -88,13 +93,19 @@ fun PantallaTienda(
     ) { relleno ->
         Box(Modifier.fillMaxSize()) {
             when (estado.seccion) {
-                Seccion.APPS -> PantallaCatalogo(
-                    estado = estado.catalogo,
-                    alPulsarApp = alPulsarApp,
-                    alAccionar = alPulsarElBoton,
-                    alReintentar = alRefrescar,
-                    modifier = relleno,
-                )
+                Seccion.APPS -> Column(modifier = relleno) {
+                    BannerDeLaTienda(
+                        estado = estado.ajustes.tienda,
+                        alActualizar = alActualizarLaTienda,
+                    )
+                    PantallaCatalogo(
+                        estado = estado.catalogo,
+                        alPulsarApp = alPulsarApp,
+                        alAccionar = alPulsarElBoton,
+                        alReintentar = alRefrescar,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
 
                 Seccion.NOVEDADES -> EnConstruccion(Seccion.NOVEDADES, relleno)
 
@@ -105,6 +116,9 @@ fun PantallaTienda(
                     alCambiarColorDelSistema = alCambiarColorDelSistema,
                     alAbrirAjustesDeAndroid = alAbrirAjustesDeAndroid,
                     modifier = relleno,
+                    alCambiarBuscarLaTienda = alCambiarBuscarLaTienda,
+                    alComprobarLaTienda = alComprobarLaTienda,
+                    alActualizarLaTienda = alActualizarLaTienda,
                 )
             }
 

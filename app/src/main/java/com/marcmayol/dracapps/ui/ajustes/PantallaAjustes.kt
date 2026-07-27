@@ -39,6 +39,9 @@ object EtiquetasAjustes {
     const val PERMISO = "boton-permiso"
     const val TEXTO_GRANDE = "interruptor-texto-grande"
     const val COLOR_DEL_SISTEMA = "interruptor-color-del-sistema"
+    const val BUSCAR_TIENDA = "interruptor-buscar-tienda"
+    const val COMPROBAR_TIENDA = "boton-comprobar-tienda"
+    const val ACTUALIZAR_TIENDA = "boton-actualizar-tienda"
 }
 
 /** Lo que Ajustes necesita saber, ya cocinado por el modelo. */
@@ -50,6 +53,23 @@ data class EstadoAjustes(
     val hayPermisoParaInstalar: Boolean = false,
     val actualizacionesPendientes: Int = 0,
     val appsEnElCatalogo: Int = 0,
+    /** La tienda misma, que también se actualiza sola. */
+    val tienda: EstadoDeLaTienda = EstadoDeLaTienda(),
+)
+
+/**
+ * La actualización de **la propia tienda**, que no sale del catálogo sino de su
+ * manifiesto. Llega ya en palabras: la pantalla no interpreta estados, los pinta.
+ */
+data class EstadoDeLaTienda(
+    val version: String = "",
+    val buscarSola: Boolean = true,
+    /** Título del aviso cuando hay versión nueva ("Versión 0.1.2 disponible"). */
+    val novedad: String? = null,
+    val notas: String = "",
+    /** Una línea de estado: "Descargando… 40 %", "Estás al día ✓", un error… */
+    val mensaje: String? = null,
+    val esError: Boolean = false,
 )
 
 /**
@@ -68,6 +88,9 @@ fun PantallaAjustes(
     alCambiarColorDelSistema: (Boolean) -> Unit,
     alAbrirAjustesDeAndroid: () -> Unit,
     modifier: Modifier = Modifier,
+    alCambiarBuscarLaTienda: (Boolean) -> Unit = {},
+    alComprobarLaTienda: () -> Unit = {},
+    alActualizarLaTienda: () -> Unit = {},
 ) {
     Column(
         modifier = modifier
@@ -110,6 +133,58 @@ fun PantallaAjustes(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+
+        Tarjeta("La tienda") {
+            Text(
+                text = "DracApps ${estado.tienda.version}",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+            Text(
+                text = "La tienda también se actualiza sola, aparte de las apps. " +
+                    "Al hacerlo se cerrará un momento.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Interruptor(
+                titulo = "Buscar sus actualizaciones",
+                explicacion = "Mira si hay una versión nueva de la tienda al abrirla y " +
+                    "una vez al día.",
+                activado = estado.tienda.buscarSola,
+                alCambiar = alCambiarBuscarLaTienda,
+                etiqueta = EtiquetasAjustes.BUSCAR_TIENDA,
+            )
+            FilledTonalButton(
+                onClick = alComprobarLaTienda,
+                modifier = Modifier
+                    .testTag(EtiquetasAjustes.COMPROBAR_TIENDA)
+                    .defaultMinSize(minHeight = Espaciado.areaTactilMinima),
+            ) {
+                Text("Buscar ahora")
+            }
+            if (estado.tienda.novedad != null) {
+                FilledTonalButton(
+                    onClick = alActualizarLaTienda,
+                    modifier = Modifier
+                        .testTag(EtiquetasAjustes.ACTUALIZAR_TIENDA)
+                        .defaultMinSize(minHeight = Espaciado.areaTactilMinima),
+                ) {
+                    Text("Actualizar la tienda")
+                }
+            }
+            val mensaje = estado.tienda.mensaje
+            if (mensaje != null) {
+                Text(
+                    text = mensaje,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (estado.tienda.esError) {
+                        MaterialTheme.colorScheme.error
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                )
+            }
         }
 
         Tarjeta("Instalar apps") {

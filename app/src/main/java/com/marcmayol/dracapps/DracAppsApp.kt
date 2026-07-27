@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import com.marcm.actualizador.Actualizador
+import com.marcm.actualizador.ActualizadorConfig
 import com.marcmayol.actualizador.instalacion.AlmacenPrivado
 import com.marcmayol.actualizador.instalacion.DescargaHttp
 import com.marcmayol.actualizador.instalacion.InstalarPaquete
@@ -28,6 +30,22 @@ import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
 class DracAppsApp : Application() {
 
     val piezas by lazy { Piezas(this) }
+
+    /**
+     * La tienda se actualiza a sí misma con el mismo módulo que llevan las demás apps
+     * de la casa. No usa su propio catálogo a propósito: si una versión rota impidiera
+     * leerlo, la tienda se quedaría sin forma de repararse.
+     */
+    val autoactualizador: Actualizador by lazy {
+        Actualizador(
+            app = this,
+            config = ActualizadorConfig(
+                manifiestoUrl = BuildConfig.URL_ACTUALIZACIONES,
+                versionCodeActual = BuildConfig.VERSION_CODE,
+                checkHorasPorDefecto = 24,
+            ),
+        )
+    }
 }
 
 class Piezas(private val contexto: Context) {
