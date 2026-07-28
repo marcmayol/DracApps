@@ -101,6 +101,17 @@ class MainActivity : ComponentActivity() {
                             lifecycleScope.launch { autoactualizador.comprobar(Modo.MANUAL) }
                         },
                         alActualizarLaTienda = { autoactualizador.actualizarAhora() },
+                        // La tienda se actualiza al final, cuando las demás ya están:
+                        // instalarla cierra la app y cortaría la cola por la mitad.
+                        alActualizarTodo = {
+                            modelo.actualizarTodo(
+                                alTerminar = {
+                                    if (autoactualizacion is EstadoActualizacion.Disponible) {
+                                        autoactualizador.actualizarAhora()
+                                    }
+                                },
+                            )
+                        },
                     )
                 }
             }

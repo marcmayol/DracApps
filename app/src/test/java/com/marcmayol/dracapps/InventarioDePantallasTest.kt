@@ -21,6 +21,7 @@ import com.marcmayol.dracapps.ui.PantallaTienda
 import com.marcmayol.dracapps.ui.Seccion
 import com.marcmayol.dracapps.ui.ajustes.EstadoAjustes
 import com.marcmayol.dracapps.ui.ajustes.EtiquetasAjustes
+import com.marcmayol.dracapps.ui.ajustes.EstadoDeLaTienda
 import com.marcmayol.dracapps.ui.catalogo.EstadoPantallaCatalogo
 import com.marcmayol.dracapps.ui.catalogo.Etiquetas
 import com.marcmayol.dracapps.ui.comun.EtiquetasEstados
@@ -28,6 +29,7 @@ import com.marcmayol.dracapps.ui.detalle.EtiquetasDetalle
 import com.marcmayol.dracapps.ui.instalacion.EstadoHoja
 import com.marcmayol.dracapps.ui.instalacion.EtiquetasInstalacion
 import com.marcmayol.dracapps.ui.instalacion.HojaDeInstalacion
+import com.marcmayol.dracapps.ui.novedades.EtiquetasNovedades
 import com.marcmayol.dracapps.ui.permiso.EtiquetasPermiso
 import com.marcmayol.dracapps.ui.tema.DracAppsTheme
 import org.junit.Assert.assertEquals
@@ -364,11 +366,101 @@ class InventarioDePantallasTest {
         assertEquals(Seccion.NOVEDADES, destino)
     }
 
-    @Test
-    fun `navegacion - lo que aun no esta hecho lo dice, no finge`() {
-        pintar(EstadoTienda(seccion = Seccion.NOVEDADES))
+    // --- Novedades -------------------------------------------------------------------
 
-        compose.onNodeWithTag("en-construccion").assertIsDisplayed()
+    @Test
+    fun `novedades - lo que espera va arriba y lo que esta al dia, debajo y aparte`() {
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(listOf(alDia(), actualizable())),
+            )
+        )
+
+        compose.onNodeWithTag(EtiquetasNovedades.SUBTITULO).assertIsDisplayed()
+        compose.onNodeWithText("1 app por actualizar · 8,0 MB en total").assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasNovedades.SEPARADOR_AL_DIA).performScrollTo()
+            .assertIsDisplayed()
+    }
+
+    @Test
+    fun `novedades - con una sola app que actualizar no hace falta Actualizar todo`() {
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(listOf(actualizable(), alDia())),
+            )
+        )
+
+        compose.onAllNodesWithTag(EtiquetasNovedades.ACTUALIZAR_TODO).assertCountEquals(0)
+    }
+
+    @Test
+    fun `novedades - con varias, un solo boton las actualiza todas`() {
+        var pulsado = 0
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(
+                    listOf(actualizable(), otraActualizable()),
+                ),
+            ),
+            alActualizarTodo = { pulsado++ },
+        )
+
+        compose.onNodeWithTag(EtiquetasNovedades.ACTUALIZAR_TODO).performClick()
+
+        assertEquals(1, pulsado)
+    }
+
+    @Test
+    fun `novedades - la tienda cuenta para Actualizar todo, que es quien la actualiza`() {
+        // Una sola app pero la tienda tambien esperando: son dos cosas, y el subtitulo
+        // dice dos, asi que el boton de arriba tiene que estar.
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(listOf(actualizable())),
+                ajustes = EstadoAjustes(
+                    tienda = EstadoDeLaTienda(novedad = "Versión 0.2.0 de la tienda disponible"),
+                ),
+            )
+        )
+
+        compose.onNodeWithText("2 apps por actualizar · 8,0 MB en total").assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasNovedades.ACTUALIZAR_TODO).assertIsDisplayed()
+    }
+
+    @Test
+    fun `novedades - la propia tienda encabeza la lista cuando tiene version nueva`() {
+        var actualizada = false
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(listOf(alDia())),
+                ajustes = EstadoAjustes(
+                    tienda = EstadoDeLaTienda(novedad = "Versión 0.2.0 de la tienda disponible"),
+                ),
+            ),
+            alActualizarLaTienda = { actualizada = true },
+        )
+
+        compose.onNodeWithText("Esta tienda").assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasNovedades.FILA_TIENDA).performClick()
+
+        assertTrue(actualizada)
+    }
+
+    @Test
+    fun `novedades - sin nada instalado se dice, sin inventar tareas`() {
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.NOVEDADES,
+                catalogo = EstadoPantallaCatalogo.Listo(listOf(noInstalada())),
+            )
+        )
+
+        compose.onNodeWithText("Nada que actualizar").assertIsDisplayed()
     }
 
     @Test
@@ -443,6 +535,8 @@ class InventarioDePantallasTest {
         alCambiarDeSeccion: (Seccion) -> Unit = {},
         alCambiarTextoGrande: (Boolean) -> Unit = {},
         alCerrarDetalle: () -> Unit = {},
+        alActualizarTodo: () -> Unit = {},
+        alActualizarLaTienda: () -> Unit = {},
     ) {
         compose.setContent {
             DracAppsTheme {
@@ -458,6 +552,8 @@ class InventarioDePantallasTest {
                     alDejarPermisoParaLuego = alDejarPermisoParaLuego,
                     alAbrirApp = {},
                     alCambiarTextoGrande = alCambiarTextoGrande,
+                    alActualizarTodo = alActualizarTodo,
+                    alActualizarLaTienda = alActualizarLaTienda,
                 )
             }
         }
@@ -493,6 +589,11 @@ private fun alDia() = AppConEstado(
 private fun actualizable() = AppConEstado(
     app = app("com.actualizable", "GymPlan100"),
     estado = EstadoApp.Actualizable("2.4.0", "2.5.1", 4, 5),
+)
+
+private fun otraActualizable() = AppConEstado(
+    app = app("com.otraactualizable", "Aseo Diario"),
+    estado = EstadoApp.Actualizable("1.0", "2.5.1", 1, 5),
 )
 
 private fun noGestionada() = AppConEstado(

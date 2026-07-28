@@ -66,6 +66,26 @@ class CapturasTest {
     }
 
     @Test
+    fun `novedades con la tienda y dos apps esperando`() {
+        capturar("novedades") { oscuro ->
+            Tienda(
+                oscuro,
+                EstadoTienda(
+                    seccion = com.marcmayol.dracapps.ui.Seccion.NOVEDADES,
+                    catalogo = EstadoPantallaCatalogo.Listo(
+                        listOf(actualizable(), alDia(), noGestionada(), noInstalada())
+                    ),
+                    ajustes = com.marcmayol.dracapps.ui.ajustes.EstadoAjustes(
+                        tienda = com.marcmayol.dracapps.ui.ajustes.EstadoDeLaTienda(
+                            novedad = "El dragón muda de piel · 0.1.1 → 0.2.0",
+                        ),
+                    ),
+                ),
+            )
+        }
+    }
+
+    @Test
     fun `detalle de una app con actualizacion`() {
         capturar("detalle") { oscuro -> Tienda(oscuro, EstadoTienda(detalle = actualizable())) }
     }

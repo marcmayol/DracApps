@@ -20,6 +20,7 @@ import com.marcmayol.dracapps.ui.catalogo.PantallaCatalogo
 import com.marcmayol.dracapps.ui.comun.laAccionEsAbrir
 import com.marcmayol.dracapps.ui.detalle.PantallaDetalle
 import com.marcmayol.dracapps.ui.instalacion.HojaDeInstalacion
+import com.marcmayol.dracapps.ui.novedades.PantallaNovedades
 import com.marcmayol.dracapps.ui.permiso.PantallaPermiso
 import com.marcmayol.dracapps.ui.tienda.BannerDeLaTienda
 
@@ -49,6 +50,7 @@ fun PantallaTienda(
     alCambiarBuscarLaTienda: (Boolean) -> Unit = {},
     alComprobarLaTienda: () -> Unit = {},
     alActualizarLaTienda: () -> Unit = {},
+    alActualizarTodo: () -> Unit = {},
 ) {
     // Estas dos se pintan sin el andamio, así que nadie les aparta la barra de estado ni
     // la de gestos: se lo hacemos aquí, o el título acaba debajo del reloj.
@@ -107,7 +109,16 @@ fun PantallaTienda(
                     )
                 }
 
-                Seccion.NOVEDADES -> EnConstruccion(Seccion.NOVEDADES, relleno)
+                Seccion.NOVEDADES -> PantallaNovedades(
+                    estado = estado.catalogo,
+                    tienda = estado.ajustes.tienda,
+                    alPulsarApp = alPulsarApp,
+                    alAccionar = alPulsarElBoton,
+                    alActualizarTodo = alActualizarTodo,
+                    alActualizarLaTienda = alActualizarLaTienda,
+                    alComprobar = alRefrescar,
+                    modifier = relleno,
+                )
 
                 Seccion.AJUSTES -> PantallaAjustes(
                     estado = estado.ajustes,

@@ -187,13 +187,45 @@ class TiendaViewModel(
         }
 
         ambito.launch {
-            val resultado = instalarPaquete(app.app.aPaquete()) { avance ->
-                _estado.update { it.copy(hoja = avance.aHoja(app), appDeLaHoja = app) }
-            }
-            _estado.update { it.copy(hoja = resultado.aHoja(app), appDeLaHoja = app, detalle = null) }
-            if (resultado is EstadoActualizacion.Confirmada) refrescar()
+            if (instalarUna(app) is EstadoActualizacion.Confirmada) refrescar()
         }
     }
+
+    /**
+     * Actualizar de una tacada todo lo que tenga versión nueva.
+     *
+     * Van una detrás de otra, no a la vez: cada instalación pide su confirmación al
+     * sistema, y lanzarlas en paralelo llenaría la pantalla de diálogos encimados.
+     *
+     * La tienda va la última, y por eso se pasa como `alTerminar` en vez de meterla en
+     * la cola: al instalarse se cierra a sí misma, así que si fuera antes se llevaría
+     * por delante todo lo que quedara pendiente.
+     */
+    fun actualizarTodo(alTerminar: () -> Unit = {}) {
+        if (!hayPermisoParaInstalar()) {
+            _estado.update { it.copy(pidiendoPermiso = true, detalle = null) }
+            return
+        }
+
+        val pendientes = appsDelCatalogo().filter { it.tieneActualizacion }
+
+        ambito.launch {
+            val hechas = pendientes.count { instalarUna(it) is EstadoActualizacion.Confirmada }
+            if (hechas > 0) refrescar()
+            alTerminar()
+        }
+    }
+
+    private suspend fun instalarUna(app: AppConEstado): EstadoActualizacion {
+        val resultado = instalarPaquete(app.app.aPaquete()) { avance ->
+            _estado.update { it.copy(hoja = avance.aHoja(app), appDeLaHoja = app) }
+        }
+        _estado.update { it.copy(hoja = resultado.aHoja(app), appDeLaHoja = app, detalle = null) }
+        return resultado
+    }
+
+    private fun appsDelCatalogo(): List<AppConEstado> =
+        (_estado.value.catalogo as? EstadoPantallaCatalogo.Listo)?.apps.orEmpty()
 
     private fun EstadoActualizacion.aHoja(app: AppConEstado): EstadoHoja = when (this) {
         is EstadoActualizacion.Descargando -> EstadoHoja.Descargando(
