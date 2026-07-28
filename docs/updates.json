@@ -1,8 +1,8 @@
 {
-  "versionCode": 3,
-  "versionName": "0.1.2",
-  "url": "https://github.com/marcmayol/DracApps/releases/download/v0.1.2/dracapps-v0.1.2.apk",
-  "sha256": "36cb3b06aa55e7d46d910759c547235254e90fc681abb6cdd677163068902dd9",
-  "notas": "La tienda ya se actualiza sola: avisa cuando hay una version nueva de DracApps, la descarga, comprueba su firma y la instala. Ademas, las apps que se actualizan solas dejan de aparecer como instaladas por fuera.",
+  "versionCode": 4,
+  "versionName": "0.1.3",
+  "url": "https://github.com/marcmayol/DracApps/releases/download/v0.1.3/dracapps-v0.1.3.apk",
+  "sha256": "e4fa577f1797e2a3ec2b55d32a05ba427b0b148c256d989712432b000afd24e5",
+  "notas": "Ya esta la pestana Novedades: en una sola pantalla, lo que tiene version nueva arriba (empezando por la propia tienda) y lo que ya esta al dia debajo, sin ruido. Con un boton para actualizarlo todo de una vez.",
   "check_horas": 24
 }
