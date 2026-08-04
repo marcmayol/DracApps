@@ -33,6 +33,13 @@
   }
   .aviso p { margin: 0; }
   h2 { font-size: 1.05rem; margin: 2rem 0 .6rem; }
+  .descarga {
+    display: inline-flex; align-items: center; gap: .6rem;
+    background: var(--pr); color: var(--sf); text-decoration: none;
+    border-radius: 999px; padding: .85rem 1.5rem; font-weight: 600;
+  }
+  .descarga svg { width: 1.15em; height: 1.15em; }
+  .version { margin: .7rem 0 0; color: var(--on-sf-var); font-size: .85rem; }
   code {
     background: var(--sf-var); color: var(--on-sf-var); padding: .15rem .45rem;
     border-radius: .4rem; font-size: .88em; word-break: break-all;
@@ -60,9 +67,21 @@
   </div>
 
   <div class="aviso">
-    <p>Esto no es una web de descargas: es el catálogo que lee la app DracApps.
-    Si te han dado un móvil con la tienda instalada, ábrela y ya está.</p>
+    <p>Aquí solo se descarga la tienda. Las apps van dentro de ella: se instalan y se
+    actualizan desde DracApps, sin volver a pasar por esta página.</p>
   </div>
+
+  <h2>Instalar la tienda</h2>
+  <p><a class="descarga" id="descarga"
+        href="https://github.com/marcmayol/DracApps/releases/latest">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/>
+      </svg>
+      Descargar DracApps
+    </a></p>
+  <p class="version" id="version">El móvil pedirá permiso para instalar desde el
+    navegador: es la única vez que hace falta.</p>
 
   <h2>Para curiosos</h2>
   <p>El catálogo se publica aquí:
@@ -76,5 +95,20 @@
     <a href="https://github.com/marcmayol/DracApps">código del proyecto</a>
   </footer>
 </main>
+<script>
+  // El enlace de arriba ya funciona sin esto: lleva a la última Release. Si el
+  // manifiesto que publica la tienda está a mano, lo afinamos al APK concreto y
+  // decimos qué versión es. Si falla, se queda como estaba y nadie se entera.
+  fetch("updates.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (m) {
+      if (!m.url) return;
+      document.getElementById("descarga").href = m.url;
+      document.getElementById("version").textContent =
+        "Versión " + m.versionName + ". El móvil pedirá permiso para instalar desde " +
+        "el navegador: es la única vez que hace falta.";
+    })
+    .catch(function () {});
+</script>
 </body>
 </html>
