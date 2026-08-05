@@ -62,10 +62,22 @@ y corren sin emulador ni red.
 | Cambiar de pestaña | Va a la sección pulsada | `pulsar una pestaña cambia de seccion` |
 | Secciones de fases futuras | Dicen que aún no están, no fingen | `lo que aun no esta hecho lo dice, no finge` |
 
+## Ajustes
+
+| Acción | Qué tiene que verse | Test |
+|---|---|---|
+| La pantalla | «Comprobar ahora» y los interruptores, alcanzables con el dedo | `se ve la pantalla, con lo que hay que decidir` |
+| Cualquier interruptor | Conmuta desde toda la fila, no solo desde el mando | `el interruptor conmuta desde toda la fila, no solo desde el mando` |
+| **Avisos de actualizaciones** | Interruptor «Avisarme cuando haya novedades», apagado de fábrica | `se puede pedir que avise cuando haya novedades` |
+| Avisos encendidos | Desaparece la advertencia de que solo mira al abrirla | `con los avisos encendidos ya no se dice que solo mira al abrirla` |
+| Sin permiso de instalación | Se explica y se ofrece «Dar permiso» | `sin permiso para instalar, se ofrece darlo` |
+
 ## Lo que esta fase NO cubre
 
 Se dice para que no se dé por hecho:
 
-- **Novedades** y **Ajustes** son de las Fases 3 y 4. Su pestaña existe y avisa.
 - La instalación **real en un dispositivo** se hace con Marc delante, no aquí.
-- La auto-actualización de DracApps es de la Fase 3.
+- Que WorkManager despierte de verdad la ronda de fondo y que la notificación salga en
+  la barra de estado: eso solo se demuestra en un móvil. Lo que sí está probado sin
+  emulador es **qué decide** esa ronda (`VigilarActualizacionesTest`, en el dominio):
+  cuándo avisa, cuándo se calla y qué no repite.

@@ -10,6 +10,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.marcmayol.dracapps.dominio.modelo.AppConEstado
@@ -489,6 +490,35 @@ class InventarioDePantallasTest {
     }
 
     @Test
+    fun `ajustes - se puede pedir que avise cuando haya novedades`() {
+        var pedido: Boolean? = null
+        pintar(
+            EstadoTienda(seccion = Seccion.AJUSTES),
+            alCambiarAvisos = { pedido = it },
+        )
+
+        compose.onNodeWithTag(EtiquetasAjustes.AVISAR).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Avisarme cuando haya novedades").assertIsDisplayed()
+        compose.onNodeWithTag(EtiquetasAjustes.AVISAR).performClick()
+
+        assertEquals("apagado de fábrica, se enciende a mano", true, pedido)
+    }
+
+    @Test
+    fun `ajustes - con los avisos encendidos ya no se dice que solo mira al abrirla`() {
+        pintar(
+            EstadoTienda(
+                seccion = Seccion.AJUSTES,
+                ajustes = EstadoAjustes(avisarDeActualizaciones = true),
+            )
+        )
+
+        compose.onAllNodesWithText(
+            "Con esto apagado, de tus apps se entera al abrir la tienda y cuando lo pides aquí.",
+        ).assertCountEquals(0)
+    }
+
+    @Test
     fun `ajustes - sin permiso para instalar, se ofrece darlo`() {
         var abrio = false
         pintar(
@@ -534,6 +564,7 @@ class InventarioDePantallasTest {
         alDejarPermisoParaLuego: () -> Unit = {},
         alCambiarDeSeccion: (Seccion) -> Unit = {},
         alCambiarTextoGrande: (Boolean) -> Unit = {},
+        alCambiarAvisos: (Boolean) -> Unit = {},
         alCerrarDetalle: () -> Unit = {},
         alActualizarTodo: () -> Unit = {},
         alActualizarLaTienda: () -> Unit = {},
@@ -552,6 +583,7 @@ class InventarioDePantallasTest {
                     alDejarPermisoParaLuego = alDejarPermisoParaLuego,
                     alAbrirApp = {},
                     alCambiarTextoGrande = alCambiarTextoGrande,
+                    alCambiarAvisos = alCambiarAvisos,
                     alActualizarTodo = alActualizarTodo,
                     alActualizarLaTienda = alActualizarLaTienda,
                 )

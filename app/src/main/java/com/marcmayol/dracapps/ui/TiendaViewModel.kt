@@ -68,16 +68,23 @@ class TiendaViewModel(
             combine(
                 ajustesGuardados.textoGrande,
                 ajustesGuardados.colorDelSistema,
+                ajustesGuardados.avisarDeActualizaciones,
                 ajustesGuardados.ultimaComprobacion,
-            ) { textoGrande, colorDelSistema, ultima ->
-                Triple(textoGrande, colorDelSistema, ultima)
-            }.collect { (textoGrande, colorDelSistema, ultima) ->
+            ) { textoGrande, colorDelSistema, avisar, ultima ->
+                EstadoAjustes(
+                    textoGrande = textoGrande,
+                    colorDelSistema = colorDelSistema,
+                    avisarDeActualizaciones = avisar,
+                    ultimaComprobacion = ultima,
+                )
+            }.collect { guardado ->
                 _estado.update {
                     it.copy(
                         ajustes = it.ajustes.copy(
-                            textoGrande = textoGrande,
-                            colorDelSistema = colorDelSistema,
-                            ultimaComprobacion = ultima,
+                            textoGrande = guardado.textoGrande,
+                            colorDelSistema = guardado.colorDelSistema,
+                            avisarDeActualizaciones = guardado.avisarDeActualizaciones,
+                            ultimaComprobacion = guardado.ultimaComprobacion,
                         )
                     )
                 }
@@ -89,6 +96,15 @@ class TiendaViewModel(
 
     fun cambiarColorDelSistema(activado: Boolean) =
         ajustesGuardados.cambiarColorDelSistema(activado)
+
+    /**
+     * Guardar el ajuste es lo único que hace el modelo.
+     *
+     * Programar o cancelar la comprobación de fondo es cosa de quien sí conoce Android:
+     * el ViewModel no sabe qué es WorkManager y no va a empezar a saberlo por esto.
+     */
+    fun cambiarAvisos(activado: Boolean) =
+        ajustesGuardados.cambiarAvisarDeActualizaciones(activado)
 
     /**
      * Al arrancar: primero se recoge lo que quedó a medias, después se pide el

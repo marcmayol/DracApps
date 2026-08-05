@@ -7,6 +7,8 @@ import android.net.Uri
 import android.provider.Settings
 import com.marcm.actualizador.Actualizador
 import com.marcm.actualizador.ActualizadorConfig
+import com.marcm.actualizador.EstadoActualizacion
+import com.marcm.actualizador.Modo
 import com.marcmayol.actualizador.instalacion.AlmacenPrivado
 import com.marcmayol.actualizador.instalacion.DescargaHttp
 import com.marcmayol.actualizador.instalacion.InstalarPaquete
@@ -18,7 +20,10 @@ import com.marcmayol.actualizador.instalacion.VersionInstalada
 import com.marcmayol.dracapps.android.AjustesGuardados
 import com.marcmayol.dracapps.android.AppsDelMovil
 import com.marcmayol.dracapps.android.CatalogoHttp
+import com.marcmayol.dracapps.android.Notificador
 import com.marcmayol.dracapps.dominio.casos.ObtenerCatalogo
+import com.marcmayol.dracapps.dominio.casos.Pendiente
+import com.marcmayol.dracapps.dominio.casos.VigilarActualizaciones
 
 /**
  * Aquí se enchufan los adaptadores a los casos de uso, y en ningún otro sitio.
@@ -46,6 +51,34 @@ class DracAppsApp : Application() {
             ),
         )
     }
+
+    private val notificador by lazy { Notificador(this) }
+
+    /**
+     * La ronda de segundo plano, montada entera.
+     *
+     * Se arma aquí y no en [Piezas] porque necesita el autoactualizador, que es de la
+     * Application: la tienda se entera de sí misma por su manifiesto, no por el catálogo.
+     */
+    private val vigilar by lazy {
+        VigilarActualizaciones(
+            obtenerCatalogo = piezas.obtenerCatalogo,
+            memoria = piezas.ajustes,
+            laTienda = {
+                autoactualizador.comprobar(Modo.AUTOMATICO)
+                (autoactualizador.estado.value as? EstadoActualizacion.Disponible)?.let {
+                    Pendiente(
+                        id = packageName,
+                        nombre = getString(R.string.app_name),
+                        versionCodeNuevo = it.info.versionCode,
+                    )
+                }
+            },
+            avisar = { aviso -> notificador.avisar(aviso) },
+        )
+    }
+
+    suspend fun vigilarActualizaciones() = vigilar()
 }
 
 class Piezas(private val contexto: Context) {

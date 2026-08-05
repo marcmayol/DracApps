@@ -37,6 +37,7 @@ object EtiquetasAjustes {
     const val PANTALLA = "pantalla-ajustes"
     const val COMPROBAR = "boton-comprobar"
     const val PERMISO = "boton-permiso"
+    const val AVISAR = "interruptor-avisar"
     const val TEXTO_GRANDE = "interruptor-texto-grande"
     const val COLOR_DEL_SISTEMA = "interruptor-color-del-sistema"
     const val BUSCAR_TIENDA = "interruptor-buscar-tienda"
@@ -48,6 +49,7 @@ object EtiquetasAjustes {
 data class EstadoAjustes(
     val textoGrande: Boolean = false,
     val colorDelSistema: Boolean = false,
+    val avisarDeActualizaciones: Boolean = false,
     val ultimaComprobacion: Long? = null,
     val comprobando: Boolean = false,
     val hayPermisoParaInstalar: Boolean = false,
@@ -76,9 +78,8 @@ data class EstadoDeLaTienda(
  * Ajustes.
  *
  * Aquí solo hay cosas que hacen algo. La tienda la usa gente que no quiere administrar
- * nada, así que cada interruptor cambia algo que se nota, y lo que todavía no existe
- * —la comprobación automática— se dice en voz alta en vez de fingirse con un mando que
- * no gobierna nada.
+ * nada, así que cada interruptor cambia algo que se nota, y ninguno finge: el de los
+ * avisos programa y cancela de verdad la comprobación de fondo.
  */
 @Composable
 fun PantallaAjustes(
@@ -88,6 +89,7 @@ fun PantallaAjustes(
     alCambiarColorDelSistema: (Boolean) -> Unit,
     alAbrirAjustesDeAndroid: () -> Unit,
     modifier: Modifier = Modifier,
+    alCambiarAvisos: (Boolean) -> Unit = {},
     alCambiarBuscarLaTienda: (Boolean) -> Unit = {},
     alComprobarLaTienda: () -> Unit = {},
     alActualizarLaTienda: () -> Unit = {},
@@ -127,12 +129,23 @@ fun PantallaAjustes(
             ) {
                 Text(if (estado.comprobando) "Comprobando…" else "Comprobar ahora")
             }
-            Text(
-                text = "De tus apps se entera al abrir la tienda y cuando lo pides " +
-                    "aquí; todavía no las mira sola en segundo plano.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            Interruptor(
+                titulo = "Avisarme cuando haya novedades",
+                explicacion = "La tienda mira dos veces al día por su cuenta y te manda " +
+                    "una notificación si tus apps o ella misma tienen versión nueva. " +
+                    "Nunca instala nada sola.",
+                activado = estado.avisarDeActualizaciones,
+                alCambiar = alCambiarAvisos,
+                etiqueta = EtiquetasAjustes.AVISAR,
             )
+            if (!estado.avisarDeActualizaciones) {
+                Text(
+                    text = "Con esto apagado, de tus apps se entera al abrir la tienda y " +
+                        "cuando lo pides aquí.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
 
         Tarjeta("La tienda") {

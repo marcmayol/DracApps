@@ -86,6 +86,30 @@ class CapturasTest {
     }
 
     @Test
+    fun `ajustes con el aviso de actualizaciones encendido`() {
+        capturar("ajustes") { oscuro ->
+            Tienda(
+                oscuro,
+                EstadoTienda(
+                    seccion = com.marcmayol.dracapps.ui.Seccion.AJUSTES,
+                    catalogo = EstadoPantallaCatalogo.Listo(listOf(actualizable(), alDia())),
+                    ajustes = com.marcmayol.dracapps.ui.ajustes.EstadoAjustes(
+                        avisarDeActualizaciones = true,
+                        hayPermisoParaInstalar = true,
+                        actualizacionesPendientes = 1,
+                        appsEnElCatalogo = 5,
+                        ultimaComprobacion = 1_754_390_000_000,
+                        tienda = com.marcmayol.dracapps.ui.ajustes.EstadoDeLaTienda(
+                            version = "0.2.0 (5)",
+                            mensaje = "La tienda está al día ✓",
+                        ),
+                    ),
+                ),
+            )
+        }
+    }
+
+    @Test
     fun `detalle de una app con actualizacion`() {
         capturar("detalle") { oscuro -> Tienda(oscuro, EstadoTienda(detalle = actualizable())) }
     }

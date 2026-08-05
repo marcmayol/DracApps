@@ -25,8 +25,8 @@ android {
         // instalar, porque setRequireUserAction(false) no existe hasta la 31.
         minSdk = 26
         targetSdk = 35
-        versionCode = 4
-        versionName = "0.1.3"
+        versionCode = 5
+        versionName = "0.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -111,6 +111,9 @@ dependencies {
     implementation(project(":autoactualizador"))
 
     implementation(libs.androidx.core.ktx)
+    // La comprobación de fondo que avisa de las actualizaciones. El módulo
+    // :autoactualizador ya la usa para lo suyo, pero aquí hace falta directa.
+    implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)

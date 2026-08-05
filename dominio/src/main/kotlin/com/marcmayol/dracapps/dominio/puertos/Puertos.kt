@@ -22,3 +22,15 @@ interface AppsInstaladas {
     suspend fun buscar(id: String): AppInstalada?
     suspend fun todas(ids: Collection<String>): Map<String, AppInstalada>
 }
+
+/**
+ * De qué se avisó ya, para no volver a avisar de lo mismo.
+ *
+ * Tiene que sobrevivir a que se cierre la app: la comprobación de fondo la despierta el
+ * sistema cada pocas horas, casi siempre con la tienda cerrada, así que una lista en
+ * memoria estaría vacía en cada ronda y el aviso se repetiría eternamente.
+ */
+interface MemoriaDeAvisos {
+    fun avisadas(): Set<String>
+    fun recordar(huellas: Set<String>)
+}

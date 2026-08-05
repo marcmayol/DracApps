@@ -1,16 +1,22 @@
 package com.marcmayol.dracapps
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -23,7 +29,9 @@ import com.marcmayol.dracapps.ui.ajustes.EstadoDeLaTienda
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.marcmayol.dracapps.android.IconosDelMovil
+import com.marcmayol.dracapps.android.VigilanteWorker
 import com.marcmayol.dracapps.ui.PantallaTienda
+import com.marcmayol.dracapps.ui.Seccion
 import com.marcmayol.dracapps.ui.TiendaViewModel
 import com.marcmayol.dracapps.ui.comun.LocalIconosInstalados
 import com.marcmayol.dracapps.ui.tema.DracAppsTheme
@@ -31,10 +39,43 @@ import com.marcmayol.dracapps.ui.tema.DracAppsTheme
 class MainActivity : ComponentActivity() {
 
     private val autoactualizador get() = (application as DracAppsApp).autoactualizador
+    private val ajustes get() = (application as DracAppsApp).piezas.ajustes
+
+    /** Cuando se abre desde la notificación, la tienda arranca en Novedades. */
+    private var abrirNovedades by mutableStateOf(false)
+
+    /**
+     * El permiso de notificaciones de Android 13+.
+     *
+     * Si se deniega, el interruptor vuelve a apagarse: dejarlo encendido sabiendo que no
+     * puede avisar sería exactamente el mando que no gobierna nada que esta tienda no
+     * quiere tener.
+     */
+    private val pedirPermisoDeAvisos = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { concedido ->
+        if (concedido) {
+            VigilanteWorker.programar(this)
+        } else {
+            ajustes.cambiarAvisarDeActualizaciones(false)
+            VigilanteWorker.cancelar(this)
+            Toast.makeText(
+                this,
+                "Android no deja avisar sin permiso para las notificaciones",
+                Toast.LENGTH_LONG,
+            ).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        abrirNovedades = intent?.getBooleanExtra(EXTRA_IR_A_NOVEDADES, false) == true
+
+        // Si los avisos están activados, la ronda de fondo tiene que existir aunque el
+        // móvil se haya reiniciado o el sistema se haya llevado por delante el trabajo.
+        if (ajustes.avisarDeActualizaciones.value) VigilanteWorker.programar(this)
 
         // La comprobación periódica se programa aquí y no en la Application porque los
         // tests de pantallas instancian la Application de verdad, y allí WorkManager
@@ -77,6 +118,15 @@ class MainActivity : ComponentActivity() {
                     ),
                 )
 
+                // Llegar desde la notificación tiene que dejar a mano lo que anunciaba,
+                // no la lista general donde hay que buscarlo otra vez.
+                LaunchedEffect(abrirNovedades) {
+                    if (abrirNovedades) {
+                        modelo.irA(Seccion.NOVEDADES)
+                        abrirNovedades = false
+                    }
+                }
+
                 CompositionLocalProvider(LocalIconosInstalados provides iconosDelMovil) {
                     PantallaTienda(
                         estado = estado,
@@ -93,6 +143,7 @@ class MainActivity : ComponentActivity() {
                         alAbrirApp = { app -> abrir(app.id) },
                         alCambiarTextoGrande = modelo::cambiarTextoGrande,
                         alCambiarColorDelSistema = modelo::cambiarColorDelSistema,
+                        alCambiarAvisos = { activado -> cambiarAvisos(activado, modelo) },
                         alCambiarBuscarLaTienda = { activado ->
                             autoactualizador.buscarAutomaticamente = activado
                             buscarSola = activado
@@ -118,10 +169,46 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    /** Con la tienda ya abierta, la notificación entra por aquí y no por onCreate. */
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        abrirNovedades = intent.getBooleanExtra(EXTRA_IR_A_NOVEDADES, false)
+    }
+
     override fun onResume() {
         super.onResume()
         // Retoma la actualización si acaban de conceder el permiso de instalación.
         autoactualizador.onPermisoQuizaConcedido()
+    }
+
+    /**
+     * Encender los avisos son tres cosas, y esta es la única capa que las conoce: se
+     * guarda la decisión, se pide el permiso a Android si hace falta y se programa (o se
+     * cancela) la comprobación de fondo.
+     *
+     * Por debajo de Android 13 no hay permiso que pedir: las notificaciones se dan por
+     * concedidas y basta con programar.
+     */
+    private fun cambiarAvisos(activado: Boolean, modelo: TiendaViewModel) {
+        modelo.cambiarAvisos(activado)
+
+        if (!activado) {
+            VigilanteWorker.cancelar(this)
+            return
+        }
+
+        val hacePermiso = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS,
+            ) != PackageManager.PERMISSION_GRANTED
+
+        if (hacePermiso) {
+            pedirPermisoDeAvisos.launch(Manifest.permission.POST_NOTIFICATIONS)
+        } else {
+            VigilanteWorker.programar(this)
+        }
     }
 
     private fun abrir(id: String) {
@@ -183,6 +270,11 @@ class MainActivity : ComponentActivity() {
 
             EstadoActualizacion.Inactivo, EstadoActualizacion.PidiendoPermiso -> base
         }
+    }
+
+    companion object {
+        /** Lo pone la notificación de actualizaciones; lo lee esta pantalla al abrirse. */
+        const val EXTRA_IR_A_NOVEDADES = "ir_a_novedades"
     }
 
     private fun fabrica(piezas: Piezas) = object : ViewModelProvider.Factory {
