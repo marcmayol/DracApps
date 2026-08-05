@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -57,7 +57,7 @@ jobs:
       - name: Preparar las build-tools de Android
         # apksigner y aapt2 salen de aquí: son las que dicen si un APK está firmado
         # y qué versión lleva dentro.
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
         with:
           packages: "build-tools;${{ env.BUILD_TOOLS }}"
 
