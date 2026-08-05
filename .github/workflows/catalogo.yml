@@ -1,8 +1,14 @@
 name: Regenerar el catálogo
 
-# Se dispara solo cuando cambia la lista de apps, y a mano cuando ha salido una
-# Release nueva de alguna app y quieres que la tienda se entere ya.
+# Tres disparos, y ninguno depende de que el portátil del admin esté encendido:
+# cada seis horas por su cuenta, cuando cambia la lista de apps, y a mano cuando no
+# quieres esperar a la siguiente ronda.
 on:
+  schedule:
+    # Cada seis horas. El minuto 17 es a propósito: los cron en punto son los que
+    # más cola hacen en GitHub y se retrasan. Si una app ha publicado Release, aquí
+    # se recoge sola; si no ha cambiado nada, el generador no commitea y no pasa nada.
+    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       ensayo:
