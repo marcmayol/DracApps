@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-06T20:15:03Z",
+  "generado": "2026-08-06T20:27:27Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 1,
-      "versionName": "1.0",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.0/lunalign-v1.0.apk",
-      "sha256": "72c1aff731612fdf6364776b853c29689a9b0e3d44660adfeaffdaaad08c003a",
+      "versionCode": 2,
+      "versionName": "1.1",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.1/lunalign-v1.1.apk",
+      "sha256": "beecc58a5ac967e4362cabc91f6fa336fe39f775b424a953fccee12b71e7f5b3",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 53213955,
-      "notas": "Primera versión.\n\nPlanifica fotos de la Luna alineada con un objeto del terreno: la llena tras una torre, la creciente encajada entre dos edificios.\n\nQué trae:\n- Buscador de alineaciones para un año entero, calculado en el propio móvil y sin conexión.\n- Simulador de encuadre: el disco lunar a su tamaño real del instante dentro del campo de la focal que elijas.\n- Overlay de cámara con la trayectoria de la Luna proyectada sobre el visor.\n- Aviso diario de alineaciones a menos de tres días, y widget con la próxima.\n\nLos cálculos están contrastados contra las efemérides JPL DE421 del Jet Propulsion Laboratory, por debajo de un minuto de arco.\n\nAviso: es una primera versión y el encuadre todavía no se ha comprobado sobre el terreno. Si algo no cuadra con lo que ves en el cielo, decídmelo.",
+      "tamanoBytes": 53215519,
+      "notas": "Identidad de marca nueva.\n\n- Icono de la app rediseñado: un disco lunar sobre un eje de puntería, con la aguja inferior representando el objeto terrestre. Incluye versión monocroma para los temas del sistema.\n\nPor dentro no cambia nada respecto a la 1.0: los cálculos son los mismos.",
       "canal": null,
       "minSdk": null
     },
