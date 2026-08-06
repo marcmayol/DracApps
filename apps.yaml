@@ -41,6 +41,9 @@ apps:
   # Los pasos del día convertidos en avance por la ruta a Mordor.
   - repo: marcmayol/middle_earth_journey
 
+  # Planificador de fotos de la Luna alineada con torres y edificios.
+  - repo: marcmayol/lunalign
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
