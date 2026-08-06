@@ -1,12 +1,12 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-06T20:13:43Z",
+  "generado": "2026-08-06T20:15:03Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
-      "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el dia y la hora exactos desde tu sitio de disparo.",
+      "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
       "versionCode": 1,
       "versionName": "1.0",
