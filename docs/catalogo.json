@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T08:51:20Z",
+  "generado": "2026-08-07T10:02:58Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 4,
-      "versionName": "1.3",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.3/lunalign-v1.3.apk",
-      "sha256": "ea5c8e06e627c58150e1aabd36b9db858bdb0374eb7a165c47dfb12d0f4ec6a7",
+      "versionCode": 5,
+      "versionName": "1.4",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.4/lunalign-v1.4.apk",
+      "sha256": "fcff00fefc28b419630cea0c454bdade11af73f23efe6aff0c29de2758ecaaed",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 26512755,
-      "notas": "Identidad visual completa y modo campo.\n\n- **Modo campo**: toca la luna de la barra superior y toda la app pasa a luz roja, que es la que no estropea la visión nocturna mientras esperas a la Luna. Se queda guardado.\n- Paleta e identidad nuevas, con el ámbar reservado para lo que de verdad importa: la Luna, el evento y la acción principal.\n- Tipografías nuevas: los datos (horas, azimuts, grados) van en monoespaciada tabular, así que se alinean en columna y el cero no se confunde con la O a oscuras.\n\nTodo el texto cumple el contraste AA en los tres modos, comprobado con la fórmula de la WCAG.",
+      "tamanoBytes": 26512751,
+      "notas": "La Luna con su fase real.\n\n- **El disco lunar ya no es un círculo**: se dibuja con la fase que tendrá ese día, con la sombra del lado que le toca. Aparece tanto en la lista de resultados como en el simulador de encuadre.\n- Desde el hemisferio sur se dibuja reflejada, como se ve allí de verdad.\n- **El mapa deja de deslumbrar en modo campo**: ahora usa teselas oscuras con tinte rojo, en vez de la mancha blanca que echaba por tierra la visión nocturna.\n\nPor dentro, los cálculos no cambian.",
       "canal": null,
       "minSdk": null
     },
