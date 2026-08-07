@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T18:50:12Z",
+  "generado": "2026-08-07T19:30:34Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 6,
-      "versionName": "1.5",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.5/lunalign-v1.5.apk",
-      "sha256": "7c8afd933e090f5f73821a1a97d36b82ecad3e9ea076928c29cc3359f12f3f61",
+      "versionCode": 7,
+      "versionName": "1.6",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.6/lunalign-v1.6.apk",
+      "sha256": "3d9d5789dddda841dd0cd4e05d8102e4b86106873640c73f3e719924167f7062",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 26512759,
-      "notas": "Arreglos de la segunda prueba de campo.\n\n- **El mapa vuelve a verse.** En la versión anterior había dejado de aparecer, en cualquier modo. Fue un fallo mío al cambiar el estilo del mapa: se pedía antes de que la pantalla estuviera lista.\n- **El mapa se abre donde estás**, en vez de en Palma siempre. La app pide permiso de ubicación la primera vez; si no se lo das, funciona igual y abre donde abría antes.\n\nLos cálculos no cambian.",
+      "tamanoBytes": 26529139,
+      "notas": "La app se adapta al tamaño de letra del móvil.\n\nSi tienes la letra o el zoom de pantalla aumentados, antes el botón de guardar el spot quedaba fuera de la pantalla y no había forma de llegar a él. Ahora:\n\n- Las pantallas se pueden **desplazar**.\n- Los botones de **guardar** y **buscar** están siempre anclados abajo, a la vista.\n- Los botones redondos se **reordenan solos** en varias líneas en vez de salirse por el lado.\n\nComprobado con la letra al 150%.",
       "canal": null,
       "minSdk": null
     },
