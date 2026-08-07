@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T07:03:41Z",
+  "generado": "2026-08-07T08:51:20Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 3,
-      "versionName": "1.2",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.2/lunalign-v1.2.apk",
-      "sha256": "6d6ac409c2ab0ec29eac2267a88eb31c359a5f0330b1d31d3f750900d717d83c",
+      "versionCode": 4,
+      "versionName": "1.3",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.3/lunalign-v1.3.apk",
+      "sha256": "ea5c8e06e627c58150e1aabd36b9db858bdb0374eb7a165c47dfb12d0f4ec6a7",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 26278237,
-      "notas": "Arreglos de la primera prueba de campo.\n\n- **Marcar los puntos ya no se adivina.** Antes el sitio de disparo se marcaba con un toque y el objetivo manteniendo pulsado, sin decirlo en ninguna parte. Ahora eliges qué estás marcando y se ve en el mapa: tu posición en ámbar, el objetivo en plata y la línea entre ambos.\n- **La app te dice hacia dónde vas a mirar**, con palabras: «Mirarás hacia el este (91°)». Si eso no coincide con la realidad, es que los puntos están cambiados.\n- **Pantalla nueva para ver un spot guardado**, con los dos puntos sobre el mapa.\n- **El nombre del objetivo ya no se pide**: si lo dejas vacío, hereda el del spot.\n- La app pesa la mitad: 25 MB en vez de 51.\n\nSi los resultados salían a la hora contraria, era esto: los cálculos estaban bien, pero se hacían para el sitio equivocado.",
+      "tamanoBytes": 26512755,
+      "notas": "Identidad visual completa y modo campo.\n\n- **Modo campo**: toca la luna de la barra superior y toda la app pasa a luz roja, que es la que no estropea la visión nocturna mientras esperas a la Luna. Se queda guardado.\n- Paleta e identidad nuevas, con el ámbar reservado para lo que de verdad importa: la Luna, el evento y la acción principal.\n- Tipografías nuevas: los datos (horas, azimuts, grados) van en monoespaciada tabular, así que se alinean en columna y el cero no se confunde con la O a oscuras.\n\nTodo el texto cumple el contraste AA en los tres modos, comprobado con la fórmula de la WCAG.",
       "canal": null,
       "minSdk": null
     },
