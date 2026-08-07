@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T00:17:30Z",
+  "generado": "2026-08-07T07:43:48Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 2,
-      "versionName": "1.1",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.1/lunalign-v1.1.apk",
-      "sha256": "beecc58a5ac967e4362cabc91f6fa336fe39f775b424a953fccee12b71e7f5b3",
+      "versionCode": 3,
+      "versionName": "1.2",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.2/lunalign-v1.2.apk",
+      "sha256": "6d6ac409c2ab0ec29eac2267a88eb31c359a5f0330b1d31d3f750900d717d83c",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 53215519,
-      "notas": "Identidad de marca nueva.\n\n- Icono de la app rediseñado: un disco lunar sobre un eje de puntería, con la aguja inferior representando el objeto terrestre. Incluye versión monocroma para los temas del sistema.\n\nPor dentro no cambia nada respecto a la 1.0: los cálculos son los mismos.",
+      "tamanoBytes": 26278237,
+      "notas": "Arreglos de la primera prueba de campo.\n\n- **Marcar los puntos ya no se adivina.** Antes el sitio de disparo se marcaba con un toque y el objetivo manteniendo pulsado, sin decirlo en ninguna parte. Ahora eliges qué estás marcando y se ve en el mapa: tu posición en ámbar, el objetivo en plata y la línea entre ambos.\n- **La app te dice hacia dónde vas a mirar**, con palabras: «Mirarás hacia el este (91°)». Si eso no coincide con la realidad, es que los puntos están cambiados.\n- **Pantalla nueva para ver un spot guardado**, con los dos puntos sobre el mapa.\n- **El nombre del objetivo ya no se pide**: si lo dejas vacío, hereda el del spot.\n- La app pesa la mitad: 25 MB en vez de 51.\n\nSi los resultados salían a la hora contraria, era esto: los cálculos estaban bien, pero se hacían para el sitio equivocado.",
       "canal": null,
       "minSdk": null
     },
