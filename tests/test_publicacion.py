@@ -80,3 +80,84 @@ def test_las_esperas_van_creciendo():
 
     assert list(ESPERAS) == sorted(ESPERAS), "esperar cada vez más da tiempo a Pages"
     assert sum(ESPERAS) >= 180, "tiene que aguantar varios minutos de CDN"
+
+
+# --- Publicar desde dos sitios a la vez ------------------------------------------
+#
+# Nació de un caso real: se publicó Kuse desde un sitio y LunAlign desde otro. El
+# segundo push fue rechazado por no ser avance rápido y el catálogo público se quedó
+# dos versiones atrás. El script avisaba, pero el remedio era manual.
+#
+# Ahora se reordena sobre lo remoto antes de empujar. El catálogo es un fichero
+# generado y el recién generado es el bueno: acaba de leer TODAS las releases, así
+# que ya incluye lo que publicó el otro.
+
+from dracapps.publicacion import commitear_y_subir
+
+
+class GitFalso:
+    """Un git de mentira que apunta lo que le piden y falla cuando se le dice."""
+
+    def __init__(self, fallan=()):
+        self.ordenes = []
+        self.fallan = list(fallan)
+
+    def __call__(self, argumentos):
+        self.ordenes.append(" ".join(argumentos))
+        for patron in list(self.fallan):
+            if patron in " ".join(argumentos):
+                self.fallan.remove(patron)
+                raise ErrorDePublicacion(f"falla '{patron}'", "remedio")
+        if argumentos[:2] == ["status", "--porcelain"]:
+            return " M docs/catalogo.json\n"
+        if argumentos[0] == "rev-parse" and "--abbrev-ref" in argumentos:
+            return "main\n"
+        if argumentos[0] == "rev-parse":
+            return "abc1234\n"
+        return ""
+
+
+def test_se_reordena_sobre_lo_remoto_antes_de_empujar():
+    git = GitFalso()
+
+    hubo, commit = commitear_y_subir(None, [], "mensaje", ejecutar_git=git)
+
+    assert hubo is True
+    assert commit == "abc1234"
+    orden = [o for o in git.ordenes if o.startswith(("pull", "push"))]
+    assert orden[0].startswith("pull --rebase"), f"orden real: {git.ordenes}"
+    assert orden[1].startswith("push"), "el push tiene que ir DESPUÉS del pull"
+
+
+def test_el_rebase_prefiere_el_catalogo_recien_generado():
+    # Acaba de leer todas las releases: ya incluye lo que publicó el otro.
+    git = GitFalso()
+    commitear_y_subir(None, [], "mensaje", ejecutar_git=git)
+
+    pull = next(o for o in git.ordenes if o.startswith("pull"))
+    assert "-X theirs" in pull
+
+
+def test_si_el_rebase_falla_se_deshace_y_se_avisa():
+    git = GitFalso(fallan=["pull --rebase"])
+
+    with pytest.raises(ErrorDePublicacion) as fallo:
+        commitear_y_subir(None, [], "mensaje", ejecutar_git=git)
+
+    assert "rebase --abort" in " ".join(git.ordenes), "hay que dejar el repo como estaba"
+    assert "a mano" in str(fallo.value).lower() or "conflicto" in str(fallo.value).lower()
+
+
+def test_sin_cambios_no_toca_el_remoto():
+    class GitLimpio(GitFalso):
+        def __call__(self, argumentos):
+            self.ordenes.append(" ".join(argumentos))
+            if argumentos[:2] == ["status", "--porcelain"]:
+                return ""
+            return ""
+
+    git = GitLimpio()
+    hubo, commit = commitear_y_subir(None, [], "mensaje", ejecutar_git=git)
+
+    assert hubo is False and commit is None
+    assert not any(o.startswith(("pull", "push")) for o in git.ordenes)

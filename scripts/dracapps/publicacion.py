@@ -37,9 +37,10 @@ class ResultadoPublicacion:
     intentos: int
 
 
-def hay_cambios(repo: Path, rutas: list[Path]) -> bool:
+def hay_cambios(repo: Path, rutas: list[Path], ejecutar_git=None) -> bool:
     """¿Hay algo por commitear en esas rutas?"""
-    salida = _git(repo, ["status", "--porcelain", "--", *[str(r) for r in rutas]])
+    corre = ejecutar_git or (lambda args: _git(repo, args))
+    salida = corre(["status", "--porcelain", "--", *[str(r) for r in rutas]])
     return bool(salida.strip())
 
 
@@ -47,24 +48,55 @@ def commitear_y_subir(
     repo: Path,
     rutas: list[Path],
     mensaje: str,
+    ejecutar_git: Callable[[list[str]], str] | None = None,
 ) -> tuple[bool, str | None]:
-    """Commitea las rutas indicadas y las sube. Devuelve si hubo algo que subir."""
-    if not hay_cambios(repo, rutas):
+    """Commitea las rutas indicadas y las sube. Devuelve si hubo algo que subir.
+
+    Antes de empujar se reordena sobre lo remoto. Motivo: publicar desde dos sitios
+    distintos deja el remoto por delante y el push sale rechazado por no ser avance
+    rápido, con el catálogo público quedándose atrás. Pasó de verdad con Kuse y
+    LunAlign publicadas casi a la vez.
+
+    El rebase resuelve los conflictos a favor del catálogo LOCAL (`-X theirs`, que en
+    un rebase son los commits que se reaplican, o sea los nuestros). Es lo correcto y
+    no una preferencia: el catálogo local se acaba de generar leyendo TODAS las
+    releases, así que ya incluye lo que publicara el otro.
+    """
+    corre = ejecutar_git or (lambda args: _git(repo, args))
+
+    if not hay_cambios(repo, rutas, ejecutar_git=corre):
         return False, None
 
-    _git(repo, ["add", "--", *[str(r) for r in rutas]])
-    _git(repo, ["commit", "-m", mensaje])
-    commit = _git(repo, ["rev-parse", "--short", "HEAD"]).strip()
+    corre(["add", "--", *[str(r) for r in rutas]])
+    corre(["commit", "-m", mensaje])
+    commit = corre(["rev-parse", "--short", "HEAD"]).strip()
 
-    rama = _git(repo, ["rev-parse", "--abbrev-ref", "HEAD"]).strip()
-    _git(
-        repo,
-        ["push", "origin", rama],
-        fallo=(
-            f"No he podido subir la rama '{rama}' a origin.",
+    rama = corre(["rev-parse", "--abbrev-ref", "HEAD"]).strip()
+
+    try:
+        corre(["pull", "--rebase", "-X", "theirs", "origin", rama])
+    except ErrorDePublicacion as fallo:
+        # Un rebase a medias deja el repositorio en un estado raro: se deshace antes
+        # de rendirse, para que quien lo mire encuentre lo que dejó.
+        try:
+            corre(["rebase", "--abort"])
+        except ErrorDePublicacion:
+            pass
+        raise ErrorDePublicacion(
+            f"No he podido reordenar sobre origin/{rama}: hay un conflicto que "
+            f"resolver a mano.\n  ({fallo})",
+            "Mira 'git status', resuelve el conflicto y vuelve a lanzar la "
+            "publicación. El commit del catálogo ya está hecho en local.",
+        ) from fallo
+
+    try:
+        corre(["push", "origin", rama])
+    except ErrorDePublicacion as fallo:
+        raise ErrorDePublicacion(
+            f"No he podido subir la rama '{rama}' a origin.\n  ({fallo})",
             "Comprueba que el repo tiene remoto ('git remote -v') y que tienes acceso.",
-        ),
-    )
+        ) from fallo
+
     return True, commit
 
 
