@@ -1,20 +1,20 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T19:30:34Z",
+  "generado": "2026-08-07T20:20:19Z",
   "apps": [
     {
       "id": "com.lunalign",
       "nombre": "LunAlign",
       "descripcion": "Planifica fotos de la Luna alineada con torres, catedrales y rascacielos: te dice el día y la hora exactos desde tu sitio de disparo.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.lunalign.png",
-      "versionCode": 7,
-      "versionName": "1.6",
-      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.6/lunalign-v1.6.apk",
-      "sha256": "3d9d5789dddda841dd0cd4e05d8102e4b86106873640c73f3e719924167f7062",
+      "versionCode": 9,
+      "versionName": "1.8",
+      "apkUrl": "https://github.com/marcmayol/lunalign/releases/download/v1.8/lunalign-v1.8.apk",
+      "sha256": "1e82cd8b4cb07cee5278e83601e0c14a45bd2692639d9a0fa99725c1d05193b6",
       "firmaSha256": "f22787448e085a2026bf33afc57b9bebdfac7c245948742aeaaf9dbe404e1bde",
-      "tamanoBytes": 26529139,
-      "notas": "La app se adapta al tamaño de letra del móvil.\n\nSi tienes la letra o el zoom de pantalla aumentados, antes el botón de guardar el spot quedaba fuera de la pantalla y no había forma de llegar a él. Ahora:\n\n- Las pantallas se pueden **desplazar**.\n- Los botones de **guardar** y **buscar** están siempre anclados abajo, a la vista.\n- Los botones redondos se **reordenan solos** en varias líneas en vez de salirse por el lado.\n\nComprobado con la letra al 150%.",
+      "tamanoBytes": 26529143,
+      "notas": "El mapa se ve en modo oscuro.\n\nCon el móvil en tema oscuro el mapa salía negro sobre negro y no se distinguían las calles. Ahora usa un estilo oscuro legible.\n\nEl modo campo (rojo) no cambia.",
       "canal": null,
       "minSdk": null
     },
