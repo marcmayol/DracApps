@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-07T20:20:19Z",
+  "generado": "2026-08-12T02:46:59Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio de 100 días con entrenamiento guiado en vivo (descansos avisados con la pantalla apagada). Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 9,
-      "versionName": "1.8",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v1.8/building-my-future-v1.8.apk",
-      "sha256": "ecd06892951d0ad40d85608748918dda203dd892a948a3fd6a0b29cad30129e5",
+      "versionCode": 12,
+      "versionName": "2.0.1",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.0.1/building-my-future-v2.0.1.apk",
+      "sha256": "88bdeb1cea69396bffdd22e07c1c228103b5425417384714f263fee80c6973d3",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
-      "tamanoBytes": 13376146,
-      "notas": "El reloj gana un chip de entrenamiento en curso en la propia esfera: mientras entrenas sale una mancuerna en el watch face y con un toque vuelves a la sesion, sin buscar la app. La cuenta atras la dibuja el sistema, asi que corre al segundo aunque la app del reloj este cerrada. Ademas, en el entrenamiento libre el reloj ya no anuncia un ejercicio del plan que no estabas haciendo: muestra el nombre de la sesion y el cronometro. Para tenerlo en el reloj hay que instalar el segundo APK de esta Release por adb.",
+      "tamanoBytes": 13747094,
+      "notas": "Arreglo visual: el boton de la ficha del ejercicio en la pantalla del dia se partia en dos lineas y dejaba el icono descolgado. Ahora dice 'Como se hace' y cabe en una linea.",
       "canal": null,
       "minSdk": null
     },
