@@ -44,6 +44,12 @@ apps:
   # Planificador de fotos de la Luna alineada con torres y edificios.
   - repo: marcmayol/lunalign
 
+  # Portapapeles compartido con el PC, solo por red local y cifrado de extremo a extremo.
+  # Su Release lleva también el instalador de Windows, que es la otra mitad de la app:
+  # se elige el APK por patrón para que el .exe no confunda al generador.
+  - repo: marcmayol/dracpaste
+    apk: dracpaste-v*.apk
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
