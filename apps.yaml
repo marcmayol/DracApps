@@ -50,6 +50,9 @@ apps:
   - repo: marcmayol/dracpaste
     apk: dracpaste-v*.apk
 
+  # Visor de PDF con formularios, firma dibujada y firma digital PAdES.
+  - repo: marcmayol/DracPDF-Android
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #

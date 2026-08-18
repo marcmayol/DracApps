@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-18T01:52:50Z",
+  "generado": "2026-08-18T08:23:54Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -105,6 +105,21 @@
       "firmaSha256": "dcb828e96e9c2ce8c477f29c622d431a804c9a3f37a4898a3401d135dd4ed708",
       "tamanoBytes": 27111147,
       "notas": "Rediseño completo de las dos mitades, a partir del trabajo de Claude Design.\n\n## Lo que cambia al usarla\n\n**Un botón nuevo: «Enviar lo copiado al PC».** Con la app abierta sí se puede leer el portapapeles —Android solo lo prohíbe cuando no la estás mirando—, así que enviar algo del móvil ya no obliga a desplegar la notificación.\n\n**La confirmación de huella deja de ser un aviso de enterado.** Al emparejar, o dices que las dos huellas coinciden o dices que no, y si no coinciden se deshace el emparejamiento ahí mismo. Es lo único que impide que alguien se cuele en medio.\n\n**El código de emparejamiento se renueva solo.** Dura dos minutos, que dan para poco: antes había que cerrar la ventana y volver a abrirla.\n\n**El aviso del firewall ya no es solo un globo**, sino un panel dentro de la ventana de emparejar. Sin esa regla el móvil ve el PC pero la conexión muere en un tiempo de espera, y desde el móvil eso parece un problema de red.\n\n## Aspecto\n\nPaleta propia de papel y tinta con terracota, en el móvil y en el PC. El terracota solo marca acciones, nunca estados: el icono de la bandeja es monocromo y a 16 px el color no existe.\n\nLa cabeza de Ladón está ya en el icono de la app, en la notificación y en la bandeja, donde además **cambia de forma según el estado**: conectado, sin móvil, sin emparejar o en pausa.\n\nArreglado que el título de la pantalla principal pisara el reloj del móvil.\n\n---\n\n- `dracpaste-v1.4.apk` — Android (o actualiza desde DracApps)\n- `DracPaste-1.4-instalador.exe` — Windows",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.dracpdf",
+      "nombre": "DracPDF",
+      "descripcion": "Port nativo de DracPDF a Android: visor de PDF con formularios, firma dibujada y firma digital PAdES. Kotlin + Compose, identidad Ladon.",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.dracpdf.png",
+      "versionCode": 1,
+      "versionName": "0.1.0",
+      "apkUrl": "https://github.com/marcmayol/DracPDF-Android/releases/download/v0.1.0/dracpdf-v0.1.0.apk",
+      "sha256": "85dc78d6454a75555432901426e8325c2998aec9c6e1ed28baa72e81af65b7b1",
+      "firmaSha256": "ec8dd8a8ad34af6398411242ceac399ea22eb3690c81b6cc2dc889a7803673fd",
+      "tamanoBytes": 41543766,
+      "notas": "Primera versión de DracPDF para Android.\n\nEl mismo motor que el DracPDF de escritorio, ahora en el móvil: se abren PDFs desde\nel explorador de archivos, desde el share sheet de cualquier app o desde la propia\naplicación, y se leen con zoom por pellizco, doble toque y panel de miniaturas.\nVarios documentos pueden estar abiertos a la vez.\n\nQué se puede hacer con un documento:\n\n- **Formularios**: rellenar campos de texto, casillas, opciones y listas de un PDF\n  oficial y guardarlos, con aviso claro cuando el formulario es XFA y no se puede.\n- **Firma dibujada**: firmar con el dedo, colocar la firma donde toque y guardarla en\n  una biblioteca para reutilizarla.\n- **Firma digital PAdES**: firmar con un certificado `.p12` propio, con sello visible,\n  y comprobar las firmas que ya trae el documento.\n- **Caja de herramientas**: unir, dividir, organizar páginas arrastrándolas, proteger y\n  desproteger con contraseña, comprimir y convertir.\n- **Leer de verdad**: buscar en el documento con los resultados resaltados, seleccionar\n  texto y copiarlo, índice del documento, ir a una página, seguir enlaces —los que\n  salen fuera preguntan antes—, imprimir, y ajustar la vista a ancho, a página, en\n  doble página o girada, con lo elegido guardado.\n- **Recientes**: la aplicación recuerda los documentos por los que has pasado y **por\n  qué página ibas** en cada uno.\n- **Marcar**: resaltar, subrayar, tachar, poner notas y escribir sobre la página, con\n  anotaciones estándar que se ven y se pueden borrar desde cualquier otro visor.\n- **Editar**: añadir y quitar imágenes, y corregir un texto de forma que el original\n  desaparece de verdad en vez de quedarse debajo.\n- **Convertir**: a HTML, Markdown, texto, Word, ODT, RTF, imágenes, y las tablas a CSV\n  o XLSX. Y al revés: hacer un PDF con imágenes, Markdown, HTML o texto.\n- **Escanear**: fotografiar hojas con la cámara, enderezarlas y guardarlas como PDF.\n\nLos documentos firmados se abren bloqueados para edición y ofrecen guardar una copia\neditable, para no romper firmas ajenas sin querer. Los que llegan compartidos desde\notra aplicación avisan de que son prestados y ofrecen quedárselos.\n\nTema claro y oscuro, o el del sistema, con la identidad Ladón del escritorio.",
       "canal": null,
       "minSdk": null
     }
