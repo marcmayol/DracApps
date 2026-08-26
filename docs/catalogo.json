@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-26T11:09:04Z",
+  "generado": "2026-08-26T13:18:28Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 11,
-      "versionName": "2.2",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.2/cronicas-del-apetito-v2.2.apk",
-      "sha256": "5c596e46809b83e0e3745ee3f08377ce146bf82fa40cd768a92f6012d4fabbdb",
+      "versionCode": 12,
+      "versionName": "2.2.1",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.2.1/cronicas-del-apetito-v2.2.1.apk",
+      "sha256": "b953a9e8f06bd82032c2e2d2aa87813d1a20f5ea92f1c0e02597fb861253f54d",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 11111545,
-      "notas": "Recordatorios configurables (horario, frecuencia y qué carriles), español e inglés, bienvenida al instalar, y copia de seguridad de tus datos desde Ajustes.",
+      "tamanoBytes": 11110281,
+      "notas": "Los minutos de la caminata se escriben en un solo sitio, y el campo de comida explica mejor qué anotar.",
       "canal": null,
       "minSdk": null
     },
