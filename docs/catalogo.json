@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-26T02:00:38Z",
+  "generado": "2026-08-26T11:09:04Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -51,7 +51,7 @@
     {
       "id": "com.marcm.cronicasapetito",
       "nombre": "Crónicas del Apetito",
-      "descripcion": "Registro de comidas con recordatorios horarios (apoyo a terapia). Android, Kotlin/Compose/Room, export PDF.",
+      "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
       "versionCode": 11,
       "versionName": "2.2",
