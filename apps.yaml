@@ -22,7 +22,7 @@ catalogo:
   url_publica: https://marcmayol.com/DracApps/catalogo.json
 
 apps:
-  # Registro de comidas con recordatorios horarios.
+  # Registro de comidas con recordatorios a la hora que elija cada uno.
   - repo: marcmayol/cronicas-del-apetito
 
   # Plan de gimnasio de 100 días con entrenamiento guiado en vivo.
