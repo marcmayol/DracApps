@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-27T09:53:20Z",
+  "generado": "2026-08-27T22:17:59Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio de 100 días con entrenamiento guiado en vivo (descansos avisados con la pantalla apagada). Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 22,
-      "versionName": "2.6",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.6/building-my-future-v2.6.apk",
-      "sha256": "536f218e5e3730db8f1ea8b7bb91ddc8e0f81d2b107990412012b21903dbaa37",
+      "versionCode": 24,
+      "versionName": "2.8",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.8/building-my-future-v2.8.apk",
+      "sha256": "a582b13407f8f19972200f972bd8ab73cc152d1e292651c62c04c18b08b47ce1",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
-      "tamanoBytes": 19155569,
-      "notas": "Copia de seguridad de todo, superseries de verdad, series de calentamiento que no cuentan y el esfuerzo de cada serie.",
+      "tamanoBytes": 19155637,
+      "notas": "Recordatorios: dile que dias vas al gimnasio y a que hora, y la app te avisa con el dia que toca.",
       "canal": null,
       "minSdk": null
     },
