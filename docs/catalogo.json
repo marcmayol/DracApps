@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-30T16:43:37Z",
+  "generado": "2026-08-30T21:09:38Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 16,
-      "versionName": "2.4",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.4/cronicas-del-apetito-v2.4.apk",
-      "sha256": "035832cc9fd2f5ce4839b7c71b1ee13c96ed0b3ad99a3fe73874430200779f64",
+      "versionCode": 17,
+      "versionName": "2.4.1",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.4.1/cronicas-del-apetito-v2.4.1.apk",
+      "sha256": "276586466514cde8d07a4271f9eda1298ea6d3b9c91acbd7ad539d8b9ba07103",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 11135189,
-      "notas": "Preparada para Android 16. Por dentro, la app se separa en dos versiones: esta, que sigue actualizándose sola, y otra para Google Play.",
+      "tamanoBytes": 1875454,
+      "notas": "Los botones dejan de esconderse bajo la barra de navegación: en Android 15 y posteriores, Guardar y Añadir quedaban debajo de ella. La app pesa menos de la mitad. Y dos textos que salían en castellano con el móvil en inglés.",
       "canal": null,
       "minSdk": null
     },
