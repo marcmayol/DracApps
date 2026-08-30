@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-28T22:23:43Z",
+  "generado": "2026-08-30T11:58:01Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 15,
-      "versionName": "2.3.1",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.3.1/cronicas-del-apetito-v2.3.1.apk",
-      "sha256": "20181e36f191f2fac026a66bcb61fdae40b08180a87b3f752044c7924a2de611",
+      "versionCode": 16,
+      "versionName": "2.4",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.4/cronicas-del-apetito-v2.4.apk",
+      "sha256": "035832cc9fd2f5ce4839b7c71b1ee13c96ed0b3ad99a3fe73874430200779f64",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 11134797,
-      "notas": "El tema ya se elige desde Ajustes: el del móvil, claro u oscuro.",
+      "tamanoBytes": 11135189,
+      "notas": "Preparada para Android 16. Por dentro, la app se separa en dos versiones: esta, que sigue actualizándose sola, y otra para Google Play.",
       "canal": null,
       "minSdk": null
     },
