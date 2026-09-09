@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-08-30T21:09:38Z",
+  "generado": "2026-09-09T14:20:04Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 17,
-      "versionName": "2.4.1",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.4.1/cronicas-del-apetito-v2.4.1.apk",
-      "sha256": "276586466514cde8d07a4271f9eda1298ea6d3b9c91acbd7ad539d8b9ba07103",
+      "versionCode": 19,
+      "versionName": "2.5.1",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.5.1/cronicas-del-apetito-v2.5.1.apk",
+      "sha256": "ff42a655aa8ea5ded9750abfb7288a608c2d433de49640464cdaae6c0d0a50b2",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 1875454,
-      "notas": "Los botones dejan de esconderse bajo la barra de navegación: en Android 15 y posteriores, Guardar y Añadir quedaban debajo de ella. La app pesa menos de la mitad. Y dos textos que salían en castellano con el móvil en inglés.",
+      "tamanoBytes": 1881150,
+      "notas": "En la imagen de la semana, un dia sin registros ya no sale mudo: siempre pone Sin anotaciones.",
       "canal": null,
       "minSdk": null
     },
