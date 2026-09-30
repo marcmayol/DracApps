@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-09-28T22:04:36Z",
+  "generado": "2026-09-30T22:19:02Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio guiado en vivo: descansos que avisan con la pantalla apagada, el peso que sube solo y te dice por qué, superseries de verdad y mapa muscular. Sin cuenta ni nube. Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 37,
-      "versionName": "2.15",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.15/building-my-future-v2.15.apk",
-      "sha256": "27154071e9aab6e26c2710549ae9be89c1d7a30c8e40eadb28083f2871ea1975",
+      "versionCode": 38,
+      "versionName": "2.16",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.16/building-my-future-v2.16.apk",
+      "sha256": "e8408916bcfa6c9ccb58373af63222a9589c3be8da5632cac1eda8c1bd19e734",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
       "tamanoBytes": 11150037,
-      "notas": "Barra de navegación abajo: Inicio, Logros, Mis pesos, Resultados y Estadísticas a un toque desde cualquiera de ellas. Cada pestaña recuerda dónde estabas.",
+      "notas": "Mis pesos, ordenado: los ejercicios van agrupados por músculo (pecho, espalda, pierna...) en secciones que se abren y se cierran. Y debajo de cada uno, tu PR: lo máximo que has movido nunca.",
       "canal": null,
       "minSdk": null
     },
