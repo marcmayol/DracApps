@@ -53,6 +53,9 @@ apps:
   # Visor de PDF con formularios, firma dibujada y firma digital PAdES.
   - repo: marcmayol/DracPDF-Android
 
+  # Teleprompter que sigue tu voz mientras lees y graba el vídeo a la vez.
+  - repo: marcmayol/prompter
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
