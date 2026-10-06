@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-09-30T22:19:02Z",
+  "generado": "2026-10-06T19:36:37Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -120,6 +120,21 @@
       "firmaSha256": "ec8dd8a8ad34af6398411242ceac399ea22eb3690c81b6cc2dc889a7803673fd",
       "tamanoBytes": 41543766,
       "notas": "Primera versión de DracPDF para Android.\n\nEl mismo motor que el DracPDF de escritorio, ahora en el móvil: se abren PDFs desde\nel explorador de archivos, desde el share sheet de cualquier app o desde la propia\naplicación, y se leen con zoom por pellizco, doble toque y panel de miniaturas.\nVarios documentos pueden estar abiertos a la vez.\n\nQué se puede hacer con un documento:\n\n- **Formularios**: rellenar campos de texto, casillas, opciones y listas de un PDF\n  oficial y guardarlos, con aviso claro cuando el formulario es XFA y no se puede.\n- **Firma dibujada**: firmar con el dedo, colocar la firma donde toque y guardarla en\n  una biblioteca para reutilizarla.\n- **Firma digital PAdES**: firmar con un certificado `.p12` propio, con sello visible,\n  y comprobar las firmas que ya trae el documento.\n- **Caja de herramientas**: unir, dividir, organizar páginas arrastrándolas, proteger y\n  desproteger con contraseña, comprimir y convertir.\n- **Leer de verdad**: buscar en el documento con los resultados resaltados, seleccionar\n  texto y copiarlo, índice del documento, ir a una página, seguir enlaces —los que\n  salen fuera preguntan antes—, imprimir, y ajustar la vista a ancho, a página, en\n  doble página o girada, con lo elegido guardado.\n- **Recientes**: la aplicación recuerda los documentos por los que has pasado y **por\n  qué página ibas** en cada uno.\n- **Marcar**: resaltar, subrayar, tachar, poner notas y escribir sobre la página, con\n  anotaciones estándar que se ven y se pueden borrar desde cualquier otro visor.\n- **Editar**: añadir y quitar imágenes, y corregir un texto de forma que el original\n  desaparece de verdad en vez de quedarse debajo.\n- **Convertir**: a HTML, Markdown, texto, Word, ODT, RTF, imágenes, y las tablas a CSV\n  o XLSX. Y al revés: hacer un PDF con imágenes, Markdown, HTML o texto.\n- **Escanear**: fotografiar hojas con la cámara, enderezarlas y guardarlas como PDF.\n\nLos documentos firmados se abren bloqueados para edición y ofrecen guardar una copia\neditable, para no romper firmas ajenas sin querer. Los que llegan compartidos desde\notra aplicación avisan de que son prestados y ofrecen quedárselos.\n\nTema claro y oscuro, o el del sistema, con la identidad Ladón del escritorio.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.prompter",
+      "nombre": "Prompter",
+      "descripcion": "Teleprompter para Android que sigue tu voz y graba el vídeo. Reconocimiento local, sin nube.",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.prompter.png",
+      "versionCode": 5,
+      "versionName": "0.1.0",
+      "apkUrl": "https://github.com/marcmayol/prompter/releases/download/v0.1.0/prompter-v0.1.0.apk",
+      "sha256": "395b371af4b7b2c5e3908017181f2c49f16fdb4270fd66c8cb8f8caafcf9c925",
+      "firmaSha256": "07844769f77f4dcfd92aad848ff3ebea292832642c11eaab588c7c08a49d32d3",
+      "tamanoBytes": 85171900,
+      "notas": "Primera versión pública: el texto sigue tu voz mientras lees y la app graba el vídeo a la vez, con reconocimiento de voz en el propio móvil.",
       "canal": null,
       "minSdk": null
     }
