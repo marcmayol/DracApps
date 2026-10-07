@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-06T19:36:37Z",
+  "generado": "2026-10-07T16:30:24Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Prompter",
       "descripcion": "Teleprompter para Android que sigue tu voz y graba el vídeo. Reconocimiento local, sin nube.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.prompter.png",
-      "versionCode": 5,
-      "versionName": "0.1.0",
-      "apkUrl": "https://github.com/marcmayol/prompter/releases/download/v0.1.0/prompter-v0.1.0.apk",
-      "sha256": "395b371af4b7b2c5e3908017181f2c49f16fdb4270fd66c8cb8f8caafcf9c925",
+      "versionCode": 6,
+      "versionName": "0.2.0",
+      "apkUrl": "https://github.com/marcmayol/prompter/releases/download/v0.2.0/prompter-v0.2.0.apk",
+      "sha256": "a610163d2f7b432faf4025edc945992dcce5f3d798efab5c43cdd0a0957d6783",
       "firmaSha256": "07844769f77f4dcfd92aad848ff3ebea292832642c11eaab588c7c08a49d32d3",
-      "tamanoBytes": 85171900,
-      "notas": "Primera versión pública: el texto sigue tu voz mientras lees y la app graba el vídeo a la vez, con reconocimiento de voz en el propio móvil.",
+      "tamanoBytes": 85222884,
+      "notas": "Importa tus guiones desde Notion: elige una ficha y se trae solo el texto que se lee. Al guardar el vídeo, la ficha pasa a Grabado. Además, el texto se adelanta unas palabras a tu voz (ajustable) y la grabación es más ligera.",
       "canal": null,
       "minSdk": null
     }
