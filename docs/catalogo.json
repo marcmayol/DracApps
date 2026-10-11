@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-11T21:53:08Z",
+  "generado": "2026-10-11T21:55:19Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -127,7 +127,7 @@
       "id": "com.marcmayol.faltis",
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el movil.",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
       "versionCode": 2,
       "versionName": "0.2.0",
       "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.2.0/faltis-v0.2.0.apk",
