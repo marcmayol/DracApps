@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-11T17:43:43Z",
+  "generado": "2026-10-11T21:07:22Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -68,13 +68,13 @@
       "nombre": "Grimorio de Salud",
       "descripcion": "Seguimiento personal de medicación, tensión y antecedentes de salud (Android, Kotlin/Compose/Room).",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.grimoriodepociones.png",
-      "versionCode": 12,
-      "versionName": "2.1",
-      "apkUrl": "https://github.com/marcmayol/grimorio-de-pociones/releases/download/v2.1/grimorio-de-salud-v2.1.apk",
-      "sha256": "526acee4d9df067c6c369b03373e33383438b16a4993238a1357b4663634aac0",
+      "versionCode": 13,
+      "versionName": "2.1.1",
+      "apkUrl": "https://github.com/marcmayol/grimorio-de-pociones/releases/download/v2.1.1/grimorio-de-salud-v2.1.1.apk",
+      "sha256": "92c72112692392bee03f1d318aa89689667745b3f9a183995555e852a71ac38c",
       "firmaSha256": "dd7db9e5c592d37339a66aa638ce8afd9f8f38189eebc80f2c3ac7b03ec75642",
-      "tamanoBytes": 11703473,
-      "notas": "Tonos de aviso: elige en Ajustes cómo suena cada aviso (medicamentos, tensión y farmacia), con tonos propios del Grimorio o sonidos del móvil.",
+      "tamanoBytes": 11705161,
+      "notas": "Correcciones: con el tema Códice la hora, la batería y el wifi ya se leen bien (iconos claros sobre la barra oscura), y la app se ajusta a los bordes de la pantalla en Android 15, también en la pantalla del sigilo.",
       "canal": null,
       "minSdk": null
     },
