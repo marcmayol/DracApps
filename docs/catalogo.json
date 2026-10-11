@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-11T21:07:22Z",
+  "generado": "2026-10-11T21:53:23Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -120,6 +120,21 @@
       "firmaSha256": "ec8dd8a8ad34af6398411242ceac399ea22eb3690c81b6cc2dc889a7803673fd",
       "tamanoBytes": 41543766,
       "notas": "Primera versión de DracPDF para Android.\n\nEl mismo motor que el DracPDF de escritorio, ahora en el móvil: se abren PDFs desde\nel explorador de archivos, desde el share sheet de cualquier app o desde la propia\naplicación, y se leen con zoom por pellizco, doble toque y panel de miniaturas.\nVarios documentos pueden estar abiertos a la vez.\n\nQué se puede hacer con un documento:\n\n- **Formularios**: rellenar campos de texto, casillas, opciones y listas de un PDF\n  oficial y guardarlos, con aviso claro cuando el formulario es XFA y no se puede.\n- **Firma dibujada**: firmar con el dedo, colocar la firma donde toque y guardarla en\n  una biblioteca para reutilizarla.\n- **Firma digital PAdES**: firmar con un certificado `.p12` propio, con sello visible,\n  y comprobar las firmas que ya trae el documento.\n- **Caja de herramientas**: unir, dividir, organizar páginas arrastrándolas, proteger y\n  desproteger con contraseña, comprimir y convertir.\n- **Leer de verdad**: buscar en el documento con los resultados resaltados, seleccionar\n  texto y copiarlo, índice del documento, ir a una página, seguir enlaces —los que\n  salen fuera preguntan antes—, imprimir, y ajustar la vista a ancho, a página, en\n  doble página o girada, con lo elegido guardado.\n- **Recientes**: la aplicación recuerda los documentos por los que has pasado y **por\n  qué página ibas** en cada uno.\n- **Marcar**: resaltar, subrayar, tachar, poner notas y escribir sobre la página, con\n  anotaciones estándar que se ven y se pueden borrar desde cualquier otro visor.\n- **Editar**: añadir y quitar imágenes, y corregir un texto de forma que el original\n  desaparece de verdad en vez de quedarse debajo.\n- **Convertir**: a HTML, Markdown, texto, Word, ODT, RTF, imágenes, y las tablas a CSV\n  o XLSX. Y al revés: hacer un PDF con imágenes, Markdown, HTML o texto.\n- **Escanear**: fotografiar hojas con la cámara, enderezarlas y guardarlas como PDF.\n\nLos documentos firmados se abren bloqueados para edición y ofrecen guardar una copia\neditable, para no romper firmas ajenas sin querer. Los que llegan compartidos desde\notra aplicación avisan de que son prestados y ofrecen quedárselos.\n\nTema claro y oscuro, o el del sistema, con la identidad Ladón del escritorio.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.faltis",
+      "nombre": "Faltis",
+      "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el movil.",
+      "iconoUrl": "",
+      "versionCode": 2,
+      "versionName": "0.2.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.2.0/faltis-v0.2.0.apk",
+      "sha256": "5fedbef0557f790060dfc12945889f96646e59a74416c8f68c8709bc91d9196a",
+      "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
+      "tamanoBytes": 55745259,
+      "notas": "Primera versión en DracApps. Importa meses de tickets de golpe, avisa de lo que ha subido respecto a la media de tus compras y calcula tu inflación. Comprueba cada línea del ticket y dice por qué dos productos son equivalentes.",
       "canal": null,
       "minSdk": null
     },
