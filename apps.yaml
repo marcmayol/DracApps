@@ -56,6 +56,10 @@ apps:
   # Teleprompter que sigue tu voz mientras lees y graba el vídeo a la vez.
   - repo: marcmayol/prompter
 
+  # Lista de la compra que aprende los precios de tus tickets y compara supermercados.
+  # Nombre provisional: el applicationId (com.marcmayol.faltis) se queda aunque cambie.
+  - repo: marcmayol/faltis
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
