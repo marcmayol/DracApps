@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-07T16:30:24Z",
+  "generado": "2026-10-11T17:43:43Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -68,13 +68,13 @@
       "nombre": "Grimorio de Salud",
       "descripcion": "Seguimiento personal de medicación, tensión y antecedentes de salud (Android, Kotlin/Compose/Room).",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.grimoriodepociones.png",
-      "versionCode": 11,
-      "versionName": "2.0",
-      "apkUrl": "https://github.com/marcmayol/grimorio-de-pociones/releases/download/v2.0/grimorio-de-salud-v2.0.apk",
-      "sha256": "e17eb02cc77c72e9fd97057e41d2f77370403c4910262f3effbeefc11e4e85f9",
+      "versionCode": 12,
+      "versionName": "2.1",
+      "apkUrl": "https://github.com/marcmayol/grimorio-de-pociones/releases/download/v2.1/grimorio-de-salud-v2.1.apk",
+      "sha256": "526acee4d9df067c6c369b03373e33383438b16a4993238a1357b4663634aac0",
       "firmaSha256": "dd7db9e5c592d37339a66aa638ce8afd9f8f38189eebc80f2c3ac7b03ec75642",
-      "tamanoBytes": 11629201,
-      "notas": "Nuevo: puedes sellar el Grimorio con un sigilo (PIN) y abrirlo con huella o rostro. Ajustes -> Seguridad.",
+      "tamanoBytes": 11703473,
+      "notas": "Tonos de aviso: elige en Ajustes cómo suena cada aviso (medicamentos, tensión y farmacia), con tonos propios del Grimorio o sonidos del móvil.",
       "canal": null,
       "minSdk": null
     },
