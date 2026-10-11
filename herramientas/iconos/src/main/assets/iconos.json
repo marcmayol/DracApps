@@ -1,11 +1,10 @@
 [
   {
-    "applicationId": "com.marcm.middleearthjourney",
-    "slug": "com_marcm_middleearthjourney",
+    "applicationId": "com.marcmayol.faltis",
+    "slug": "com_marcmayol_faltis",
     "capas": [
       "background",
-      "foreground",
-      "monochrome"
+      "foreground"
     ]
   }
 ]
