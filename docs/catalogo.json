@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-12T13:00:27Z",
+  "generado": "2026-10-12T18:01:41Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 8,
-      "versionName": "0.4.0",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.4.0/faltis-v0.4.0.apk",
-      "sha256": "8bc3a306a5c4c1a43b96bc4d227db21a2df556f6d9df4362b074d8985923d85e",
+      "versionCode": 9,
+      "versionName": "0.5.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.5.0/faltis-v0.5.0.apk",
+      "sha256": "3071d6a84c2356889d867ae8eba7ecd340e399b9dcf5e21d4b581b84a4552dd5",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
-      "tamanoBytes": 55778027,
-      "notas": "Al tocar un producto en Precios ves su precio en cada una de tus tiendas y cuál es la más barata. Al tocar algo de tu lista puedes moverlo a otra lista de un toque.",
+      "tamanoBytes": 55794411,
+      "notas": "Precios web de 18 cadenas (Mercadona, Aldi, Carrefour, Dia, Consum, Eroski, Caprabo, Alcampo, Bonpreu, Condis, bonÀrea, Ahorramás, Gadis, HiperDino, BM, masymas, Froiz y las ofertas de Lidl), cada una por su lado. Aviso de «Buscando precios en la web…» en la tarjeta del total.",
       "canal": null,
       "minSdk": null
     },
