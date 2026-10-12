@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-11T23:12:33Z",
+  "generado": "2026-10-12T08:55:06Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 3,
-      "versionName": "0.2.1",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.2.1/faltis-v0.2.1.apk",
-      "sha256": "412f6414ae09193daa8e4433798c9bdab8b3630e94c7c599827587480de23a94",
+      "versionCode": 4,
+      "versionName": "0.3.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.3.0/faltis-v0.3.0.apk",
+      "sha256": "c85f755ac7ff239121858942d35fc8241f6b7a399867b79e8d823066366d8650",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
-      "tamanoBytes": 55745259,
-      "notas": "La app ahora va dentro de un Scaffold: los márgenes de la barra de estado, la de navegación y la barra inferior se miden en vez de ir a ojo, así que nada queda tapado en móviles con barras más altas.",
+      "tamanoBytes": 55761643,
+      "notas": "Las listas pueden ser de un súper concreto: en una lista general, al añadir algo te pregunta a qué lista de qué súper va. Ya no pregunta «pueblo o barrio» al añadir un súper. Nuevo y opcional (Ajustes): precios web de Mercadona y Aldi, con el sello «web» y un aviso de que en tu tienda pueden variar por franquicia, región u ofertas locales; el precio de tus tickets siempre manda.",
       "canal": null,
       "minSdk": null
     },
