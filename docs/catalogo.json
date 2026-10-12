@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-12T11:10:54Z",
+  "generado": "2026-10-12T11:23:55Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 5,
-      "versionName": "0.3.1",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.3.1/faltis-v0.3.1.apk",
-      "sha256": "5d3a7e9430dfc073e4de412c2edc6cfad91fe8fdc3cc7e7319705a288ec502b6",
+      "versionCode": 6,
+      "versionName": "0.3.2",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.3.2/faltis-v0.3.2.apk",
+      "sha256": "8b7ef3d159ee57894b8134a12ac2ef238fe78be3c9af034934746aa1606dcdd6",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
       "tamanoBytes": 55778027,
-      "notas": "Arreglos: el aviso «Añadido a…» ya no se queda a media pantalla con el teclado abierto; el código postal se escribe con teclado numérico y los diálogos se leen bien con letra grande; el texto de Actualizaciones ya cuenta que los precios web también usan internet.",
+      "notas": "Arreglos para móviles pequeños y letra grande: la bienvenida ya deja empezar siempre, la búsqueda de tiendas no queda tapada por el teclado, Atrás vuelve al paso anterior sin perder lo elegido y los nombres de las tiendas se leen enteros.",
       "canal": null,
       "minSdk": null
     },
