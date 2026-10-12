@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-12T12:50:18Z",
+  "generado": "2026-10-12T13:00:27Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 7,
-      "versionName": "0.3.3",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.3.3/faltis-v0.3.3.apk",
-      "sha256": "7a105dd88da4786593f39ebf4b773c7b3efdaf2723aedcf4f51adf2d56a41a63",
+      "versionCode": 8,
+      "versionName": "0.4.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.4.0/faltis-v0.4.0.apk",
+      "sha256": "8bc3a306a5c4c1a43b96bc4d227db21a2df556f6d9df4362b074d8985923d85e",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
       "tamanoBytes": 55778027,
-      "notas": "Puedes cambiar el nombre de tus tiendas (toca una en Ajustes). En Precios, los precios sacados de la web se marcan como «web».",
+      "notas": "Al tocar un producto en Precios ves su precio en cada una de tus tiendas y cuál es la más barata. Al tocar algo de tu lista puedes moverlo a otra lista de un toque.",
       "canal": null,
       "minSdk": null
     },
