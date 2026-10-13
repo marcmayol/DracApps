@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-12T18:01:41Z",
+  "generado": "2026-10-13T07:56:22Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 9,
-      "versionName": "0.5.0",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.5.0/faltis-v0.5.0.apk",
-      "sha256": "3071d6a84c2356889d867ae8eba7ecd340e399b9dcf5e21d4b581b84a4552dd5",
+      "versionCode": 10,
+      "versionName": "0.6.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.6.0/faltis-v0.6.0.apk",
+      "sha256": "c4e9368523c26a8a98999ece8ea25cb9dc64415ae6b30a5d786f3d0432f02734",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
       "tamanoBytes": 55794411,
-      "notas": "Precios web de 18 cadenas (Mercadona, Aldi, Carrefour, Dia, Consum, Eroski, Caprabo, Alcampo, Bonpreu, Condis, bonÀrea, Ahorramás, Gadis, HiperDino, BM, masymas, Froiz y las ofertas de Lidl), cada una por su lado. Aviso de «Buscando precios en la web…» en la tarjeta del total.",
+      "notas": "Precios compartidos: Faltis comparte los precios de las líneas de tus tickets, sueltos y sin nada que te identifique, para que todos veamos lo que cuesta cada cosa en cada tienda. Se desactiva en Ajustes. Nueva política de privacidad en marcmayol.com/faltis/privacidad.html.",
       "canal": null,
       "minSdk": null
     },
