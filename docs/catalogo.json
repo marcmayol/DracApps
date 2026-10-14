@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-14T19:02:26Z",
+  "generado": "2026-10-14T19:47:32Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio guiado en vivo: descansos que avisan con la pantalla apagada, el peso que sube solo y te dice por qué, superseries de verdad y mapa muscular. Sin cuenta ni nube. Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 38,
-      "versionName": "2.16",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.16/building-my-future-v2.16.apk",
-      "sha256": "e8408916bcfa6c9ccb58373af63222a9589c3be8da5632cac1eda8c1bd19e734",
+      "versionCode": 39,
+      "versionName": "2.17",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.17/building-my-future-v2.17.apk",
+      "sha256": "c4e9581faa756ad6d216f598341e5f3f300365821d0f195aa65bb1c7741c1a88",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
-      "tamanoBytes": 11150037,
-      "notas": "Mis pesos, ordenado: los ejercicios van agrupados por músculo (pecho, espalda, pierna...) en secciones que se abren y se cierran. Y debajo de cada uno, tu PR: lo máximo que has movido nunca.",
+      "tamanoBytes": 11170481,
+      "notas": "Dos planes nuevos para empezar desde cero si te cuesta moverte: Primeros pasos en casa (de pie con apoyo o sentado, sin material) y Primeros pasos en el gimnasio (todo sentado en máquinas). Entreno libre a un toque desde la portada, para apuntar lo que haces sin seguir ninguna rutina. Y en el entreno libre ya puedes marcar series de calentamiento: se apuntan, pero no cuentan para tu peso ni para tu PR.",
       "canal": null,
       "minSdk": null
     },
