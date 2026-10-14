@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-13T07:56:22Z",
+  "generado": "2026-10-14T19:02:26Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 21,
-      "versionName": "2.5.3",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.5.3/cronicas-del-apetito-v2.5.3.apk",
-      "sha256": "b84352d129d4afc42184e523eaf8aa90868ed321ac940486a5f2763c58013b6a",
+      "versionCode": 22,
+      "versionName": "2.6",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.6/cronicas-del-apetito-v2.6.apk",
+      "sha256": "cd3577e056c63685033c0117da2d20b60d74ee5c0a7f2f4c329a0acffa4fa894",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 1881938,
-      "notas": "Las pantallas aprovechan todo el alto: la lista pasa por debajo de la barra de gestos, desaparece la franja de otro color que había arriba y el botón Anotar vuelve a su sitio.",
+      "tamanoBytes": 1883574,
+      "notas": "Nuevo tema neutro (claro y oscuro) por defecto. El cuaderno marrón de siempre sigue disponible como «Grimorio» en Ajustes → Apariencia.",
       "canal": null,
       "minSdk": null
     },
