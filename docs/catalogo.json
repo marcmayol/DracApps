@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-14T19:47:32Z",
+  "generado": "2026-10-15T17:04:53Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 10,
-      "versionName": "0.6.0",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.6.0/faltis-v0.6.0.apk",
-      "sha256": "c4e9368523c26a8a98999ece8ea25cb9dc64415ae6b30a5d786f3d0432f02734",
+      "versionCode": 12,
+      "versionName": "0.7.1",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.7.1/faltis-v0.7.1.apk",
+      "sha256": "ff16119b19e75bb7cbe8eb1cce1ef25168d3710aedbfdb20284e612fa67c225f",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
-      "tamanoBytes": 55794411,
-      "notas": "Precios compartidos: Faltis comparte los precios de las líneas de tus tickets, sueltos y sin nada que te identifique, para que todos veamos lo que cuesta cada cosa en cada tienda. Se desactiva en Ajustes. Nueva política de privacidad en marcmayol.com/faltis/privacidad.html.",
+      "tamanoBytes": 56299370,
+      "notas": "En el modo compra puedes cambiar la cantidad de cada artículo con los botones – y +, sin salir del pasillo.",
       "canal": null,
       "minSdk": null
     },
