@@ -60,6 +60,9 @@ apps:
   # Nombre provisional: el applicationId (com.marcmayol.faltis) se queda aunque cambie.
   - repo: marcmayol/faltis
 
+  # Bobinas de filamento: inventario, coste de cada impresión, estadísticas y tags NFC.
+  - repo: marcmayol/rodet
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
