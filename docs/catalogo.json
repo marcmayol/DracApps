@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-15T17:36:26Z",
+  "generado": "2026-10-15T17:41:31Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -157,7 +157,7 @@
       "id": "com.marcmayol.rodet",
       "nombre": "Rodet",
       "descripcion": "App Android para tus bobinas de filamento: inventario, coste de cada impresión, estadísticas y tags NFC (Creality CFS, OpenSpool…)",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.rodet.png",
       "versionCode": 2,
       "versionName": "0.2.0",
       "apkUrl": "https://github.com/marcmayol/rodet/releases/download/v0.2.0/rodet-v0.2.0.apk",
