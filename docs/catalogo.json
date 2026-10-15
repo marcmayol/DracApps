@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-15T17:04:53Z",
+  "generado": "2026-10-15T17:35:48Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -150,6 +150,21 @@
       "firmaSha256": "07844769f77f4dcfd92aad848ff3ebea292832642c11eaab588c7c08a49d32d3",
       "tamanoBytes": 85222884,
       "notas": "Importa tus guiones desde Notion: elige una ficha y se trae solo el texto que se lee. Al guardar el vídeo, la ficha pasa a Grabado. Además, el texto se adelanta unas palabras a tu voz (ajustable) y la grabación es más ligera.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.rodet",
+      "nombre": "Rodet",
+      "descripcion": "App Android para tus bobinas de filamento: inventario, coste de cada impresión, estadísticas y tags NFC (Creality CFS, OpenSpool…)",
+      "iconoUrl": "",
+      "versionCode": 2,
+      "versionName": "0.2.0",
+      "apkUrl": "https://github.com/marcmayol/rodet/releases/download/v0.2.0/rodet-v0.2.0.apk",
+      "sha256": "09a530ec842a0e9933e41e8f8d35806fabc2333e106adecdf8285397460db911",
+      "firmaSha256": "4026834789f5419688448f4d898d83b68365bf054806db065c045c2f7b8d41d0",
+      "tamanoBytes": 33969452,
+      "notas": "Primera versión en DracApps. Inventario de bobinas (alta a mano o con foto, pesar, lo que queda de cada una), calculadora de coste de impresión que lee el gcode o el .gcode.3mf (filamento + luz, extras opcionales), historial, estadísticas por tipo de filamento, color y mes, y qué volver a pedir. Y los tags NFC de siempre: Creality CFS (probado en la K2), OpenSpool y más.",
       "canal": null,
       "minSdk": null
     }
