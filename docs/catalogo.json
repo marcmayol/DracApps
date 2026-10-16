@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-16T14:31:46Z",
+  "generado": "2026-10-16T18:28:58Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 13,
-      "versionName": "0.7.2",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.7.2/faltis-v0.7.2.apk",
-      "sha256": "12f11dde7064074d2d8258bec46bed9f680f3391b300c1d4b150be3ae9f83020",
+      "versionCode": 14,
+      "versionName": "0.8.0",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.8.0/faltis-v0.8.0.apk",
+      "sha256": "ab36f10c498e919380d49a54fc0958303751d7aa3cad200115524cb4da14bc5f",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
-      "tamanoBytes": 56316098,
-      "notas": "Arreglos: el pie de pago de los tickets en catalán (A pagar, Targeta, Pagament) ya no se cuenta como productos. Nuevo botón «Hacer foto del ticket» para usar la cámara desde la app; la foto se lee en el móvil y se borra.",
+      "tamanoBytes": 56348866,
+      "notas": "Nueva pestaña Productos: el catálogo de cada súper con foto, precio y ofertas web; añades a tu lista con un toque. Las listas ya no van por súper: cada artículo dice dónde se compra y la lista los agrupa. Al editar un artículo, Guardar ya no queda fuera de la pantalla.",
       "canal": null,
       "minSdk": null
     },
