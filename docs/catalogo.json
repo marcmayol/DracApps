@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-15T17:41:31Z",
+  "generado": "2026-10-16T14:31:46Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -128,13 +128,13 @@
       "nombre": "Faltis",
       "descripcion": "Lista de la compra que aprende tus precios de tus tickets y compara supermercados. Android, todo en el móvil.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.faltis.png",
-      "versionCode": 12,
-      "versionName": "0.7.1",
-      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.7.1/faltis-v0.7.1.apk",
-      "sha256": "ff16119b19e75bb7cbe8eb1cce1ef25168d3710aedbfdb20284e612fa67c225f",
+      "versionCode": 13,
+      "versionName": "0.7.2",
+      "apkUrl": "https://github.com/marcmayol/faltis/releases/download/v0.7.2/faltis-v0.7.2.apk",
+      "sha256": "12f11dde7064074d2d8258bec46bed9f680f3391b300c1d4b150be3ae9f83020",
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
-      "tamanoBytes": 56299370,
-      "notas": "En el modo compra puedes cambiar la cantidad de cada artículo con los botones – y +, sin salir del pasillo.",
+      "tamanoBytes": 56316098,
+      "notas": "Arreglos: el pie de pago de los tickets en catalán (A pagar, Targeta, Pagament) ya no se cuenta como productos. Nuevo botón «Hacer foto del ticket» para usar la cámara desde la app; la foto se lee en el móvil y se borra.",
       "canal": null,
       "minSdk": null
     },
