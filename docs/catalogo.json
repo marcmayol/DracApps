@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-21T21:45:59Z",
+  "generado": "2026-10-22T17:14:14Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio guiado en vivo: descansos que avisan con la pantalla apagada, el peso que sube solo y te dice por qué, superseries de verdad y mapa muscular. Sin cuenta ni nube. Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 42,
-      "versionName": "2.19.1",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.19.1/building-my-future-v2.19.1.apk",
-      "sha256": "bf5b09a04bb177ea47b3a352cc78eb64464cd4beec8dc1e1e51f5f6e5f156224",
+      "versionCode": 44,
+      "versionName": "2.20.1",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.20.1/building-my-future-v2.20.1.apk",
+      "sha256": "f1762e66be4c417276a94810a1c8864b965154bf61f94c02fbb6e465de5fbd29",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
-      "tamanoBytes": 10444768,
-      "notas": "Las capturas de la ayuda, rehechas con la app tal como es ahora.",
+      "tamanoBytes": 10469984,
+      "notas": "La ayuda enseña ya la app tal como es en la 2.20: el botón «Saltar», el descanso que se alarga al marcar «Justo» o «Fallo», y la sección Descansos de Ajustes.",
       "canal": null,
       "minSdk": null
     },
