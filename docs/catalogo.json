@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-10-22T17:14:14Z",
+  "generado": "2026-10-31T20:44:34Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -83,13 +83,13 @@
       "nombre": "Middle Earth Journey",
       "descripcion": "",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.middleearthjourney.png",
-      "versionCode": 3,
-      "versionName": "1.2",
-      "apkUrl": "https://github.com/marcmayol/middle_earth_journey/releases/download/v1.2/middle-earth-journey-v1.2.apk",
-      "sha256": "92d9bdcc928d05d349bef044db3109a8e4b5add493269a10a56085914ad96b89",
+      "versionCode": 4,
+      "versionName": "1.2.1",
+      "apkUrl": "https://github.com/marcmayol/middle_earth_journey/releases/download/v1.2.1/middle-earth-journey-v1.2.1.apk",
+      "sha256": "4f4cc56883b875c0205bc5883ab0d4437ac916b16ec0f3d841e9ebf452ed54b9",
       "firmaSha256": "1ed43355c807dc2dc6fdbdd324a6ecf303de4f766d88b8004b871ef4a566585c",
-      "tamanoBytes": 13804259,
-      "notas": "Estadisticas: la tarjeta semanal ahora se mueve por las semanas anteriores, no solo la actual.",
+      "tamanoBytes": 13816579,
+      "notas": "Arregla la conexión con Health Connect en un móvil nuevo y añade su sección en Ajustes: estado, conectar, sincronizar ahora y recalcular el viaje. Si Health Connect falla, el viaje ya no retrocede.",
       "canal": null,
       "minSdk": null
     },
