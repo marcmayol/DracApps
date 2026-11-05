@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-02T06:13:00Z",
+  "generado": "2026-11-05T15:49:36Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -165,6 +165,21 @@
       "firmaSha256": "4026834789f5419688448f4d898d83b68365bf054806db065c045c2f7b8d41d0",
       "tamanoBytes": 33969452,
       "notas": "Primera versión en DracApps. Inventario de bobinas (alta a mano o con foto, pesar, lo que queda de cada una), calculadora de coste de impresión que lee el gcode o el .gcode.3mf (filamento + luz, extras opcionales), historial, estadísticas por tipo de filamento, color y mes, y qué volver a pedir. Y los tags NFC de siempre: Creality CFS (probado en la K2), OpenSpool y más.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.tokimichi",
+      "nombre": "Tokimichi",
+      "descripcion": "Descargas de Tokimichi: guarda lo que vives en viajes, escapadas y eventos, día a día",
+      "iconoUrl": "",
+      "versionCode": 4,
+      "versionName": "0.4.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.4.0/tokimichi-v0.4.0.apk",
+      "sha256": "55f9886f37dd1520438f0e566225178b98c45dd030d3e7fbf5d817b4c35b7730",
+      "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
+      "tamanoBytes": 13811121,
+      "notas": "Primera versión en DracApps. Las pantallas respetan mejor el teclado y las barras del sistema, los avisos inferiores vuelven a leerse y la app ya se actualiza sola.",
       "canal": null,
       "minSdk": null
     }
