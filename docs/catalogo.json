@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-05T16:00:19Z",
+  "generado": "2026-11-05T19:07:25Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 4,
-      "versionName": "0.4.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.4.0/tokimichi-v0.4.0.apk",
-      "sha256": "55f9886f37dd1520438f0e566225178b98c45dd030d3e7fbf5d817b4c35b7730",
+      "versionCode": 5,
+      "versionName": "0.5.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.5.0/tokimichi-v0.5.0.apk",
+      "sha256": "afd9248dc297c216faf53fcaeeea256bccedff79654af16b6dbde71b4b535b9a",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 13811121,
-      "notas": "Primera versión en DracApps. Las pantallas respetan mejor el teclado y las barras del sistema, los avisos inferiores vuelven a leerse y la app ya se actualiza sola.",
+      "tamanoBytes": 13843889,
+      "notas": "Tres puntos en cada experiencia para cambiar su nombre y sus días o borrarla. Ajustes con la rueda de arriba: tema claro, oscuro o automático, y buscar actualizaciones.",
       "canal": null,
       "minSdk": null
     }
