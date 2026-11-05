@@ -63,6 +63,11 @@ apps:
   # Bobinas de filamento: inventario, coste de cada impresión, estadísticas y tags NFC.
   - repo: marcmayol/rodet
 
+  # Lo que vives en viajes, escapadas y eventos, día a día. El código es privado:
+  # aquí solo está el repo público con el APK y el manifiesto.
+  - repo: marcmayol/tokimichi-releases
+    nombre: Tokimichi
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
