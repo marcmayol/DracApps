@@ -67,6 +67,7 @@ apps:
   # aquí solo está el repo público con el APK y el manifiesto.
   - repo: marcmayol/tokimichi-releases
     nombre: Tokimichi
+    descripcion: "Guarda lo que vives en viajes, escapadas y eventos, día a día."
 
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
