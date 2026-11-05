@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-05T15:56:28Z",
+  "generado": "2026-11-05T16:00:19Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -171,7 +171,7 @@
     {
       "id": "com.marcmayol.tokimichi",
       "nombre": "Tokimichi",
-      "descripcion": "Descargas de Tokimichi: guarda lo que vives en viajes, escapadas y eventos, día a día",
+      "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
       "versionCode": 4,
       "versionName": "0.4.0",
