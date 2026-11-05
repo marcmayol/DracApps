@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-05T19:16:27Z",
+  "generado": "2026-11-05T20:41:47Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 6,
-      "versionName": "0.5.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.5.1/tokimichi-v0.5.1.apk",
-      "sha256": "c6074b0693e2d7ef89b5c2128a55f8fee1627e7e6f1748a026ccbb1c18cdb967",
+      "versionCode": 7,
+      "versionName": "0.5.2",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.5.2/tokimichi-v0.5.2.apk",
+      "sha256": "18641b31bc31b039399e2d52d7a2a1b91e54ff1826e7ec7e92ecd0e4b64c13d3",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 13843889,
-      "notas": "«Atrás» es ahora un botón de verdad en Ajustes, Nueva experiencia y Editar.",
+      "notas": "«Atrás» y «Cerrar» son botones también en la experiencia y al añadir un momento.",
       "canal": null,
       "minSdk": null
     }
