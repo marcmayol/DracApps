@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-06T06:52:48Z",
+  "generado": "2026-11-07T06:03:44Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -53,13 +53,13 @@
       "nombre": "Crónicas del Apetito",
       "descripcion": "Anota lo que comes sin llevar tú la cuenta: te pregunta a la hora y con la frecuencia que elijas. Español e inglés, sin cuentas ni nube, con copia de seguridad propia. Android, Kotlin/Compose/Room.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcm.cronicasapetito.png",
-      "versionCode": 25,
-      "versionName": "2.8.1",
-      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.8.1/cronicas-del-apetito-v2.8.1.apk",
-      "sha256": "6ac2463286083e07d17286ca7188132b95230cd1fb2b66ed692670e2068aa6a1",
+      "versionCode": 26,
+      "versionName": "2.9",
+      "apkUrl": "https://github.com/marcmayol/cronicas-del-apetito/releases/download/v2.9/cronicas-del-apetito-v2.9.apk",
+      "sha256": "6cdd7c5b0d90fe4c35985160c4b3a7f0479e3116253eb3540a0e2b2d31db9ca9",
       "firmaSha256": "d76ab86611d096095e4d21e77669a2624fca9450489e84b3b21a31a89de7036e",
-      "tamanoBytes": 1915331,
-      "notas": "El micrófono pasa a ser opcional: la app vuelve a poder instalarse en tablets y teles sin micro.",
+      "tamanoBytes": 1928119,
+      "notas": "Modo vacaciones: elige de qué día a qué día y si mientras tanto la app te pregunta una vez al día (a la hora que digas) o no pregunta nada. Al acabar vuelven los avisos de siempre.",
       "canal": null,
       "minSdk": null
     },
