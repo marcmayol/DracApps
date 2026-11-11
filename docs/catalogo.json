@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-09T22:25:44Z",
+  "generado": "2026-11-11T15:11:56Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 7,
-      "versionName": "0.5.2",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.5.2/tokimichi-v0.5.2.apk",
-      "sha256": "18641b31bc31b039399e2d52d7a2a1b91e54ff1826e7ec7e92ecd0e4b64c13d3",
+      "versionCode": 8,
+      "versionName": "0.6.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.6.0/tokimichi-v0.6.0.apk",
+      "sha256": "5350c53419bfefbe5dd4be8ba0d80a159a9c8119894e09e9b8303e4d02a0518d",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 13843889,
-      "notas": "«Atrás» y «Cerrar» son botones también en la experiencia y al añadir un momento.",
+      "tamanoBytes": 13860657,
+      "notas": "Ahora eliges cuándo empieza y cuándo termina cada experiencia, también para otro día: puedes dejarla preparada y empieza mañana. Los avisos solo llegan entre esas fechas. Y la app ya está en inglés y en español.",
       "canal": null,
       "minSdk": null
     }
