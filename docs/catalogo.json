@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-11T15:11:56Z",
+  "generado": "2026-11-13T19:04:09Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 8,
-      "versionName": "0.6.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.6.0/tokimichi-v0.6.0.apk",
-      "sha256": "5350c53419bfefbe5dd4be8ba0d80a159a9c8119894e09e9b8303e4d02a0518d",
+      "versionCode": 9,
+      "versionName": "0.7.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.7.0/tokimichi-v0.7.0.apk",
+      "sha256": "bd738bb1f8d7c4fe060f67565cfa1ef2d86d8416966399d0f30576f1685e1d78",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 13860657,
-      "notas": "Ahora eliges cuándo empieza y cuándo termina cada experiencia, también para otro día: puedes dejarla preparada y empieza mañana. Los avisos solo llegan entre esas fechas. Y la app ya está en inglés y en español.",
+      "tamanoBytes": 13877041,
+      "notas": "Copia en Google Drive: en Ajustes, actívala y elige Google Drive. Cada día se guarda una copia de todo, con las fotos en WebP para que ocupe poco.",
       "canal": null,
       "minSdk": null
     }
