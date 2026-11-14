@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-13T19:28:57Z",
+  "generado": "2026-11-14T10:00:53Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 10,
-      "versionName": "0.8.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.8.0/tokimichi-v0.8.0.apk",
-      "sha256": "ab706f20ca7adea92c70dc7fd2ef3424a4f73232ba1ee9c97dee39089593e524",
+      "versionCode": 11,
+      "versionName": "0.8.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.8.1/tokimichi-v0.8.1.apk",
+      "sha256": "a074f787ad04bd6528c051ffe5d345ff43b3cd0bc451e749a7250e3a867bff17",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14574626,
-      "notas": "Copia en Google Drive: en Ajustes, pulsa «Iniciar sesión con Google» y Tokimichi copiará cada día todo, con las fotos en WebP, a una carpeta Tokimichi de tu Drive. Solo sube lo nuevo.",
+      "notas": "Al añadir un momento, «Galería» está al lado de «Foto» para elegir fotos y vídeos del móvil.",
       "canal": null,
       "minSdk": null
     }
