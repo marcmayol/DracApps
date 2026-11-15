@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-15T07:09:16Z",
+  "generado": "2026-11-15T16:33:02Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -135,6 +135,21 @@
       "firmaSha256": "15b32a376892407eb5b3f4368daaa813b385f53110bddd66fda2b7d5de64ec75",
       "tamanoBytes": 56348866,
       "notas": "Nueva pestaña Productos: el catálogo de cada súper con foto, precio y ofertas web; añades a tu lista con un toque. Las listas ya no van por súper: cada artículo dice dónde se compra y la lista los agrupa. Al editar un artículo, Guardar ya no queda fuera de la pantalla.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.kawase",
+      "nombre": "Kawase",
+      "descripcion": "Yenes a euros con el tipo del BCE. Funciona sin conexión.",
+      "iconoUrl": "",
+      "versionCode": 1,
+      "versionName": "0.1.0",
+      "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.1.0/kawase-v0.1.0.apk",
+      "sha256": "ac7411bb3768eeca636b0d7768c07f2380e786a1507ac0fd477109a16226a639",
+      "firmaSha256": "a9c73ef5d49500dcc2ea763f485f8f8eb8d16c3b6e8cf4215cf00aced1fe914f",
+      "tamanoBytes": 1307295,
+      "notas": "Primera versión: escribe un precio en yenes y te lo dice en euros con el tipo del BCE. Sin red usa el último guardado.",
       "canal": null,
       "minSdk": null
     },
