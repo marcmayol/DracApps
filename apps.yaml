@@ -69,6 +69,9 @@ apps:
     nombre: Tokimichi
     descripcion: "Guarda lo que vives en viajes, escapadas y eventos, día a día."
 
+  # Precio en yenes a euros con el tipo del BCE; sin red usa el último guardado.
+  - repo: marcmayol/kawase
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
