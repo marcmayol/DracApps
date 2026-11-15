@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-14T10:00:53Z",
+  "generado": "2026-11-15T07:09:16Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -173,13 +173,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 11,
-      "versionName": "0.8.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.8.1/tokimichi-v0.8.1.apk",
-      "sha256": "a074f787ad04bd6528c051ffe5d345ff43b3cd0bc451e749a7250e3a867bff17",
+      "versionCode": 12,
+      "versionName": "0.8.2",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.8.2/tokimichi-v0.8.2.apk",
+      "sha256": "0e9217d6f9f4d6bc666818a6bffac059c903fef99b2ddb9483d864e8d585a7f5",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14574626,
-      "notas": "Al añadir un momento, «Galería» está al lado de «Foto» para elegir fotos y vídeos del móvil.",
+      "notas": "Al añadir un momento se puede elegir la hora también hoy. Al guardar desde un aviso, el aviso se quita y vuelves al día de la experiencia.",
       "canal": null,
       "minSdk": null
     }
