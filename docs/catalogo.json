@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-15T16:35:50Z",
+  "generado": "2026-11-15T16:39:22Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -140,16 +140,16 @@
     },
     {
       "id": "com.marcmayol.kawase",
-      "nombre": "Kawase",
-      "descripcion": "Yenes a euros con el tipo del BCE. Funciona sin conexión.",
+      "nombre": "Yenes",
+      "descripcion": "Yenes: precio en yenes a euros con el tipo del BCE. Funciona sin conexión.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.kawase.png",
-      "versionCode": 1,
-      "versionName": "0.1.0",
-      "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.1.0/kawase-v0.1.0.apk",
-      "sha256": "ac7411bb3768eeca636b0d7768c07f2380e786a1507ac0fd477109a16226a639",
+      "versionCode": 2,
+      "versionName": "0.1.1",
+      "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.1.1/kawase-v0.1.1.apk",
+      "sha256": "0eb0fb56e834546e08ed814866a0c61e14e8807ccbc9f5b5a948091db016c1a2",
       "firmaSha256": "a9c73ef5d49500dcc2ea763f485f8f8eb8d16c3b6e8cf4215cf00aced1fe914f",
-      "tamanoBytes": 1307295,
-      "notas": "Primera versión: escribe un precio en yenes y te lo dice en euros con el tipo del BCE. Sin red usa el último guardado.",
+      "tamanoBytes": 1307287,
+      "notas": "La app pasa a llamarse Yenes.",
       "canal": null,
       "minSdk": null
     },
