@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-15T16:33:43Z",
+  "generado": "2026-11-15T16:35:50Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -142,7 +142,7 @@
       "id": "com.marcmayol.kawase",
       "nombre": "Kawase",
       "descripcion": "Yenes a euros con el tipo del BCE. Funciona sin conexión.",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.kawase.png",
       "versionCode": 1,
       "versionName": "0.1.0",
       "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.1.0/kawase-v0.1.0.apk",
