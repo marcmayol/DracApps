@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-17T20:02:21Z",
+  "generado": "2026-11-17T20:29:24Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -143,13 +143,13 @@
       "nombre": "Yenes",
       "descripcion": "Yenes: precio en yenes a euros con el tipo del BCE. Funciona sin conexión.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.kawase.png",
-      "versionCode": 2,
-      "versionName": "0.1.1",
-      "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.1.1/kawase-v0.1.1.apk",
-      "sha256": "0eb0fb56e834546e08ed814866a0c61e14e8807ccbc9f5b5a948091db016c1a2",
+      "versionCode": 3,
+      "versionName": "0.2.0",
+      "apkUrl": "https://github.com/marcmayol/kawase/releases/download/v0.2.0/kawase-v0.2.0.apk",
+      "sha256": "04c6c6d2aab27a0808e858c605e844b88b2d6250c374344bca034dcdddbbf830",
       "firmaSha256": "a9c73ef5d49500dcc2ea763f485f8f8eb8d16c3b6e8cf4215cf00aced1fe914f",
-      "tamanoBytes": 1307287,
-      "notas": "La app pasa a llamarse Yenes.",
+      "tamanoBytes": 1208590,
+      "notas": "Por dentro ya es Kotlin Multiplatform: la misma app funciona también en iPhone. En Android no cambia nada.",
       "canal": null,
       "minSdk": null
     },
