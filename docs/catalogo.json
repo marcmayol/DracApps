@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-17T21:56:33Z",
+  "generado": "2026-11-18T15:26:40Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 13,
-      "versionName": "0.9.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.9.0/tokimichi-v0.9.0.apk",
-      "sha256": "99c9cdda3104da9536c1e29caf39ac10d7c8bf6e328c92d3a8d9f2477fe9a235",
+      "versionCode": 14,
+      "versionName": "0.9.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.9.1/tokimichi-v0.9.1.apk",
+      "sha256": "e30284f81be82c25db3ec4ecadbe62d0a570d76e75cb724104552b324eb84629",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14623778,
-      "notas": "Nuevo: si algo falla, Ajustes › Enviar registro manda el informe para arreglarlo. Si la app se cierra de golpe, al volver a abrirla te ofrece enviarlo.",
+      "notas": "La pantalla de inicio, más clara: «Nueva experiencia» va arriba, tus experiencias se agrupan por tipo (Viajes, Excursiones…) con una flecha para entrar, y «Guardar una copia» pasa a Ajustes.",
       "canal": null,
       "minSdk": null
     }
