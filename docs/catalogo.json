@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-19T07:22:33Z",
+  "generado": "2026-11-19T07:25:53Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 16,
-      "versionName": "0.9.3",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.9.3/tokimichi-v0.9.3.apk",
-      "sha256": "709f4ae09bd64085a88e508c2a87431685169e8644fa17be75a2dcd11b5da569",
+      "versionCode": 17,
+      "versionName": "0.9.4",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.9.4/tokimichi-v0.9.4.apk",
+      "sha256": "4d860f2400ce16b69f0ae2af2475215f39632bde4f24a09e8d4e981dca2670fe",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14623778,
-      "notas": "Desde la galería de un momento ya se pueden elegir más de 10 fotos y vídeos a la vez. Mientras se copian, la app lo indica.",
+      "notas": "Desde la galería de un momento se pueden elegir hasta 100 fotos y vídeos a la vez (antes, 10). Mientras se copian, la app lo indica.",
       "canal": null,
       "minSdk": null
     }
