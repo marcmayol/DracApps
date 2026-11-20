@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-19T22:50:23Z",
+  "generado": "2026-11-20T04:20:09Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 18,
-      "versionName": "0.10.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.10.0/tokimichi-v0.10.0.apk",
-      "sha256": "72a2d775bb18aea0f5e99f824d42ddb7a414189a5004bbf9dc3935e3190c1cf4",
+      "versionCode": 19,
+      "versionName": "0.10.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.10.1/tokimichi-v0.10.1.apk",
+      "sha256": "13b343b6adc122eb4299fd50aed2874233abc3f961adf742585c71d1a362d0e4",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14656590,
-      "notas": "Fotos y vídeos en grande: toca cualquiera para verlo a pantalla completa, desliza para pasar al siguiente y amplía con doble toque.\nDónde se hizo: las fotos, vídeos y notas de voz hechos con la app guardan el sitio. Tócalo para abrirlo en el mapa o en tu app de navegación, o compártelo.\nEn Ajustes puedes encender o apagar la ubicación.\nEn Android, las fotos y vídeos de la galería llegan sin ubicación, porque Android no la da.",
+      "tamanoBytes": 14656630,
+      "notas": "Compartir, en el visor, ahora manda la foto o el vídeo, con la fecha y el enlace al mapa si se sabe dónde se hizo.\nEl botón de compartir sale también en las fotos sin ubicación.",
       "canal": null,
       "minSdk": null
     }
