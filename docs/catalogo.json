@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T20:56:27Z",
+  "generado": "2026-11-20T21:21:52Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 27,
-      "versionName": "0.11.7",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.7/tokimichi-v0.11.7.apk",
-      "sha256": "cf11120bd1345ab3b09a7a6c03962358bad79c0ee8fcf6d204abd8444543bb99",
+      "versionCode": 28,
+      "versionName": "0.11.8",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.8/tokimichi-v0.11.8.apk",
+      "sha256": "97f01b42318e2630f7679e7d4e3ebac82e477e86a88af67586831b135654ad26",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14689634,
-      "notas": "Tokimichi 0.11.7: si el móvil no tiene app de cámara (o está desactivada), Foto y Vídeo ya no cierran la app.",
+      "notas": "Tokimichi 0.11.8: en iPhone, los vídeos enseñan su primer fotograma en la línea del tiempo, el visor y al editar. En Android no cambia nada.",
       "canal": null,
       "minSdk": null
     }
