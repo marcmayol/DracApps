@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T05:29:19Z",
+  "generado": "2026-11-20T05:47:50Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 21,
-      "versionName": "0.11.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.1/tokimichi-v0.11.1.apk",
-      "sha256": "92c22bf1300f7405eca346c454cb53fd851eadbac4bcb1b0a178cff6470c85b3",
+      "versionCode": 22,
+      "versionName": "0.11.2",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.2/tokimichi-v0.11.2.apk",
+      "sha256": "e475f1e92afb0fcfbf6cbf58e5e9390c68369235326171af6aa14d078db6173e",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14705974,
-      "notas": "Enviar un momento o un día abre el menú de compartir del móvil: eliges WhatsApp o la app que quieras.",
+      "tamanoBytes": 14705978,
+      "notas": "Al mandar varias fotos, el «Marc te manda…» va una sola vez, en la primera, no en cada foto.\nTu nombre se coge de la cuenta de Google con la que entras en la copia de Drive si no lo has puesto en Ajustes.",
       "canal": null,
       "minSdk": null
     }
