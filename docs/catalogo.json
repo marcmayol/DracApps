@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T21:21:52Z",
+  "generado": "2026-11-20T22:31:54Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -23,13 +23,13 @@
       "nombre": "Building My Future",
       "descripcion": "🏋️ Plan de gimnasio guiado en vivo: descansos que avisan con la pantalla apagada, el peso que sube solo y te dice por qué, superseries de verdad y mapa muscular. Sin cuenta ni nube. Android · Kotlin · Compose.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marc.gymplan100.png",
-      "versionCode": 48,
-      "versionName": "2.24.0",
-      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.24.0/building-my-future-v2.24.0.apk",
-      "sha256": "5189560924b6ad41e618f25815d50c5f8a10bfc6efd315249cc5d4d7a817d673",
+      "versionCode": 49,
+      "versionName": "2.24.1",
+      "apkUrl": "https://github.com/marcmayol/building-my-future/releases/download/v2.24.1/building-my-future-v2.24.1.apk",
+      "sha256": "58294f56a83cd711808bd045af18ea63f079ec0cd1310e8dc2c3da361433c67c",
       "firmaSha256": "0e4410d009fa18e09f0b92197693305d4725d01aeaa437b1cc690b8f633e523c",
       "tamanoBytes": 11199369,
-      "notas": "Contenido de serie en inglés. Arreglos con la letra grande y en móviles pequeños (inicio del día, sesión, rutinas fijas). El idioma automático respeta el segundo idioma del móvil (catalán → español). Base compartida con la futura versión de iPhone.",
+      "notas": "Arreglos: un descanso de más de una hora (al reanudar una sesión días después) se lee en horas y minutos, y la hora de la barra de estado ya no se pinta encima del texto al bajar en Inicio.",
       "canal": null,
       "minSdk": null
     },
