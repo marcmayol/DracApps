@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T07:45:17Z",
+  "generado": "2026-11-20T16:01:58Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 25,
-      "versionName": "0.11.5",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.5/tokimichi-v0.11.5.apk",
-      "sha256": "1aeabc6660f9cd4febc12716874a2ccee376c8448cd7d0290d5b1347a19ed3eb",
+      "versionCode": 26,
+      "versionName": "0.11.6",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.6/tokimichi-v0.11.6.apk",
+      "sha256": "f03b5cd44cb9475cf831d128b9640ed5eca7b9daae442d05118c54ec2ef0b819",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14689634,
-      "notas": "Enviar un momento o un día es un solo menú de compartir: el «Marc te manda…» va en una tarjeta delante de las fotos.",
+      "tamanoBytes": 14689630,
+      "notas": "Tokimichi 0.11.6: en iPhone, si el permiso de ubicación está denegado, «Donde estoy ahora» abre Ajustes; el texto del nombre al enviar ya no habla de la cuenta de Google en iPhone.",
       "canal": null,
       "minSdk": null
     }
