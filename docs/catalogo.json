@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T05:25:32Z",
+  "generado": "2026-11-20T05:29:19Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 20,
-      "versionName": "0.11.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.0/tokimichi-v0.11.0.apk",
-      "sha256": "e37a127d0761e1ea95cd6196b056c459cea5ed1b8dd126e6b56c40d20dbbedd5",
+      "versionCode": 21,
+      "versionName": "0.11.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.1/tokimichi-v0.11.1.apk",
+      "sha256": "92c22bf1300f7405eca346c454cb53fd851eadbac4bcb1b0a178cff6470c85b3",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14706026,
-      "notas": "Manda momentos y días por WhatsApp: cada momento tiene su botón de enviar, y los días ya pasados, «Enviar el día». Va con tu nombre, la hora, el texto, el sitio y todas las fotos y vídeos; si son más de 30, en partes.\nUbicación del momento: ponla con «Donde estoy ahora», compartiendo un sitio desde Google Maps a Tokimichi o pegando un enlace de Maps o unas coordenadas. Las fotos de la galería toman esa ubicación.\nLo que hagas con la cámara de Tokimichi se guarda también en el álbum «Tokimichi» de la galería, con su ubicación. Se puede apagar en Ajustes.",
+      "tamanoBytes": 14705974,
+      "notas": "Enviar un momento o un día abre el menú de compartir del móvil: eliges WhatsApp o la app que quieras.",
       "canal": null,
       "minSdk": null
     }
