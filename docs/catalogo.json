@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T07:35:16Z",
+  "generado": "2026-11-20T07:45:17Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 24,
-      "versionName": "0.11.4",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.4/tokimichi-v0.11.4.apk",
-      "sha256": "98f4cf83b9d7c6bc49b428b363437d32918a6c6aec29ec49529600934d5f846b",
+      "versionCode": 25,
+      "versionName": "0.11.5",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.5/tokimichi-v0.11.5.apk",
+      "sha256": "1aeabc6660f9cd4febc12716874a2ccee376c8448cd7d0290d5b1347a19ed3eb",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14705974,
-      "notas": "Enviar un momento o un día va de un toque: primero el mensaje y, al volver, se abre solo el envío de las fotos.",
+      "tamanoBytes": 14689634,
+      "notas": "Enviar un momento o un día es un solo menú de compartir: el «Marc te manda…» va en una tarjeta delante de las fotos.",
       "canal": null,
       "minSdk": null
     }
