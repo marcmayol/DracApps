@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T16:01:58Z",
+  "generado": "2026-11-20T20:56:27Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 26,
-      "versionName": "0.11.6",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.6/tokimichi-v0.11.6.apk",
-      "sha256": "f03b5cd44cb9475cf831d128b9640ed5eca7b9daae442d05118c54ec2ef0b819",
+      "versionCode": 27,
+      "versionName": "0.11.7",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.7/tokimichi-v0.11.7.apk",
+      "sha256": "cf11120bd1345ab3b09a7a6c03962358bad79c0ee8fcf6d204abd8444543bb99",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14689630,
-      "notas": "Tokimichi 0.11.6: en iPhone, si el permiso de ubicación está denegado, «Donde estoy ahora» abre Ajustes; el texto del nombre al enviar ya no habla de la cuenta de Google en iPhone.",
+      "tamanoBytes": 14689634,
+      "notas": "Tokimichi 0.11.7: si el móvil no tiene app de cámara (o está desactivada), Foto y Vídeo ya no cierran la app.",
       "canal": null,
       "minSdk": null
     }
