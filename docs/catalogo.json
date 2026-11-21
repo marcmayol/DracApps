@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-20T22:31:54Z",
+  "generado": "2026-11-21T08:19:34Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 28,
-      "versionName": "0.11.8",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.11.8/tokimichi-v0.11.8.apk",
-      "sha256": "97f01b42318e2630f7679e7d4e3ebac82e477e86a88af67586831b135654ad26",
+      "versionCode": 29,
+      "versionName": "0.12.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.12.0/tokimichi-v0.12.0.apk",
+      "sha256": "1d75bc53f76dd3d529477ade055488a033cf91cb13842398f36e0786ecb189d9",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14689634,
-      "notas": "Tokimichi 0.11.8: en iPhone, los vídeos enseñan su primer fotograma en la línea del tiempo, el visor y al editar. En Android no cambia nada.",
+      "tamanoBytes": 14706018,
+      "notas": "Nuevo diseño de Inicio y Ajustes: títulos más claros, lo que estás viviendo arriba y Ajustes ordenado por grupos.",
       "canal": null,
       "minSdk": null
     }
