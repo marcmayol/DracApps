@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-21T12:33:53Z",
+  "generado": "2026-11-21T13:11:33Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 31,
-      "versionName": "0.13.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.13.0/tokimichi-v0.13.0.apk",
-      "sha256": "c67335b75d9f6b164b594e8bfc3d520221dd9d161a195226c4e1b58852c123a3",
+      "versionCode": 32,
+      "versionName": "0.14.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.14.0/tokimichi-v0.14.0.apk",
+      "sha256": "304bad67e06230b2a4c011a61a9e41dbb949bcf9acd9224b0dc388df6c0bd1ba",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14722402,
-      "notas": "El diseño nuevo llega a todas las pantallas: la experiencia, crear una nueva, editarla y cada momento. Y hay un tipo de experiencia nuevo: «En familia».",
+      "tamanoBytes": 14738786,
+      "notas": "Cada pantalla con el diseño elegido: Inicio en estantería, la experiencia con la tarjeta de hoy arriba, el momento con barra y círculos, y Nueva, Editar y Ajustes ordenados por bloques.",
       "canal": null,
       "minSdk": null
     }
