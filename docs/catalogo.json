@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-21T13:11:33Z",
+  "generado": "2026-11-21T19:47:17Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 32,
-      "versionName": "0.14.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.14.0/tokimichi-v0.14.0.apk",
-      "sha256": "304bad67e06230b2a4c011a61a9e41dbb949bcf9acd9224b0dc388df6c0bd1ba",
+      "versionCode": 33,
+      "versionName": "0.14.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.14.1/tokimichi-v0.14.1.apk",
+      "sha256": "4af569a47a2b681ae977d754b2ff95d17df33dd23dcb246acf57011b9097e622",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14738786,
-      "notas": "Cada pantalla con el diseño elegido: Inicio en estantería, la experiencia con la tarjeta de hoy arriba, el momento con barra y círculos, y Nueva, Editar y Ajustes ordenados por bloques.",
+      "tamanoBytes": 14738782,
+      "notas": "La ubicación de un momento se busca por nombre o dirección sin salir de la app, y los enlaces de Google Maps vuelven a funcionar.",
       "canal": null,
       "minSdk": null
     }
