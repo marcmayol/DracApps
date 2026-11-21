@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-21T08:19:34Z",
+  "generado": "2026-11-21T10:25:03Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 29,
-      "versionName": "0.12.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.12.0/tokimichi-v0.12.0.apk",
-      "sha256": "1d75bc53f76dd3d529477ade055488a033cf91cb13842398f36e0786ecb189d9",
+      "versionCode": 30,
+      "versionName": "0.12.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.12.1/tokimichi-v0.12.1.apk",
+      "sha256": "db7c3ed75cc2efe497d96a56934cdf5059b5a71da65626a9eb906026fc0abb6b",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14706018,
-      "notas": "Nuevo diseño de Inicio y Ajustes: títulos más claros, lo que estás viviendo arriba y Ajustes ordenado por grupos.",
+      "tamanoBytes": 14706014,
+      "notas": "La tarjeta que acompaña a las fotos al enviar un momento o un día, con el diseño nuevo: la grulla arriba, la primera foto de portada y los momentos en una tarjeta.",
       "canal": null,
       "minSdk": null
     }
