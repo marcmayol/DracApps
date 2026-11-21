@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-21T10:25:03Z",
+  "generado": "2026-11-21T12:33:53Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 30,
-      "versionName": "0.12.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.12.1/tokimichi-v0.12.1.apk",
-      "sha256": "db7c3ed75cc2efe497d96a56934cdf5059b5a71da65626a9eb906026fc0abb6b",
+      "versionCode": 31,
+      "versionName": "0.13.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.13.0/tokimichi-v0.13.0.apk",
+      "sha256": "c67335b75d9f6b164b594e8bfc3d520221dd9d161a195226c4e1b58852c123a3",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14706014,
-      "notas": "La tarjeta que acompaña a las fotos al enviar un momento o un día, con el diseño nuevo: la grulla arriba, la primera foto de portada y los momentos en una tarjeta.",
+      "tamanoBytes": 14722402,
+      "notas": "El diseño nuevo llega a todas las pantallas: la experiencia, crear una nueva, editarla y cada momento. Y hay un tipo de experiencia nuevo: «En familia».",
       "canal": null,
       "minSdk": null
     }
