@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-21T19:47:17Z",
+  "generado": "2026-11-23T00:27:36Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 33,
-      "versionName": "0.14.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.14.1/tokimichi-v0.14.1.apk",
-      "sha256": "4af569a47a2b681ae977d754b2ff95d17df33dd23dcb246acf57011b9097e622",
+      "versionCode": 34,
+      "versionName": "0.15.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.15.0/tokimichi-v0.15.0.apk",
+      "sha256": "b9dbd9cfad442661bf95d2fe472ae331339471c0bee509453ef0cb6a31dd5eb3",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14738782,
-      "notas": "La ubicación de un momento se busca por nombre o dirección sin salir de la app, y los enlaces de Google Maps vuelven a funcionar.",
+      "tamanoBytes": 14771554,
+      "notas": "Montajes: un día o toda la experiencia en un carrusel de diapositivas para Instagram o WhatsApp, para cualquier tipo de experiencia. Plantillas Limpio y Polaroid gratis; Revista, Cartón y Noche llegarán con Premium.",
       "canal": null,
       "minSdk": null
     }
