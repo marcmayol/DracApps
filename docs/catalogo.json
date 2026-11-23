@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T07:57:07Z",
+  "generado": "2026-11-23T09:33:03Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 43,
-      "versionName": "0.19.3",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.19.3/tokimichi-v0.19.3.apk",
-      "sha256": "17ae3f46fe2c6e35cd5e40c82351f374e977f43e7f8cbabdacb10c734249906a",
+      "versionCode": 44,
+      "versionName": "0.20.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.20.0/tokimichi-v0.20.0.apk",
+      "sha256": "bc9c65dedbb4a1b84f831bb11ceeecd184556d42366436ba0f66a6c844e627c4",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14787970,
-      "notas": "Arreglado: «Compartir el montaje» no abría nada en Android. Ahora abre el menú de compartir con todas las diapositivas.",
+      "tamanoBytes": 14804354,
+      "notas": "Nueva plantilla de montaje «Continuo»: una tira de fotos que pasa de una diapositiva a la siguiente sin cortes. Los huecos se llenan solos con tus fotos; toca uno para cambiar la foto o dejarlo vacío.",
       "canal": null,
       "minSdk": null
     }
