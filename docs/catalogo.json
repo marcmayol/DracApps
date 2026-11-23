@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T01:47:45Z",
+  "generado": "2026-11-23T02:08:54Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 36,
-      "versionName": "0.16.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.1/tokimichi-v0.16.1.apk",
-      "sha256": "4889cfdf750d84b0021fbeb6b6ca916b2cd0df8662862e433e95fb3d2255063d",
+      "versionCode": 37,
+      "versionName": "0.16.2",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.2/tokimichi-v0.16.2.apk",
+      "sha256": "d6cbd7382827ee676ba4290c78c58a757dc259d39da4532b49ffa1be81262901",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14787934,
-      "notas": "Rasgado y Decorado rehechos: fotos arrancadas sobre una foto de fondo, y fotos impresas sobre papel como una página de álbum.",
+      "tamanoBytes": 14787938,
+      "notas": "Arreglo: en la vista previa de los montajes, el fondo y el oscurecido de Rasgado cubren ya toda la diapositiva.",
       "canal": null,
       "minSdk": null
     }
