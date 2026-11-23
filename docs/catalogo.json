@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T00:27:36Z",
+  "generado": "2026-11-23T00:48:36Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 34,
-      "versionName": "0.15.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.15.0/tokimichi-v0.15.0.apk",
-      "sha256": "b9dbd9cfad442661bf95d2fe472ae331339471c0bee509453ef0cb6a31dd5eb3",
+      "versionCode": 35,
+      "versionName": "0.16.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.0/tokimichi-v0.16.0.apk",
+      "sha256": "1ca973ce473edfee0c8b1bca0822da02ed6e7778f4d89b3d008ea63fa8f014dd",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14771554,
-      "notas": "Montajes: un día o toda la experiencia en un carrusel de diapositivas para Instagram o WhatsApp, para cualquier tipo de experiencia. Plantillas Limpio y Polaroid gratis; Revista, Cartón y Noche llegarán con Premium.",
+      "tamanoBytes": 14787934,
+      "notas": "Montajes con cuatro diseños: Clásico y Columnas gratis, con la barra de Tokimichi abajo; Rasgado y Decorado llegarán con Premium. Compartir el día o un momento sigue igual.",
       "canal": null,
       "minSdk": null
     }
