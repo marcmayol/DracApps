@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T05:19:27Z",
+  "generado": "2026-11-23T05:57:29Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 38,
-      "versionName": "0.17.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.17.0/tokimichi-v0.17.0.apk",
-      "sha256": "64a244d9468bd270038d8f7f56dbc5c594114c1e7e62409455aac8eec897db22",
+      "versionCode": 39,
+      "versionName": "0.18.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.18.0/tokimichi-v0.18.0.apk",
+      "sha256": "070adc7a4aa490dcb35c1a2e75137506928056a42885dbd0b5dcebbb0c3c3265",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14787938,
-      "notas": "«Enviar todo»: la experiencia entera se puede mandar como un día, con su tarjeta y todas las fotos, sin collage. Está junto a «Montaje de todo».",
+      "notas": "Montaje de un momento: cada momento con fotos tiene su botón de collage junto a «Enviar». «Enviar el día» y «Montaje» salen ya en todos los días con momentos, también en el de hoy.",
       "canal": null,
       "minSdk": null
     }
