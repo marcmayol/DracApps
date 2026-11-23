@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T09:33:03Z",
+  "generado": "2026-11-23T09:48:41Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 44,
-      "versionName": "0.20.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.20.0/tokimichi-v0.20.0.apk",
-      "sha256": "bc9c65dedbb4a1b84f831bb11ceeecd184556d42366436ba0f66a6c844e627c4",
+      "versionCode": 45,
+      "versionName": "0.21.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.21.0/tokimichi-v0.21.0.apk",
+      "sha256": "554515161d74ea878653f1cbf0732b927ebdab1270d6e26367ed5314bab151d7",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14804354,
-      "notas": "Nueva plantilla de montaje «Continuo»: una tira de fotos que pasa de una diapositiva a la siguiente sin cortes. Los huecos se llenan solos con tus fotos; toca uno para cambiar la foto o dejarlo vacío.",
+      "tamanoBytes": 14820738,
+      "notas": "El álbum ya funciona: «Crea tu álbum» abre un álbum continuo de toda la experiencia, y el montaje deja elegir entre diapositivas y álbum continuo. Los dos usan los mismos estilos: Clásico, Columnas, Rasgado y Decorado.",
       "canal": null,
       "minSdk": null
     }
