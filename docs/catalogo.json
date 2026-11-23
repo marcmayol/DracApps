@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T02:08:54Z",
+  "generado": "2026-11-23T05:19:27Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 37,
-      "versionName": "0.16.2",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.2/tokimichi-v0.16.2.apk",
-      "sha256": "d6cbd7382827ee676ba4290c78c58a757dc259d39da4532b49ffa1be81262901",
+      "versionCode": 38,
+      "versionName": "0.17.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.17.0/tokimichi-v0.17.0.apk",
+      "sha256": "64a244d9468bd270038d8f7f56dbc5c594114c1e7e62409455aac8eec897db22",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14787938,
-      "notas": "Arreglo: en la vista previa de los montajes, el fondo y el oscurecido de Rasgado cubren ya toda la diapositiva.",
+      "notas": "«Enviar todo»: la experiencia entera se puede mandar como un día, con su tarjeta y todas las fotos, sin collage. Está junto a «Montaje de todo».",
       "canal": null,
       "minSdk": null
     }
