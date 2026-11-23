@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T06:12:45Z",
+  "generado": "2026-11-23T07:11:35Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 41,
-      "versionName": "0.19.1",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.19.1/tokimichi-v0.19.1.apk",
-      "sha256": "6598b2dd3f00051f5d2b8ca147f6f591c899c623f3d592736e1cede939a4d509",
+      "versionCode": 42,
+      "versionName": "0.19.2",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.19.2/tokimichi-v0.19.2.apk",
+      "sha256": "f676833a7cb7407726a981d33229b699249f9a1d6bd9cf47d10f6544d6395e3e",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
-      "tamanoBytes": 14787934,
-      "notas": "En iPhone, «Guardar» el montaje espera a que des permiso a Fotos y solo dice que se ha guardado si es verdad.",
+      "tamanoBytes": 14787938,
+      "notas": "Mientras la app está en pruebas, todas las plantillas de montaje (también Rasgado y Decorado) se pueden compartir y guardar.",
       "canal": null,
       "minSdk": null
     }
