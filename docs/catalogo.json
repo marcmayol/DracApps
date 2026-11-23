@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T00:48:36Z",
+  "generado": "2026-11-23T01:47:45Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 35,
-      "versionName": "0.16.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.0/tokimichi-v0.16.0.apk",
-      "sha256": "1ca973ce473edfee0c8b1bca0822da02ed6e7778f4d89b3d008ea63fa8f014dd",
+      "versionCode": 36,
+      "versionName": "0.16.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.16.1/tokimichi-v0.16.1.apk",
+      "sha256": "4889cfdf750d84b0021fbeb6b6ca916b2cd0df8662862e433e95fb3d2255063d",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14787934,
-      "notas": "Montajes con cuatro diseños: Clásico y Columnas gratis, con la barra de Tokimichi abajo; Rasgado y Decorado llegarán con Premium. Compartir el día o un momento sigue igual.",
+      "notas": "Rasgado y Decorado rehechos: fotos arrancadas sobre una foto de fondo, y fotos impresas sobre papel como una página de álbum.",
       "canal": null,
       "minSdk": null
     }
