@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T05:57:29Z",
+  "generado": "2026-11-23T06:04:31Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 39,
-      "versionName": "0.18.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.18.0/tokimichi-v0.18.0.apk",
-      "sha256": "070adc7a4aa490dcb35c1a2e75137506928056a42885dbd0b5dcebbb0c3c3265",
+      "versionCode": 40,
+      "versionName": "0.19.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.19.0/tokimichi-v0.19.0.apk",
+      "sha256": "a611b614b512498e4d81a72eb4776197ab6c3f51e088b7040c992498c33e3b0a",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14787938,
-      "notas": "Montaje de un momento: cada momento con fotos tiene su botón de collage junto a «Enviar». «Enviar el día» y «Montaje» salen ya en todos los días con momentos, también en el de hoy.",
+      "notas": "Guardar el montaje: junto a «Compartir el montaje» está «Guardar», que deja las diapositivas en la galería, en el álbum Tokimichi.",
       "canal": null,
       "minSdk": null
     }
