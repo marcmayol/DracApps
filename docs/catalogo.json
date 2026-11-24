@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-23T09:48:41Z",
+  "generado": "2026-11-24T00:27:55Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 45,
-      "versionName": "0.21.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.21.0/tokimichi-v0.21.0.apk",
-      "sha256": "554515161d74ea878653f1cbf0732b927ebdab1270d6e26367ed5314bab151d7",
+      "versionCode": 46,
+      "versionName": "0.21.1",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.21.1/tokimichi-v0.21.1.apk",
+      "sha256": "d7b695f86d6d4cac3618487195ee30d73ce6bab6e86857f3828b0c86a3cdf676",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14820738,
-      "notas": "El álbum ya funciona: «Crea tu álbum» abre un álbum continuo de toda la experiencia, y el montaje deja elegir entre diapositivas y álbum continuo. Los dos usan los mismos estilos: Clásico, Columnas, Rasgado y Decorado.",
+      "notas": "El álbum reparte las fotos entre todos los momentos: uno con muchas fotos ya no se queda con todos los huecos.",
       "canal": null,
       "minSdk": null
     }
