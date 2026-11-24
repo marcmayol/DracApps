@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-24T03:37:24Z",
+  "generado": "2026-11-24T03:39:43Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -200,9 +200,9 @@
     },
     {
       "id": "com.marcmayol.velocimetro",
-      "nombre": "Speedometer",
+      "nombre": "Velocímetro",
       "descripcion": "Velocímetro GPS sin internet para Android e iOS",
-      "iconoUrl": "",
+      "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.velocimetro.png",
       "versionCode": 1,
       "versionName": "0.1.0",
       "apkUrl": "https://github.com/marcmayol/velocimetro/releases/download/v0.1.0/velocimetro-v0.1.0.apk",
