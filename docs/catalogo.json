@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-24T01:04:06Z",
+  "generado": "2026-11-24T03:37:24Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -195,6 +195,21 @@
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14820738,
       "notas": "El álbum continuo se comparte como PDF apaisado, con dos diapositivas por página, como un álbum abierto. «Guardar» sigue dejando las imágenes en la galería, para Instagram.",
+      "canal": null,
+      "minSdk": null
+    },
+    {
+      "id": "com.marcmayol.velocimetro",
+      "nombre": "Speedometer",
+      "descripcion": "Velocímetro GPS sin internet para Android e iOS",
+      "iconoUrl": "",
+      "versionCode": 1,
+      "versionName": "0.1.0",
+      "apkUrl": "https://github.com/marcmayol/velocimetro/releases/download/v0.1.0/velocimetro-v0.1.0.apk",
+      "sha256": "8e27a2cd7e094eaf990a85bfe3051baaf4d81bf6d11cdc4751e33600df046306",
+      "firmaSha256": "23eec5c8665f099b2a0ce4d86b596a35aec96d37ba01305e4ed5c719b406e40f",
+      "tamanoBytes": 1048812,
+      "notas": "Primera versión: velocidad con el GPS del móvil, sin internet. Esfera analógica o digital, en km/h, mph, m/s o nudos, con máxima, media, distancia y tiempo en marcha.",
       "canal": null,
       "minSdk": null
     }
