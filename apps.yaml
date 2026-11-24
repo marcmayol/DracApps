@@ -74,6 +74,7 @@ apps:
 
   # Velocímetro GPS sin internet: km/h, mph, m/s o nudos, esfera o digital.
   - repo: marcmayol/velocimetro
+    nombre: "Velocímetro"
 
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
