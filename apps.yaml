@@ -72,6 +72,9 @@ apps:
   # Precio en yenes a euros con el tipo del BCE; sin red usa el último guardado.
   - repo: marcmayol/kawase
 
+  # Velocímetro GPS sin internet: km/h, mph, m/s o nudos, esfera o digital.
+  - repo: marcmayol/velocimetro
+
 # ---------------------------------------------------------------------------
 # Campos opcionales por app, todos con valores por defecto sensatos:
 #
