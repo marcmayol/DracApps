@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-24T00:43:35Z",
+  "generado": "2026-11-24T01:04:06Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 47,
-      "versionName": "0.22.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.22.0/tokimichi-v0.22.0.apk",
-      "sha256": "7383e2c3cfbcb78276f58d64dee3ec6e4fb34ac7b209bf54d59c6480f9d55c98",
+      "versionCode": 48,
+      "versionName": "0.23.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.23.0/tokimichi-v0.23.0.apk",
+      "sha256": "d08537d8041f8d46bfb89fe2d342b4aaac3e24f6c72eb49592d7f3d976aa4c42",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14820738,
-      "notas": "Álbum con todas las fotos: activa «Todas las fotos» y el álbum crece con las diapositivas que hagan falta. «Crea tu álbum» empieza así.",
+      "notas": "El álbum continuo se comparte como PDF apaisado, con dos diapositivas por página, como un álbum abierto. «Guardar» sigue dejando las imágenes en la galería, para Instagram.",
       "canal": null,
       "minSdk": null
     }
