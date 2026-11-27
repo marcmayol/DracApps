@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "DracApps",
-  "generado": "2026-11-26T01:45:59Z",
+  "generado": "2026-11-27T01:20:21Z",
   "apps": [
     {
       "id": "com.lunalign",
@@ -188,13 +188,13 @@
       "nombre": "Tokimichi",
       "descripcion": "Guarda lo que vives en viajes, escapadas y eventos, día a día.",
       "iconoUrl": "https://marcmayol.com/DracApps/iconos/com.marcmayol.tokimichi.png",
-      "versionCode": 49,
-      "versionName": "0.24.0",
-      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.24.0/tokimichi-v0.24.0.apk",
-      "sha256": "ddcb29c6e26539ce494b6f87fceff80955140a78e51eb54df06c16a1704d57e2",
+      "versionCode": 50,
+      "versionName": "0.25.0",
+      "apkUrl": "https://github.com/marcmayol/tokimichi-releases/releases/download/v0.25.0/tokimichi-v0.25.0.apk",
+      "sha256": "fa02ddab9079943b1a609e6461f2bf510c665f3efb59164150ca634c5bc95642",
       "firmaSha256": "470d2391543032447647c21ca3eed3ec939ec81f19646ec1651c546c95131eaf",
       "tamanoBytes": 14820738,
-      "notas": "Cada diapositiva del montaje o del álbum tiene su botón de compartir: sube solo esa a la red que quieras.",
+      "notas": "Bajo el último momento del día, «Añadir más a este momento» abre su editor directamente en los botones de foto, galería, vídeo y voz. Una raya fina separa los momentos de los botones del día.",
       "canal": null,
       "minSdk": null
     },
